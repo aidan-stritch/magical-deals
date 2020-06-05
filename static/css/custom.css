@@ -1,0 +1,42 @@
+body {
+  font-family: Arial;
+  padding-top: 50px;
+}
+
+footer {
+  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-top: 1px solid #ededed;
+  color: #a9a9a9;
+}
+
+.icon-bar {
+  background-color: #fff;
+}
+
+.accountform {
+  padding-top: 20px;
+}
+
+.main-content {
+  padding-top: 40px;
+  margin-top: 40px;
+}
+.nav-area {
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.page-footer {
+  background-color: #061bd6;
+}
