@@ -1,5 +1,5 @@
-{% load staticfiles %}
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,22 +10,19 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/newstyle.css' %}" />
   </head>
 
   <body>
     <header>
       <!-- Fixed masthead -->
       <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
-        <div class="container nav-area">
+        <div class="container-fluid nav-area">
           <div class="navbar-header">
             <button
               type="button"
@@ -68,7 +65,7 @@
         </div>
       </div>
       {% endif %}
-      <div class="container main-content">
+      <div class="container">
         {% block content %} {% endblock %}
       </div>
     </main>
@@ -98,5 +95,8 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
