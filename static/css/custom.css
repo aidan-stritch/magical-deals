@@ -4,17 +4,16 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: red;
 }
 
 main {
   flex: 1 0 auto;
+  padding-top: 20px;
 }
 
 footer {
   margin-top: 40px;
   padding-top: 40px;
-  padding-bottom: 40px;
   border-top: 1px solid #ededed;
   color: #a9a9a9;
 }
@@ -25,4 +24,14 @@ footer {
 
 .accountform {
   padding-top: 20px;
+}
+
+.page-footer {
+  background-color: #40ace9;
+}
+
+@media (max-width: 760px) {
+  .navbar-collapse {
+    background-color: #1995dc;
+  }
 }
