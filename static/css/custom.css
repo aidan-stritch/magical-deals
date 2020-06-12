@@ -30,7 +30,11 @@ footer {
   background-color: #40ace9;
 }
 
-@media (max-width: 760px) {
+.carousel {
+  border: solid;
+  border-color: black;
+}
+@media (max-width: 767px) {
   .navbar-collapse {
     background-color: #1995dc;
   }

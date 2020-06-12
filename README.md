@@ -1,3 +1,26 @@
+
+
+Image links 
+- background image for Carousel slides https://www.pxfuel.com/en/free-photo-xtdhi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 
 Welcome aidan-stritch,
