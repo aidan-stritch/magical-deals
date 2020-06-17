@@ -1,6 +1,15 @@
+<!DOCTYPE html>
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
+
+<div class="row">
+	<div class="col-12">
+		<h3>Sign Up</h3>
+		<p>Sign up content area</p>
+	</div>
+</div>
+
 <form method="post" action="{% url 'register' %}" class="accountform">
 	<fieldset class="form-group">
 		<legend>Create a new account</legend>

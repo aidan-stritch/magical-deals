@@ -1,9 +1,15 @@
+<!DOCTYPE html>
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
+<div class="row">
+	<div class="col-12">
+		<h3>Log into your account</h3>
+		<p>log in content area</p>
+	</div>
+</div>
 <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
 	<fieldset class="form-group">
-		<legend>Login</legend>
 		{% csrf_token %}
 		{{ user_form | as_bootstrap }}
 
