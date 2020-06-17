@@ -34,6 +34,29 @@ footer {
   border: solid;
   border-color: black;
 }
+
+/*..........................panel*/
+
+.product {
+  height: 150px;
+  max-width: 300px;
+  margin: auto;
+}
+
+.panel-body {
+  border: 1px solid #dddddd;
+}
+
+.panel-default {
+  border-color: transparent;
+}
+
+.panel {
+  -webkit-box-shadow: 0 1px 1px transparent;
+}
+
+/*..........................................Media Queries*/
+
 @media (max-width: 767px) {
   .navbar-collapse {
     background-color: #1995dc;
