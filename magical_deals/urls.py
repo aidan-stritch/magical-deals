@@ -19,12 +19,11 @@ from accounts import urls as urls_accounts
 from home import urls as urls_home
 from products import urls as urls_products
 from cart import urls as urls_cart
-from products.views import all_products
 from django.views import static
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
-    url(r'^$', include(urls_home)),
+    url(r'^', include(urls_home)),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^products/', include(urls_products)),

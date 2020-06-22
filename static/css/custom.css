@@ -55,10 +55,25 @@ footer {
   -webkit-box-shadow: 0 1px 1px transparent;
 }
 
+.panel-input input {
+  max-width: 50%;
+  padding-left: 15px;
+  left: 10%;
+}
+.panel-input button {
+  right: 80%;
+}
+
+.important b {
+  color: red;
+}
 /*..........................................Media Queries*/
 
 @media (max-width: 767px) {
   .navbar-collapse {
     background-color: #1995dc;
+  }
+  .panel-input button {
+    right: 25%;
   }
 }

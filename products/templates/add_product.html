@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
+
+<div class="row">
+	<div class="col-12">
+		<h3>Create New Product</h3>
+		<p>
+			<ul class="important">
+				<li><b>Fill out all fields.</b></li>
+				<li><b>Add an appealing description to help build buyers interest.</b></li>
+				<li><b>Image is mandatory, please ensure to use a square image.</b></li>
+				<li><b>Rating is out of 10.</b></li>
+			</ul>
+		</p>
+	</div>
+</div>
+
+<form method="post" action="{% url 'add_product' %}" class="addProductForm" enctype="multipart/form-data">
+	<fieldset class="form-group">
+		{% csrf_token %} {{ add_form | as_bootstrap }}
+		<button type="submit" class="btn btn-primary">Create Product</button>
+	</fieldset>
+</form>
+{% endblock %}

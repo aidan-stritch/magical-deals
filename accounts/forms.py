@@ -16,9 +16,22 @@ class UserSignUpForm(UserCreationForm):
         widget=forms.PasswordInput
     )
 
+    first_name = forms.CharField(label='First Name')
+    last_name = forms.CharField(label='Last Name')
+    address_line_one = forms.CharField(label='Address Line 1')
+    address_line_two = forms.CharField(label='Address Line 2')
+    address_line_three = forms.CharField(label='Address Line 3')
+    city = forms.CharField(label='City')
+    country = forms.CharField(label='Country')
+    postcode = forms.CharField(label='Postcode')
+    phone = forms.CharField(label='Phone')
+
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2', 'first_name',
+                  'last_name', 'address_line_one', 'address_line_two',
+                  'address_line_three', 'postcode', 'city', 'country',
+                  'phone']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
