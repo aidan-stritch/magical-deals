@@ -1,7 +1,7 @@
 from django.db import models
-from django.conf import settings
+from django.contrib.auth.models import User
 
-class userAddon(models.Model):
+class UserAddon(models.Model):
    
     address_line_one = models.CharField(max_length=254, default='')
     address_line_two = models.CharField(max_length=254, default='')
@@ -12,7 +12,7 @@ class userAddon(models.Model):
     phone = models.CharField(max_length=254, default='')
     profile_image = models.FileField(upload_to='profile')  
 
-    userAddon_fk = models.ForeignKey(settings.AUTH_USER_MODEL) 
+    userAddon_fk  = models.ForeignKey(User, null=True, default="1", on_delete=models.SET_DEFAULT)
 
     def __str__(self):
         return self.userAddon_fk

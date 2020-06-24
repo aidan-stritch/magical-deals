@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
-from .models import userAddon
+from .models import UserAddon
 
 class UserLoginForm(forms.Form):
     username_or_email = forms.CharField()
@@ -46,5 +46,5 @@ class UserSignUpForm(UserCreationForm):
 
 class UserSignUpFormAddon(forms.ModelForm):
     class Meta:
-        model = userAddon
+        model = UserAddon
         fields = ['address_line_one', 'address_line_two', 'address_line_three', 'postcode', 'city', 'country', 'phone','profile_image']
