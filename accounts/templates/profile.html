@@ -2,18 +2,35 @@
 {% extends "base.html" %} {% block content %}
 <h2>Welcome {{user.first_name}}</h2>
 <p>
-  You are logged in as {{ user.username }}
+	You are logged in as {{ user.username }}
+</p>
+<div class="profile-image" style="background-image:url('{{ MEDIA_URL }}{{ user.profile_image }}')"></div>
+<p>
+	<h5>Details:</h5>
+	<ul>
+		<li>Name: {{ user.first_name }}</li>
+		<li>Surname: {{ user.last_name }}</li>
+	</ul>
 </p>
 <p>
-  Details: Name: {{ user.first_name }} Surname: {{ user.last_name }}
+	<h5>Address:</h5>
+	<ul>
+		<li>{{ user.address_line_one }}</li>
+		<li>{{ user.address_line_two }}</li>
+		<li>{{ user.address_line_three }}</li>
+		<li>{{ user.city }}</li>
+		<li>{{ user.country }}</li>
+		<li>{{ user.postcode }}</li>
+	</ul>
+
+
 </p>
 <p>
-  Address: {{ user.address_line_one }} {{ user.address_line_two }} {{
-  user.address_line_three }} {{ user.city }} {{ user.country }} {{ user.postcode
-  }}
-</p>
-<p>
-  Contact: Email: {{ user.email }} Phone: {{ user.phone }}
+	<h5>Contact:</h5>
+	<ul>
+		<li>Email: {{ user.email }} </li>
+		<li>Phone: {{ user.phone }}</li>
+	</ul>
 </p>
 
 {% endblock %}

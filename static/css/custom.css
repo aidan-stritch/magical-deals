@@ -18,6 +18,12 @@ footer {
   color: #a9a9a9;
 }
 
+.profile-image {
+    height: 300px;
+    max-width: 300px;
+    margin: auto;
+}
+
 .icon-bar {
   background-color: #fff;
 }
@@ -38,9 +44,9 @@ footer {
 /*..........................panel*/
 
 .product {
-  height: 150px;
-  max-width: 300px;
-  margin: auto;
+    height: 150px;
+    max-width: 300px;
+    margin: auto;
 }
 
 .panel-body {
