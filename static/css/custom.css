@@ -19,9 +19,9 @@ footer {
 }
 
 .profile-image {
-    height: 300px;
-    max-width: 300px;
-    margin: auto;
+  height: 300px;
+  max-width: 300px;
+  margin: auto;
 }
 
 .icon-bar {
@@ -41,12 +41,18 @@ footer {
   border-color: black;
 }
 
+.product-view {
+  height: 150px;
+  max-width: 300px;
+  margin: auto;
+}
+
 /*..........................panel*/
 
 .product {
-    height: 150px;
-    max-width: 300px;
-    margin: auto;
+  height: 150px;
+  max-width: 300px;
+  margin: auto;
 }
 
 .panel-body {
@@ -72,6 +78,16 @@ footer {
 
 .important b {
   color: red;
+}
+
+.qty-input {
+  max-width: 100px;
+}
+
+.item-view {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 90%;
 }
 /*..........................................Media Queries*/
 

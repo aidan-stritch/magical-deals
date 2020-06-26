@@ -4,7 +4,6 @@
   <div class="row">
     <div class="col-12">
       <h3>All Products</h3>
-      <p>details of page content area</p>
       <a href="{% url 'add_product' %}" class="btn btn-primary"
         >Add New Product</a
       >
@@ -22,8 +21,8 @@
       ></div>
       <h5>{{ product.product_name }}</h5>
       <p class="product-description">{{ product.description }}</p>
-      <p><strong>Price:</strong> {{ product.price }}</p>
-      <p><strong>Rating:</strong> {{ product.rating }}<strong>/10</strong></p>
+      <p><b>Price:</b> €{{ product.price }}</p>
+      <p><b>Rating:</b> {{ product.rating }}<strong>/10</strong></p>
 
       <form method="POST" action="{% url 'add_to_cart' product.id %}">
         {% csrf_token %}
@@ -33,12 +32,21 @@
             type="number"
             min="1"
             max="999"
-            class="form-control"
+            class="form-control qty-input"
             placeholder="Quantity"
           />
           <span class="input-group-btn">
             <button class="btn btn-success" type="submit">Add</button>
           </span>
+        </div>
+        <div class="more-info">
+          <p>
+            <a
+              href="{% url 'view_product' product.id %}"
+              class="btn btn-primary"
+              >More Details</a
+            >
+          </p>
         </div>
       </form>
     </div>

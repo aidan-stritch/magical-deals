@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -33,3 +33,16 @@ def add_product(request):
 
     args = {'add_form': add_form}
     return render(request, 'add_product.html', args)
+
+
+def view_product(request, id):
+    """
+    A view that returns a single
+    Product object based on the product ID and
+    render it to the 'view_product.html' template.
+    Or return a 404 error if the product is
+    not found
+    """
+    product = get_object_or_404(Product, id=id)
+
+    return render(request, "view_product.html", {'product': product})

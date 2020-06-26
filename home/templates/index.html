@@ -93,8 +93,8 @@
             type="number"
             min="1"
             max="999"
-            class="form-control"
-            placeholder="Quantity"
+            class="form-control qty-input"
+            placeholder=""
           />
           <span class="input-group-btn">
             <button class="btn btn-success" type="submit">Add</button>
@@ -102,6 +102,13 @@
         </div>
       </form>
       {% endif %}
+      <div class="more-info">
+        <p>
+          <a href="{% url 'view_product' product.id %}" class="btn btn-primary"
+            >More Details</a
+          >
+        </p>
+      </div>
     </div>
   </div>
   {% endfor %}

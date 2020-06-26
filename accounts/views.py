@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.shortcuts import HttpResponseRedirect, get_object_or_404
 from django.contrib import messages, auth
 from django.core.urlresolvers import reverse
 from .forms import UserLoginForm, UserSignUpForm, UserSignUpFormAddon
-from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
-
+from .models import UserAddon
 
 # Create your views here.
+
 
 def logout(request):
     """A view that logs the user out and redirects back to the index page"""
@@ -45,7 +46,9 @@ def login(request):
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
-    return render(request, 'profile.html')
+    userDetails = get_object_or_404(UserAddon, userAddon_fk=request.user)
+    print(userDetails)
+    return render(request, 'profile.html', userDetails)
 
 
 def register(request):
@@ -53,14 +56,13 @@ def register(request):
     if request.method == 'POST':
         user_form = UserSignUpForm(request.POST)
         user_form_addon = UserSignUpFormAddon(request.POST, request.FILES)
-        
+
         if user_form.is_valid() and user_form_addon.is_valid():
-            user_form_addon.save()
             user_form.save()
+            user_form_addon.save()
 
             user = auth.authenticate(request.POST.get('email'),
                                      password=request.POST.get('password1'))
-
             if user:
                 auth.login(request, user)
                 messages.success(request, "You have successfully registered")
@@ -71,6 +73,6 @@ def register(request):
     else:
         user_form = UserSignUpForm()
         user_form_addon = UserSignUpFormAddon()
-        
+
     args = {'user_form_addon': user_form_addon, 'user_form': user_form}
     return render(request, 'sign-up.html', args)
