@@ -1,19 +1,11 @@
 from django.shortcuts import render, redirect
-from django.shortcuts import HttpResponseRedirect, get_object_or_404
 from django.contrib import messages, auth
 from django.core.urlresolvers import reverse
-from .forms import UserLoginForm, UserSignUpForm, UserSignUpFormAddon
+from .forms import UserLoginForm, UserSignUpForm
+from .forms import UserSignUpFormAddon, UserAdditionalFields
 from django.contrib.auth.decorators import login_required
-from .models import UserAddon
 
 # Create your views here.
-
-
-def logout(request):
-    """A view that logs the user out and redirects back to the index page"""
-    auth.logout(request)
-    messages.success(request, 'You have successfully logged out')
-    return redirect(reverse('index'))
 
 
 def login(request):
@@ -43,24 +35,26 @@ def login(request):
     return render(request, 'login.html', args)
 
 
+def logout(request):
+    """A view that logs the user out and redirects back to the index page"""
+    auth.logout(request)
+    messages.success(request, 'You have successfully logged out')
+    return redirect(reverse('index'))
+
+
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
-    userDetails = get_object_or_404(UserAddon, userAddon_fk=request.user)
-    print(userDetails)
-    return render(request, 'profile.html', userDetails)
+    return render(request, 'profile.html')
 
 
 def register(request):
     """A view that manages the registration form"""
     if request.method == 'POST':
         user_form = UserSignUpForm(request.POST)
-        user_form_addon = UserSignUpFormAddon(request.POST, request.FILES)
 
-        if user_form.is_valid() and user_form_addon.is_valid():
+        if user_form.is_valid():
             user_form.save()
-            user_form_addon.save()
-
             user = auth.authenticate(request.POST.get('email'),
                                      password=request.POST.get('password1'))
             if user:
@@ -69,10 +63,38 @@ def register(request):
                 return redirect(reverse('profile'))
 
             else:
-                messages.error(request, "unable to log you in at this time!")
+                messages.error(request, "Unable to log you in at this time!")
     else:
         user_form = UserSignUpForm()
-        user_form_addon = UserSignUpFormAddon()
 
-    args = {'user_form_addon': user_form_addon, 'user_form': user_form}
+    args = {'user_form': user_form}
     return render(request, 'sign-up.html', args)
+
+
+@login_required
+def edit_user(request):
+    """A view that allows a user to add and edit
+    additional information for their profile"""
+
+    if request.method == 'POST':
+        user_form = UserSignUpFormAddon(request.POST, instance=request.user)
+        profile_form = UserAdditionalFields(
+            request.POST, request.FILES, instance=request.user.usercreate)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(
+                request, "Your profile has successfully been updated!")
+            return redirect(reverse('profile'))
+        else:
+            messages.error(
+                request, "Unable to update. Please rectify the problems below")
+    else:
+        user_form = UserSignUpFormAddon(instance=request.user)
+        profile_form = UserAdditionalFields(instance=request.user.usercreate)
+    args = {
+        'user_form': user_form,
+        'profile_form': profile_form
+    }
+    return render(request, 'edit_user.html', args)

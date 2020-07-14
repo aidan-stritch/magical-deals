@@ -4,6 +4,7 @@
   <div class="row">
     <div class="col-12">
       <h3>{{ product.product_name }}</h3>
+      <a href="{% url 'delete_product' product.id%}" class="btn btn-danger">Delete</a>
     </div>
   </div>
 </div>

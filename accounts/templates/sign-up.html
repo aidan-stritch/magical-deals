@@ -15,7 +15,6 @@
 		<p>Already got an account? <a href="{% url 'login' %}">Sign In</a></p>
 		{% csrf_token %}
 		{{  user_form | as_bootstrap }}
-		{{  user_form_addon | as_bootstrap }}
 		<button type="submit" class="btn btn-primary">Create account</button>
 	</fieldset>
 </form>

@@ -18,12 +18,6 @@ footer {
   color: #a9a9a9;
 }
 
-.profile-image {
-  height: 300px;
-  max-width: 300px;
-  margin: auto;
-}
-
 .icon-bar {
   background-color: #fff;
 }
@@ -41,9 +35,17 @@ footer {
   border-color: black;
 }
 
+/*..........................card*/
 .product-view {
   height: 150px;
   max-width: 300px;
+  margin: auto;
+}
+
+.profile-view {
+  max-height: 300px;
+  max-width: 400px;
+  width: 100%;
   margin: auto;
 }
 

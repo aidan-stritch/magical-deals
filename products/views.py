@@ -11,8 +11,22 @@ from .forms import ProductCreationForm
 
 @login_required
 def all_products(request):
+    """A view that displays all of the products"""
     products = Product.objects.all()
     return render(request, "products.html", {"products": products})
+
+
+def view_product(request, id):
+    """
+    A view that returns a single
+    Product object based on the product ID and
+    render it to the 'view_product.html' template.
+    Or return a 404 error if the product is
+    not found
+    """
+    product = get_object_or_404(Product, id=id)
+
+    return render(request, "view_product.html", {'product': product})
 
 
 def add_product(request):
@@ -35,14 +49,17 @@ def add_product(request):
     return render(request, 'add_product.html', args)
 
 
-def view_product(request, id):
+def delete_product(request, id):
     """
-    A view that returns a single
+    A view that deletes a single
     Product object based on the product ID and
-    render it to the 'view_product.html' template.
+    redirects the user to the 'products.html' template.
     Or return a 404 error if the product is
     not found
     """
     product = get_object_or_404(Product, id=id)
+    product.delete()
 
-    return render(request, "view_product.html", {'product': product})
+    messages.success(request, "Product successfully deleted")
+
+    return redirect(reverse('products'))
