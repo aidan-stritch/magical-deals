@@ -76,9 +76,10 @@ footer {
 .product-view img {
   max-width: 100%;
   text-align: center;
-  overflow: hidden;
-  min-width: 100px;
+  min-width: 200px;
   min-height: 100px;
+  padding-top: 20px;
+  max-height: 170px;
 }
 
 .product-view {
@@ -91,6 +92,7 @@ footer {
   max-width: 400px;
   width: 100%;
   margin: auto;
+  padding-top: 20px;
 }
 
 /*..........................Panel*/
@@ -172,7 +174,17 @@ footer {
   .carousel {
     height: 237px;
   }
+
+  /*..........................Media Queries - Card*/
+
   .product-view {
     width: 90%;
+    height: 100%;
+  }
+
+  .product-view img {
+    text-align: center;
+    min-height: 100px;
+    min-width: 120px;
   }
 }
