@@ -6,16 +6,27 @@
 <div class="row">
 	<div class="col-12">
 		<h3>Sign Up</h3>
-		<p>Sign up content area</p>
+        
+		<p>
+        <h5>Why Create an account?</h5> 
+        <ul>
+        <li>Get your very own profile</li>
+        <li>See the prices of items</li>
+        <li>Gain ability to purchase products</li>
+        <li>Gain ability to review products</li>
+        <li>See a history of purchased items</li>
+        </ul>
+        
+        </p>
 	</div>
 </div>
 
 <form method="post" action="{% url 'register' %}" class="accountform" enctype="multipart/form-data">
 	<fieldset class="form-group">
-		<p>Already got an account? <a href="{% url 'login' %}">Sign In</a></p>
 		{% csrf_token %}
 		{{  user_form | as_bootstrap }}
-		<button type="submit" class="btn btn-primary">Create account</button>
+		<p><button type="submit" class="btn btn-primary">Create account</button></p> 
+        <p>Already got an account? <a href="{% url 'login' %}">Sign In</a></p>
 	</fieldset>
 </form>
 {% endblock %}

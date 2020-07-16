@@ -1,3 +1,5 @@
+/*..........................Miscellaneous*/
+
 body {
   font-family: Arial;
   padding-top: 50px;
@@ -30,12 +32,47 @@ footer {
   background-color: #40ace9;
 }
 
-.carousel {
-  border: solid;
-  border-color: black;
+.important {
+  color: #ff0000;
+  font-weight: bold;
 }
 
-/*..........................card*/
+/*..........................Carousel*/
+
+.carousel-inner {
+  height: 100%;
+  padding-top: 50px;
+  width: 100%;
+}
+
+.carousel-item {
+  width: 200px;
+  height: 400px;
+}
+
+.carousel-item .fill {
+  height: 300px;
+  width: 300px;
+  background-position: center;
+  background-size: cover;
+}
+
+.carousel-caption {
+  width: 100%;
+  top: 66%;
+  text-align: left;
+}
+
+.carousel-caption h5 {
+  color: white;
+}
+
+.carousel-indicators {
+  margin-left: -26%;
+}
+
+/*..........................Card*/
+
 .product-view {
   height: 150px;
   max-width: 300px;
@@ -49,7 +86,7 @@ footer {
   margin: auto;
 }
 
-/*..........................panel*/
+/*..........................Panel*/
 
 .product {
   height: 150px;
@@ -94,10 +131,37 @@ footer {
 /*..........................................Media Queries*/
 
 @media (max-width: 767px) {
+  /*..........................Media Queries - Navbar*/
+
   .navbar-collapse {
     background-color: #1995dc;
   }
+
+  /*..........................Media Queries - Panel*/
+
   .panel-input button {
     right: 25%;
+  }
+  /*..........................Media Queries - Carousel*/
+
+  .carousel-item .fill {
+    height: 100%;
+    width: 100%;
+  }
+  .carousel-caption {
+    width: 79%;
+    top: 37%;
+    font-size: 11px;
+  }
+  .carousel-caption h5 {
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .carousel-indicators {
+    margin-left: -29%;
+    bottom: 15px;
+  }
+  .carousel {
+    height: 237px;
   }
 }
