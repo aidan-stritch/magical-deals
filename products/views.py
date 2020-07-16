@@ -16,19 +16,7 @@ def all_products(request):
     return render(request, "products.html", {"products": products})
 
 
-def view_product(request, id):
-    """
-    A view that returns a single
-    Product object based on the product ID and
-    render it to the 'view_product.html' template.
-    Or return a 404 error if the product is
-    not found
-    """
-    product = get_object_or_404(Product, id=id)
-
-    return render(request, "view_product.html", {'product': product})
-
-
+@login_required
 def add_product(request):
     """A view that manages the add product form"""
     if request.method == 'POST':
@@ -49,6 +37,20 @@ def add_product(request):
     return render(request, 'add_product.html', args)
 
 
+def view_product(request, id):
+    """
+    A view that returns a single
+    Product object based on the product ID and
+    render it to the 'view_product.html' template.
+    Or return a 404 error if the product is
+    not found
+    """
+    product = get_object_or_404(Product, id=id)
+
+    return render(request, "view_product.html", {'product': product})
+
+
+@login_required
 def delete_product(request, id):
     """
     A view that deletes a single
@@ -63,3 +65,31 @@ def delete_product(request, id):
     messages.success(request, "Product successfully deleted")
 
     return redirect(reverse('products'))
+
+
+@login_required
+def edit_product(request, id):
+    """A view that allows a user to edit a products details"""
+    product = get_object_or_404(Product, id=id)
+
+    if request.method == 'POST':
+
+        edit_form = ProductCreationForm(
+            request.POST, request.FILES, instance=product)
+
+        if edit_form.is_valid():
+            edit_form.save()
+            messages.success(
+                request, "Product has successfully been updated!")
+            return redirect(view_product, product.id)
+        else:
+            messages.error(
+                request, "Unable to update. Please rectify the problems below")
+    else:
+        edit_form = ProductCreationForm(instance=product)
+
+    args = {
+        'edit_form': edit_form,
+        "product": product
+    }
+    return render(request, 'edit_product.html', args)

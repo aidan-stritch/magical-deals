@@ -79,10 +79,9 @@
     class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel panel-default"
   >
     <div class="panel-body">
-      <div
-        class="product"
-        style="background-image:url('{{ MEDIA_URL }}{{ product.image }}')"
-      ></div>
+      <div class="col-md-12 product-view"> 
+            <img src="{{ MEDIA_URL }}{{ product.image }}"> 
+      </div>
       <h5>{{ product.product_name }}</h5>
       <p class="product-description">{{ product.description }}</p>
       {% if user.is_authenticated %}

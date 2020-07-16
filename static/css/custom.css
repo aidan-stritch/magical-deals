@@ -73,10 +73,17 @@ footer {
 
 /*..........................Card*/
 
+.product-view img {
+  max-width: 100%;
+  text-align: center;
+  overflow: hidden;
+  min-width: 100px;
+  min-height: 100px;
+}
+
 .product-view {
-  height: 150px;
-  max-width: 300px;
-  margin: auto;
+  text-align: center;
+  height: 200px;
 }
 
 .profile-view {
@@ -128,6 +135,7 @@ footer {
   margin-left: auto;
   max-width: 90%;
 }
+
 /*..........................................Media Queries*/
 
 @media (max-width: 767px) {
@@ -163,5 +171,8 @@ footer {
   }
   .carousel {
     height: 237px;
+  }
+  .product-view {
+    width: 90%;
   }
 }
