@@ -24,10 +24,6 @@ footer {
   background-color: #fff;
 }
 
-.accountform {
-  padding-top: 20px;
-}
-
 .page-footer {
   background-color: #40ace9;
 }
@@ -35,6 +31,25 @@ footer {
 .important {
   color: #ff0000;
   font-weight: bold;
+}
+
+/*..........................Buttons*/
+
+.btn,
+.btn-large,
+.btn-small,
+.btn-flat {
+  margin-top: 10px;
+}
+
+/*..........................Forms*/
+
+.input-group-addon {
+  padding-bottom: 5px;
+}
+
+.accountform {
+  padding-top: 20px;
 }
 
 /*..........................Carousel*/
@@ -119,6 +134,7 @@ footer {
   max-width: 50%;
   padding-left: 15px;
   left: 10%;
+  border-bottom: none;
 }
 .panel-input button {
   right: 80%;
@@ -126,10 +142,6 @@ footer {
 
 .important b {
   color: red;
-}
-
-.qty-input {
-  max-width: 100px;
 }
 
 .item-view {

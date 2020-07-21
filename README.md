@@ -1,31 +1,14 @@
+Image links
 
-
-Image links 
 - background image for Carousel slides https://www.pxfuel.com/en/free-photo-xtdhi
 
+products images
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
-
-Welcome aidan-stritch,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+- thors hammer: https://live.staticflickr.com/7135/6888308144_6b64f70a9d_b_d.jpg
+- captain america shield: https://live.staticflickr.com/7225/7324239866_785eb0d421_b.jpg
+- bow and arrow: https://c1.wallpaperflare.com/preview/382/109/172/bow-arrow-wooden-grass.jpg
+- ark of cov: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Debbie_Reynolds_Auction_-_%22David_and_Bathseba%22_full-scale_gilt-lacquered_Ark_of_the_Covenant_%285851597607%29.jpg/800px-Debbie_Reynolds_Auction_-_%22David_and_Bathseba%22_full-scale_gilt-lacquered_Ark_of_the_Covenant_%285851597607%29.jpg
+- zeus bolt: https://storage.needpix.com/rsynced_images/electrician-1969132_1280.png
 
 ## Gitpod Reminders
 
@@ -33,15 +16,15 @@ To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the ter
 
 `python3 -m http.server`
 
-A blue button should appear to click: *Make Public*,
+A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: *Open Browser*.
+Another blue button should appear to click: _Open Browser_.
 
 To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: *Make Public*,
+A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: *Open Browser*.
+Another blue button should appear to click: _Open Browser_.
 
 In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
 
@@ -57,6 +40,6 @@ We continually tweak and adjust this template to help give you the best experien
 
 **December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
---------
+---
 
 Happy coding!

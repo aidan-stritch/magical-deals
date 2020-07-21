@@ -52,6 +52,24 @@
                   Home</a
                 >
               </li>
+              <li>
+                <a href="{% url 'products' %}"
+                  ><span
+                    class="glyphicon glyphicon-th"
+                    aria-hidden="true"
+                  ></span>
+                  Products</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'about' %}"
+                  ><span
+                    class="glyphicon glyphicon-info-sign"
+                    aria-hidden="true"
+                  ></span>
+                  About Us</a
+                >
+              </li>
               {% if user.is_authenticated %}
               <li>
                 <a href="{% url 'profile' %}"
@@ -60,15 +78,6 @@
                     aria-hidden="true"
                   ></span>
                   Profile</a
-                >
-              </li>
-              <li>
-                <a href="{% url 'products' %}"
-                  ><span
-                    class="glyphicon glyphicon-th"
-                    aria-hidden="true"
-                  ></span>
-                  Products</a
                 >
               </li>
               <li>
@@ -130,18 +139,55 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
+            <h5 class="white-text">Magical Deals</h5>
             <p class="grey-text text-lighten-4">
-              You can use rows and columns here to organize your footer content.
+              You're one stop shop for special items from movies, tv shows, and
+              many many more. Create an account today to start getting your
+              Magical Deals!
             </p>
           </div>
           <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Site Map</h5>
             <ul>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+              <li>
+                <a class="grey-text text-lighten-3" href="/">Home</a>
+              </li>
+              {% if user.is_authenticated %}
+              <li>
+                <a class="grey-text text-lighten-3" href="{% url 'profile' %}"
+                  >Profile</a
+                >
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="{% url 'view_cart' %}"
+                  >Cart</a
+                >
+              </li>
+
+              {% else %}
+              <li>
+                <a class="grey-text text-lighten-3" href="{% url 'register' %}"
+                  >Register</a
+                >
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="{% url 'login' %}"
+                  >Login</a
+                >
+              </li>
+
+              {% endif %}
+
+              <li>
+                <a class="grey-text text-lighten-3" href="{% url 'products' %}"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="{% url 'about' %}"
+                  >About Us</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -163,7 +209,8 @@
     <!--  Script for the carousel -->
     <script>
       $(".carousel").carousel({
-        interval: 5000,
+        interval: 2000,
+        cycle: 2000,
       });
     </script>
   </body>

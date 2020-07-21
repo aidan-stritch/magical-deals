@@ -7,8 +7,14 @@
 				<h3>{{ product.product_name }}</h3>
 			</p>
 			<p>
-				<a href="{% url 'delete_product' product.id %}" class="btn btn-danger">Delete</a>
-				<a href="{% url 'edit_product' product.id %}" class="btn btn-primary">Edit</a>
+				<a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><span
+                    class="glyphicon glyphicon-trash"
+                    aria-hidden="true"
+                  ></span> Delete</a>
+				<a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><span
+                    class="glyphicon glyphicon-wrench"
+                    aria-hidden="true"
+                  ></span> Edit</a>
 			</p>
 
 		</div>
@@ -41,7 +47,10 @@
             placeholder="Qty"
           />
 						<span class="input-group-btn">
-                <button class="btn btn-success" type="submit">Add to Basket</button>
+                <button class="btn btn-success" type="submit"><span
+                    class="glyphicon glyphicon-shopping-cart"
+                    aria-hidden="true"
+                  ></span> Add to Basket</button>
             </span>
 					</form>
 				</p>
@@ -50,8 +59,14 @@
 					<b>Create an account or log in to add to basket</b>
 				</p>
 				<p>
-					<a href="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
-					<a href="{% url 'login' %}" class="btn btn-success">Log In</a>
+					<a href="{% url 'register' %}" class="btn btn-primary"><span
+                    class="glyphicon glyphicon-plus"
+                    aria-hidden="true"
+                  ></span> Sign Up</a>
+					<a href="{% url 'login' %}" class="btn btn-success"><span
+                    class="glyphicon glyphicon-log-in"
+                    aria-hidden="true"
+                  ></span> Log In</a>
 				</p>
 				{% endif %}
 			</div>

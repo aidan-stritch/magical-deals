@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from .forms import UserLoginForm, UserSignUpForm
 from .forms import UserSignUpFormAddon, UserAdditionalFields
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 

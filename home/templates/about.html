@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "base.html" %} {% block content %}
+
+<div class="row">
+  <div class="col-12">
+    <h3>About Us</h3>
+  </div>
+  <div class="col-12">
+    <p>
+      You're one stop shop for special items from movies, tv shows, and many
+      many more. Create an account today to start getting your Magical Deals!
+    </p>
+    <p>
+        <h5>Sign up today to get access to exclusive members only benefits</h5>
+        <ol>
+            <li>Get your very own profile</li>
+            <li>See the prices of items</li>
+            <li>Gain ability to purchase products</li>
+            <li>Gain ability to review products</li>
+            <li>See a history of purchased items in your profile</li>
+        </ol>
+    </p>
+    {% if user.is_authenticated %}
+    <p>
+        <h5>Sign in to go to your profile and start getting more Magical Deals</h5>
+        <a href="{% url 'login' %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign In</a>
+    </p>
+    {% else %}
+    <p>
+        <h5>Sign up today to start getting YOUR Magical Deals</h5>
+        <a href="{% url 'register' %}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Sign Up</a>
+    </p>
+    {% endif %}
+
+
+  </div>
+</div>
+
+{% endblock %}

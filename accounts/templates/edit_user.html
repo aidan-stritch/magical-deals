@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
-{% load bootstrap_tags %}
-{% block content %}
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
 
 <div class="row">
-	<div class="col-12">
-		<h3>Edit Your Details</h3>
-		<p>Please fill in the fields below to tell us more about yourself!</p>
-	</div>
+  <div class="col-12">
+    <h3>Edit Your Details</h3>
+    <p>Please fill in the fields below to tell us more about yourself!</p>
+  </div>
 </div>
 
-<form method="post" action="{% url 'edit_user' %}" class="accountform" enctype="multipart/form-data">
-	<fieldset class="form-group">
-		{% csrf_token %}
-		{{  user_form | as_bootstrap }}
-		{{  profile_form | as_bootstrap }}
-		<button type="submit" class="btn btn-primary">Update Account</button>
-	</fieldset>
+<form
+  method="post"
+  action="{% url 'edit_user' %}"
+  class="accountform"
+  enctype="multipart/form-data"
+>
+  <fieldset class="form-group">
+    {% csrf_token %}
+    <p>{{ user_form | as_bootstrap }}</p>
+    <p>{{ profile_form | as_bootstrap }}</p>
+
+    <button type="submit" class="btn btn-primary">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Update
+      Account
+    </button>
+  </fieldset>
 </form>
 {% endblock %}
