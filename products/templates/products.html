@@ -9,6 +9,22 @@
         New Product</a
       >
     </div>
+    <div class="card search-card">
+      <div class="card-header">
+        <h5 class="card-title">Product Search</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          Enter details below to find the Magical Deal you are looking for!
+        </p>
+        <div class="display">
+          <form action="{% url 'search' %}" method="get">
+            <p><input type="text" name="q" class="search-input" /></p>
+            <p><button type="submit" class="btn btn-primary">Search</button></p>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
   {% for product in products %}
 

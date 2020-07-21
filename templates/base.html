@@ -86,8 +86,10 @@
                     class="glyphicon glyphicon-shopping-cart"
                     aria-hidden="true"
                   ></span>
-                  Cart</a
-                >
+                  Cart {% if product_count > 0 %}
+                  <label class="badge badge-warning">{{ product_count }}</label>
+                  {% endif %}
+                </a>
               </li>
               <li>
                 <a href="{% url 'logout' %}"
