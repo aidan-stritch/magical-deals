@@ -6,7 +6,7 @@ class MakePaymentForm(forms.Form):
     """ a form that takes the payment
     information from the customer"""
 
-    MONTH_CHOICES = [(i, i) for i in range(1, 12)]
+    MONTH_CHOICES = [(i, i) for i in range(1, 13)]
     YEAR_CHOICES = [(i, i) for i in range(2017, 2099)]
 
     credit_card_number = forms.CharField(
