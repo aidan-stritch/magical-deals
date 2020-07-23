@@ -53,15 +53,6 @@
                 >
               </li>
               <li>
-                <a href="{% url 'products' %}"
-                  ><span
-                    class="glyphicon glyphicon-th"
-                    aria-hidden="true"
-                  ></span>
-                  Products</a
-                >
-              </li>
-              <li>
                 <a href="{% url 'about' %}"
                   ><span
                     class="glyphicon glyphicon-info-sign"
@@ -71,6 +62,15 @@
                 >
               </li>
               {% if user.is_authenticated %}
+              <li>
+                <a href="{% url 'products' %}"
+                  ><span
+                    class="glyphicon glyphicon-th"
+                    aria-hidden="true"
+                  ></span>
+                  Products</a
+                >
+              </li>
               <li>
                 <a href="{% url 'profile' %}"
                   ><span

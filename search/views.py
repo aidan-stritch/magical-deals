@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from products.models import Product
+from django.contrib import messages
 
 # Create your views here.
 
@@ -10,4 +11,8 @@ def product_search(request):
 
     products = Product.objects.filter(product_name__icontains=request.GET['q'])
 
-    return render(request, "products.html", {"products": products})
+    if products:
+        return render(request, "products.html", {"products": products})
+    else:
+        messages.error(request, "No results for your query")
+        return render(request, "products.html", {"products": products})
