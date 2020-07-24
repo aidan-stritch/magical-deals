@@ -60,8 +60,12 @@ def delete_product(request, id):
     not found
     """
     product = get_object_or_404(Product, id=id)
+
+    request.session['cart'] = {}
+
     product.delete()
 
+    print("deleted")
     messages.success(request, "Product successfully deleted")
 
     return redirect(reverse('products'))

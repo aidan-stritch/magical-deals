@@ -23,12 +23,13 @@ footer {
 .navbar-default .badge {
   background-color: yellow;
 }
-.icon-bar {
-  background-color: #fff;
+
+a.navlink {
+  background-color: #007bff;
 }
 
-.page-footer {
-  background-color: #40ace9;
+.icon-bar {
+  background-color: #fff;
 }
 
 .important {
@@ -166,12 +167,6 @@ footer {
 /*..........................................Media Queries*/
 
 @media (max-width: 767px) {
-  /*..........................Media Queries - Navbar*/
-
-  .navbar-collapse {
-    background-color: #1995dc;
-  }
-
   /*..........................Media Queries - Panel*/
 
   .panel-input button {
