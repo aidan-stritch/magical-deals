@@ -1,3 +1,8 @@
+Travis Continuous Integration
+Runs tests on the code every time a push is made to github
+
+[![Build Status](https://travis-ci.org/aidan-stritch/magical-deals.svg?branch=master)](https://travis-ci.org/aidan-stritch/magical-deals)
+
 Image links
 
 - background image for Carousel slides https://www.pxfuel.com/en/free-photo-xtdhi
