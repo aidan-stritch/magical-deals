@@ -1,0 +1,1 @@
+web: gunicorn magical_deals.wsgi:application
