@@ -1,45 +1,23 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
 <!-- Carousel -->
-  <div id="indexCarousel" class="carousel slide" data-ride="carousel">
+<div id="indexCarousel" class="carousel slide" data-ride="carousel">
   <!-- Carousel Slide Wrapper -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <div
-        class="fill"
-        style="background-image: url('{{ MEDIA_URL }}/images/slide-background.jpg');"
-      ></div>
-
-      <div class="carousel-caption d-none d-md-block w-100">
-        <h5>Account Benefits</h5>
-        <p>Why create an account with us?</p>
-      </div>
+      <a href = "{% url 'about' %}"><img class="d-block w-100" src="{{ MEDIA_URL }}/images/slide-background.jpg" alt="First slide"/></a>
+      <h5>Account Benefits</h5>
+      <p>Why create an account with us?</p>
     </div>
     <div class="carousel-item">
-      <div
-        class="fill"
-        style="
-          background-image: url('{{ MEDIA_URL }}/images/slide-background.jpg');
-        "
-      ></div>
-
-      <div class="carousel-caption d-none d-md-block w-100">
-        <h5>How it Works</h5>
-        <p>How does this work?</p>
-      </div>
+      <a href = "{% url 'register' %}"><img class="d-block w-100" src="{{ MEDIA_URL }}/images/slide-background.jpg" alt="First slide"/></a>
+      <h5>How it Works</h5>
+      <p>Create an account today to begin getting Magical Deals!</p>
     </div>
     <div class="carousel-item">
-      <div
-        class="fill"
-        style="
-          background-image: url('{{ MEDIA_URL }}/images/slide-background.jpg');
-        "
-      ></div>
-
-      <div class="carousel-caption d-none d-md-block w-100">
-        <h5>Products</h5>
-        <p>See all of our products</p>
-      </div>
+      <a href = "{% url 'products' %}"><img class="d-block w-100" src="{{ MEDIA_URL }}/images/slide-background.jpg" alt="First slide"/></a>
+      <h5>Products</h5>
+      <p>See all of our products</p>
     </div>
   </div>
 </div>
@@ -49,9 +27,7 @@
 
   {% for product in products %}
 
-  <div
-    class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel panel-default"
-  >
+  <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel panel-default">
     <div class="panel-body">
       <div class="col-md-12 product-view">
         <img src="{{ MEDIA_URL }}{{ product.image }}" />
