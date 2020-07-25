@@ -97,3 +97,6 @@ def edit_product(request, id):
         "product": product
     }
     return render(request, 'edit_product.html', args)
+
+
+

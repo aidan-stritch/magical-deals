@@ -5,64 +5,84 @@
   <!-- Carousel Slide Wrapper -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <a href = "{% url 'about' %}"><img class="d-block w-100" src="{{ MEDIA_URL }}/images/slide-background.jpg" alt="First slide"/></a>
-      <h5>Account Benefits</h5>
-      <p>Why create an account with us?</p>
+      <a href = "{% url 'about' %}"><img class="d-block w-100" src="{{ MEDIA_URL }}/images/slide-background.jpg" alt="Account Benefits"/></a>
+      <div class="carousel-caption d-md-block">
+        <h2>Account Benefits</h2>
+        <p>Why create an account with us?</p>
+      </div>
     </div>
     <div class="carousel-item">
-      <a href = "{% url 'register' %}"><img class="d-block w-100" src="{{ MEDIA_URL }}/images/slide-background.jpg" alt="First slide"/></a>
-      <h5>How it Works</h5>
-      <p>Create an account today to begin getting Magical Deals!</p>
+      <a href = "{% url 'register' %}"><img class="d-block w-100" src="{{ MEDIA_URL }}/images/slide-background.jpg" alt="How it Works"/></a>
+      <div class="carousel-caption d-md-block">
+        <h2>How it Works</h2>
+        <p>Create an account today to begin getting Magical Deals!</p>
+      </div>
     </div>
     <div class="carousel-item">
-      <a href = "{% url 'products' %}"><img class="d-block w-100" src="{{ MEDIA_URL }}/images/slide-background.jpg" alt="First slide"/></a>
-      <h5>Products</h5>
-      <p>See all of our products</p>
+      <a href = "{% url 'products' %}"><img class="d-block w-100" src="{{ MEDIA_URL }}/images/slide-background.jpg" alt="Products"/></a>
+      <div class="carousel-caption d-md-block">
+        <h2>Products</h2>
+        <p>See all of our products</p>
+      </div>
     </div>
   </div>
 </div>
-
+<div class="row title-div">
+    <h5>We have a wide range of products available</h5>
+</div>
 <div id="products" class="row row-flex">
-  <h5>Products</h5>
 
-  {% for product in products %}
+    {% for product in products|slice:":4" %}
+    
 
-  <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel panel-default">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel panel-default row-flex">
     <div class="panel-body">
       <div class="col-md-12 product-view">
         <img src="{{ MEDIA_URL }}{{ product.image }}" />
       </div>
-      <h5>{{ product.product_name }}</h5>
-      <p class="product-description">{{ product.description }}</p>
-      {% if user.is_authenticated %}
-      <p><b>Price:</b> {{ product.price }}</p>
-      {% else %}
-      <p class="important"><b>Log in to see prices</b></p>
-      {% endif %}
-      <p><b>Rating:</b> {{ product.rating }}<strong>/10</strong></p>
+      <div class="panel-content">
+        <h5>{{ product.product_name }}</h5>
+        <p class="product-description">{{ product.description }}</p>
+        {% if user.is_authenticated %}
+        <p><b>Price:</b> {{ product.price }}</p>
+        {% else %}
+        <p class="important"><b>Log in to see prices</b></p>
+        {% endif %}
+        <p><b>Rating:</b> {{ product.rating }}/10 </p>
+        <p>
+        {% with ''|center:product.rating as range %}
+        {% for _ in range %}
+            <span class="fa fa-star checked"></span>
+        {% endfor %}
+        {% endwith %}
+        </p>
+        
+        
 
-      {% if user.is_authenticated %}
-      <form method="POST" action="{% url 'add_to_cart' product.id %}">
-        {% csrf_token %}
-        <div class="input-group panel-input">
-          <input
-            name="quantity"
-            type="number"
-            min="1"
-            max="999"
-            class="form-control"
-            placeholder="Qty"
-          />
-          <span class="input-group-btn">
-            <button class="btn btn-success" type="submit">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              Add
-            </button>
-          </span>
-        </div>
-      </form>
-      {% endif %}
-      <div class="more-info">
+        {% if user.is_authenticated %}
+        <form method="POST" action="{% url 'add_to_cart' product.id %}">
+            {% csrf_token %}
+            <div class="input-group panel-input">
+            <input
+                name="quantity"
+                type="number"
+                min="1"
+                max="999"
+                class="form-control"
+                placeholder="Qty"
+            />
+            <span class="input-group-btn">
+                <button class="btn btn-success" type="submit">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add
+                </button>
+            </span>
+            </div>
+        </form>
+        {% endif %}
+      </div>
+      
+      <div class="more-info card-footer">
         <p>
           <a href="{% url 'view_product' product.id %}" class="btn btn-primary"
             ><span
@@ -79,24 +99,28 @@
 </div>
 <div class="row">
   {% if user.is_authenticated %}
-  <p>
-    Click here to see all of our product range
-  </p>
-  <p>
-    <a href="{% url 'products' %}" class="btn btn-success"
-      ><span class="glyphicon glyphicon-th" aria-hidden="true"></span> All
-      Products</a
-    >
-  </p>
-
+  <div class="col-md-12">
+    <p>
+        Click the button below to see our full product range
+    </p>
+    <p>
+        <a href="{% url 'products' %}" class="btn btn-success"
+        ><span class="glyphicon glyphicon-th" aria-hidden="true"></span> All
+        Products</a>
+    </p>
+  </div>  
   {% else %}
-  <p>
-    Please create an account or log in to see more products
-  </p>
-  <p>
-    <a href="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
-    <a href="{% url 'login' %}" class="btn btn-success">Log In</a>
-  </p>
+  <div class="col-md-12">
+    <p>
+        Please create an account or log in to see our full range of products
+    </p>
+    <p>
+        <a href="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
+        <a href="{% url 'login' %}" class="btn btn-success">Log In</a>
+    </p>
+  </div>
+  
+  
   {% endif %}
 </div>
 {% endblock %}

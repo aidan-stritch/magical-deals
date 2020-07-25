@@ -10,12 +10,15 @@
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 
 {% endblock %} {% block content %}
-<h3>Checkout</h3>
-<p>Please review your order below and fill in the delivey & payment details.</p>
-<p>
-  When you have completed this and are happy with your order, click submit
-  payment to finalise your order
-</p>
+<div class="header-title">
+    <h3>Checkout</h3>
+    <p>Please review your order below and fill in the delivey & payment details.</p>
+    <p>
+    When you have completed this and are happy with your order, click submit
+    payment to finalise your order
+    </p>
+</div>
+
 <div class="row row-flex">
   <legend>Order Summary</legend>
   {% for item in cart_items %}

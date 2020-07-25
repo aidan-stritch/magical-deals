@@ -13,12 +13,29 @@ main {
   padding-top: 20px;
 }
 
-footer {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #ededed;
-  color: #a9a9a9;
+.icon-bar {
+  background-color: #fff;
 }
+
+.important {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.header-title h3 {
+    padding-top:40px;
+    padding-bottom:20px;
+} 
+
+.header-title p {
+    padding-bottom:20px;
+} 
+
+.checked {
+  color: orange;
+}
+
+/*..........................NavBar*/
 
 .navbar-default .badge {
   background-color: yellow;
@@ -28,13 +45,22 @@ a.navlink {
   background-color: #007bff;
 }
 
-.icon-bar {
-  background-color: #fff;
+/*..........................Footer*/
+
+footer {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #ededed;
+  color: #fff;
+    background-color: #007bff;
 }
 
-.important {
-  color: #ff0000;
-  font-weight: bold;
+footer a {
+    color: #fff;
+}
+
+.footer-copyright {
+    background-color: #1071da;
 }
 
 /*..........................Buttons*/
@@ -61,55 +87,33 @@ a.navlink {
 }
 /*..........................Carousel*/
 
-/* 
-.carousel-inner {
-  height: 100%;
-  padding-top: 50px;
-  width: 100%;
+.carousel{
+    max-width: 75%;
+    margin-left: auto; 
+    margin-right:auto;
+    margin-bottom: 25px;
 }
-
-.carousel-item {
-  width: 200px;
-  height: 400px;
-}
-
-.carousel-item .fill {
-  height: 300px;
-  width: 300px;
-  background-position: center;
-  background-size: cover;
-}
-
 .carousel-caption {
-  width: 100%;
-  top: 66%;
-  text-align: left;
+    width:250px;
+    bottom: -29px;
+    text-align: left;
+    left: 4%;
 }
 
-.carousel-caption h5 {
-  color: white;
-}
-
-.carousel-indicators {
-  margin-left: -26%;
-}
-*/
 /*..........................Card*/
 .search-card {
   background-color: #f5f5f5;
-  padding: 8px 16px 5px;
-  margin-top: 20px;
   max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 50px auto 50px auto;
+  padding:0;
 }
+
+
 .product-view img {
-  max-width: 100%;
-  text-align: center;
   min-width: 200px;
-  min-height: 100px;
+  min-height: 200px;
   padding-top: 20px;
-  max-height: 170px;
+  max-height: 200px;
 }
 
 .product-view {
@@ -117,12 +121,33 @@ a.navlink {
   height: 200px;
 }
 
+.full-product-view{
+    text-align: center;
+}
+ 
+.full-product-view img {
+    padding: 20px;
+    height: auto;
+    width: 100%;
+    max-height: 500px;
+    max-width: 500px;
+}
 .profile-view {
   max-height: 300px;
   max-width: 400px;
   width: 100%;
   margin: auto;
   padding-top: 20px;
+}
+
+.card-footer {
+  margin-top:5%;
+}
+
+.product-description {
+  white-space: nowrap;     
+  overflow: hidden;         
+  text-overflow: ellipsis;
 }
 
 /*..........................Panel*/
@@ -135,6 +160,19 @@ a.navlink {
 
 .panel-body {
   border: 1px solid #dddddd;
+  margin: 10px;
+}
+
+.panel-content{
+    padding:5%;
+}
+
+.panel-content h5{
+    font-size: 25px;
+    font-weight: bold;
+    white-space: nowrap;     
+    overflow: hidden;         
+    text-overflow: ellipsis;
 }
 
 .panel-default {
@@ -148,11 +186,12 @@ a.navlink {
 .panel-input input {
   max-width: 50%;
   padding-left: 15px;
-  left: 10%;
-  border-bottom: none;
+  left: 5%;
+  margin-right: 5%;
 }
 .panel-input button {
-  right: 80%;
+  margin-left: 24%;
+  margin-top: 0%;
 }
 
 .important b {
@@ -167,34 +206,13 @@ a.navlink {
 
 /*..........................................Media Queries*/
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   /*..........................Media Queries - Panel*/
 
   .panel-input button {
     right: 25%;
   }
-  /*..........................Media Queries - Carousel*/
-
-  .carousel-item .fill {
-    height: 100%;
-    width: 100%;
-  }
-  .carousel-caption {
-    width: 79%;
-    top: 37%;
-    font-size: 11px;
-  }
-  .carousel-caption h5 {
-    font-size: 17px;
-    font-weight: bold;
-  }
-  .carousel-indicators {
-    margin-left: -29%;
-    bottom: 15px;
-  }
-  .carousel {
-    height: 237px;
-  }
+  
 
   /*..........................Media Queries - Card*/
 
@@ -205,7 +223,19 @@ a.navlink {
 
   .product-view img {
     text-align: center;
-    min-height: 100px;
-    min-width: 120px;
+    min-height: 200px;
+    min-width: 200px;
   }
+
+  /*..........................Media Queries - Carousel*/
+
+    .carousel-caption h1{
+        font-size:20px;
+    }
+    .carousel-caption p{
+        font-size:15px;
+    }
+
+
+
 }

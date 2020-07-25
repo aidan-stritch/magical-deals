@@ -12,6 +12,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
   </head>
@@ -80,10 +81,7 @@
             </li>
             <li class="nav-item navbar-links">
               <a class="nav-link" href="{% url 'logout' %}"
-                ><span
-                  class="glyphicon glyphicon-log-out"
-                  aria-hidden="true"
-                ></span>
+                ><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                 Log Out</a
               >
             </li>
@@ -123,10 +121,11 @@
         {% block content %} {% endblock %}
       </div>
     </main>
+
     <footer class="page-footer">
       <div class="container-fluid">
         <div class="row">
-          <div class="col l6 s12">
+          <div class="col-sm-8">
             <h5 class="white-text">Magical Deals</h5>
             <p class="grey-text text-lighten-4">
               You're one stop shop for special items from movies, tv shows, and
@@ -134,8 +133,8 @@
               Magical Deals!
             </p>
           </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Site Map</h5>
+          <div class="col-sm-4">
+            <h5 class="white-text ">Site Map</h5>
             <ul>
               <li>
                 <a class="grey-text text-lighten-3" href="/">Home</a>
@@ -180,12 +179,11 @@
           </div>
         </div>
       </div>
-      <div class="footer-copyright">
-        <div class="container-fluid">
+      <div class="container-fluid footer-copyright">
           © 2020 Magical Deals
-        </div>
       </div>
     </footer>
+
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -206,7 +204,7 @@
     <!--  Script for the carousel -->
     <script>
       $(".carousel").carousel({
-        interval: 4000,
+        interval: 5000,
         cycle: 2000,
       });
     </script>

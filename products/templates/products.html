@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% load staticfiles %} {% block content %}
-<div class="row row-flex">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 header-title">
       <h3>All Products</h3>
       <a href="{% url 'add_product' %}" class="btn btn-primary"
         ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
         New Product</a
       >
     </div>
-    <div class="card search-card">
+  </div>
+  <div class="col-md-12 card search-card">
       <div class="card-header">
         <h5 class="card-title">Product Search</h5>
       </div>
@@ -19,63 +19,74 @@
         </p>
         <div class="display">
           <form action="{% url 'search' %}" method="get">
-            <p><input type="text" name="q" class="search-input" /></p>
+            <p><input type="text" name="q" class="search-input" required /></p>
             <p><button type="submit" class="btn btn-primary">Search</button></p>
           </form>
         </div>
       </div>
     </div>
-  </div>
+<div class="row row-flex">
+
   {% for product in products %}
 
-  <div
-    class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel panel-default"
-  >
+  <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel panel-default row-flex">
     <div class="panel-body">
       <div class="col-md-12 product-view">
         <img src="{{ MEDIA_URL }}{{ product.image }}" />
       </div>
-      <h5>{{ product.product_name }}</h5>
-      <p class="product-description">{{ product.description }}</p>
-      <p><b>Price:</b> €{{ product.price }}</p>
-      <p><b>Rating:</b> {{ product.rating }}<strong>/10</strong></p>
-
-      <form method="POST" action="{% url 'add_to_cart' product.id %}">
-        {% csrf_token %}
-        <div class="input-group panel-input">
-          <input
-            name="quantity"
-            type="number"
-            min="1"
-            max="999"
-            class="form-control"
-            placeholder="Qty"
-            required
-          />
-          <span class="input-group-btn">
-            <button class="btn btn-success" type="submit">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              Add
-            </button>
-          </span>
-        </div>
-        <div class="more-info">
-          <p>
-            <a
-              href="{% url 'view_product' product.id %}"
-              class="btn btn-primary"
-              ><span
-                class="glyphicon glyphicon-info-sign"
-                aria-hidden="true"
-              ></span>
-              More Details</a
-            >
-          </p>
-        </div>
-      </form>
+      <div class="panel-content">
+        <h5>{{ product.product_name }}</h5>
+        <p class="product-description">{{ product.description }}</p>
+        {% if user.is_authenticated %}
+        <p><b>Price:</b> {{ product.price }}</p>
+        {% else %}
+        <p class="important"><b>Log in to see prices</b></p>
+        {% endif %}
+        <p><b>Rating:</b> {{ product.rating }}/10 </p>
+        <p>
+        {% with ''|center:product.rating as range %}
+        {% for _ in range %}
+            <span class="fa fa-star checked"></span>
+        {% endfor %}
+        {% endwith %}
+        </p>
+        
+        {% if user.is_authenticated %}
+        <form method="POST" action="{% url 'add_to_cart' product.id %}">
+            {% csrf_token %}
+            <div class="input-group panel-input">
+            <input
+                name="quantity"
+                type="number"
+                min="1"
+                max="999"
+                class="form-control"
+                placeholder="Qty"
+            />
+            <span class="input-group-btn">
+                <button class="btn btn-success" type="submit">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add
+                </button>
+            </span>
+            </div>
+        </form>
+        {% endif %}
+      </div>
+      
+      <div class="more-info card-footer">
+        <p>
+          <a href="{% url 'view_product' product.id %}" class="btn btn-primary"
+            ><span
+              class="glyphicon glyphicon-info-sign"
+              aria-hidden="true"
+            ></span>
+            More Details</a
+          >
+        </p>
+      </div>
     </div>
   </div>
   {% endfor %}
 </div>
-
 {% endblock %}

@@ -2,36 +2,45 @@
 {% extends 'base.html' %} {% load staticfiles %} {% block content %}
 <div class="row row-flex">
 	<div class="row">
-		<div class="col-12">
+		<div class="col-12 header-title">
 			<p>
 				<h3>{{ product.product_name }}</h3>
 			</p>
-			<p>
-				<a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><span
-                    class="glyphicon glyphicon-trash"
-                    aria-hidden="true"
-                  ></span> Delete</a>
-				<a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><span
-                    class="glyphicon glyphicon-wrench"
-                    aria-hidden="true"
-                  ></span> Edit</a>
-			</p>
-
+            {% if user.is_authenticated %}
+            <p>
+            <a href="{% url 'products' %}" class="btn btn-primary"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> All Products</a>
+            </p>
+            {% endif %}
+            
 		</div>
 	</div>
 </div>
 
-<div class="card mb-3 item-view">
+<div class="card mb-3 ">
 	<div class="row no-gutters">
-		<div class="col-md-12 product-view"> 
+		<div class="col-md-12 full-product-view"> 
             <img src="{{ MEDIA_URL }}{{ product.image }}"> 
       </div>
 		<div class="col-md-8">
 			<div class="card-body">
-				<h6 class="card-title">Description</h6>
+				<h6 class="card-title"><b>Product Description</b></h6>
 				<p class="card-text">{{ product.description }}</p>
 				<p class="card-text">
 					<p><b>Rating:</b> {{ product.rating }}/10</p>
+                    
+                    <p>
+                    {% with ''|center:product.rating as range %}
+                    {% for _ in range %}
+                        <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    {% endwith %}
+                    </p>
+                    {% with product.rating|center: n as range %}
+                    {% for _ in range %}
+                        <span class="fa fa-star"></span>
+                    {% endfor %}
+                    {% endwith %}
+
 					<p><b>Price:</b> €{{ product.price }}</p>
 				</p>
 				{% if user.is_authenticated %}
@@ -54,6 +63,18 @@
             </span>
 					</form>
 				</p>
+                
+            <p>
+				<a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><span
+                    class="glyphicon glyphicon-wrench"
+                    aria-hidden="true"
+                  ></span> Edit</a>
+                  <a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><span
+                    class="glyphicon glyphicon-trash"
+                    aria-hidden="true"
+                  ></span> Delete</a>
+			</p>
+            
 				{% else %}
 				<p class="important">
 					<b>Create an account or log in to add to basket</b>
