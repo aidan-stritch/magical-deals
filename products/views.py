@@ -60,12 +60,17 @@ def delete_product(request, id):
     not found
     """
     product = get_object_or_404(Product, id=id)
+    cart = request.session.get('cart', {})
+    """ ask tutor on this one. here we are pulling in the product
+    id and the cart. i am then trying to check if the product is
+    in the cart.. if so pop it out before moving on.. if not
+    just delete the product.. """
+    if cart[id] == product:
+        cart.pop(id)
 
-    request.session['cart'] = {}
-
+    cart.pop(id)
     product.delete()
 
-    print("deleted")
     messages.success(request, "Product successfully deleted")
 
     return redirect(reverse('products'))
