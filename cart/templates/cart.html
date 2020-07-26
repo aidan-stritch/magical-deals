@@ -5,56 +5,57 @@
 
 {% block content %}
 
+
+<div class="row">
+    <div class="col-12 header-title">
+        <h3>Shopping Cart</h3>
+        <p>Review your items and when you are happy with your selections, click on checkout to continue</p>
+    </div>
+</div>   
 <div class="row row-flex">
-	<div class="row">
-		<div class="col-12 header-title">
-			<h3>Shopping Cart</h3>
-			<p>Review your items and when you are happy with your selections, click on checkout to continue</p>
-		</div>
-	</div>
-	{% for item in cart_items %}
-	<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display">
-		<div class="col-md-12 product-view">
-			<img src="{{ MEDIA_URL }}{{ item.product.image }}" />
-      </div>
-			<div class="caption">
-				<h5>{{ item.product.product_name }}</h5>
-				<p><b>Unit Price:</b> <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ item.product.price }}</p>
-				<p>
-					<form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-						{% csrf_token %}
-						<div class="form-group">
-							<div class="input-group panel-input">
-								<div class="input-group-addon">Qty</div>
-								<input name="quantity" type="number" min="0" max="999" class="form-control qty-input">
-								<div class="input-group-addon">{{ item.quantity }}</div>
-							</div>
-						</div>
-						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update</button>
-					</form>
-				</p>
-			</div>
-		</div>
-
-		{% endfor%}
-
-	</div>
-	<div class="row">
-
-		<p>
-			<span><b>Order Total: </b></span>
-
-			<span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ total }}</p>
-		<p>
-
-			<a href="{% url 'checkout' %}" class="btn btn-success"
-				role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
-
-			<a href="{% url 'products' %}"
-				class="btn btn-primary btn-sizing"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-				Continue Shopping</a>
-		</p>
-
-	</div>
+{% for item in cart_items %}
+<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel row-flex">
+    <div class="panel-body">
+        <div class="card-header panel-content">
+            <h5>{{ item.product.product_name }}</h5>
+        </div>
+        <div class="panel-content">
+            <div class="product-view">
+                <img src="{{ MEDIA_URL }}{{ item.product.image }}" />
+            </div>
+            <p><b>Unit Price:</b> <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ item.product.price }}</p>
+            <p><strong>Current Quantity: </strong>{{ item.quantity }}</p>
+            <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                {% csrf_token %}	
+                <div class="input-group panel-input">
+                    <div class="input-group-addon">Qty</div>
+                    <input name="quantity" type="number" min="0" max="999" required class="form-control ">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update</button>
+                    </span>
+                </div>                          
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor%}
+</div>
+<div class="row cart-checkout">
+    <div class="col-md-12 card cart-card ">
+        <div class="card-header">
+            <h5 class="card-title">Order Checkout</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <span><b>Order Total: </b></span>
+                <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ total }}
+            </p>
+            <div class="display">
+                <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
+                <a href="{% url 'products' %}" class="btn btn-primary btn-sizing"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 	{% endblock %}

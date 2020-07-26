@@ -35,11 +35,6 @@
                     {% endfor %}
                     {% endwith %}
                     </p>
-                    {% with product.rating|center: n as range %}
-                    {% for _ in range %}
-                        <span class="fa fa-star"></span>
-                    {% endfor %}
-                    {% endwith %}
 
 					<p><b>Price:</b> €{{ product.price }}</p>
 				</p>
@@ -54,6 +49,7 @@
             max="999"
             class="form-control qty-input"
             placeholder="Qty"
+            required
           />
 						<span class="input-group-btn">
                 <button class="btn btn-success" type="submit"><span

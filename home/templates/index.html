@@ -37,28 +37,27 @@
 
   <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel panel-default row-flex">
     <div class="panel-body">
-      <div class="col-md-12 product-view">
-        <img src="{{ MEDIA_URL }}{{ product.image }}" />
-      </div>
-      <div class="panel-content">
-        <h5>{{ product.product_name }}</h5>
-        <p class="product-description">{{ product.description }}</p>
-        {% if user.is_authenticated %}
-        <p><b>Price:</b> {{ product.price }}</p>
-        {% else %}
-        <p class="important"><b>Log in to see prices</b></p>
-        {% endif %}
-        <p><b>Rating:</b> {{ product.rating }}/10 </p>
-        <p>
-        {% with ''|center:product.rating as range %}
-        {% for _ in range %}
-            <span class="fa fa-star checked"></span>
-        {% endfor %}
-        {% endwith %}
-        </p>
-        
-        
-
+        <div class="card-header panel-content">
+            <h5>{{ product.product_name }}</h5>
+        </div>
+        <div class="col-md-12 product-view">
+            <img src="{{ MEDIA_URL }}{{ product.image }}" />
+        </div>
+        <div class="panel-content">
+            <p class="product-description">{{ product.description }}</p>
+            {% if user.is_authenticated %}
+            <p><b>Price:</b> {{ product.price }}</p>
+            {% else %}
+            <p class="important"><b>Log in to see prices</b></p>
+            {% endif %}
+            <p><b>Rating:</b> {{ product.rating }}/10 </p>
+            <p>
+            {% with ''|center:product.rating as range %}
+            {% for _ in range %}
+                <span class="fa fa-star checked"></span>
+            {% endfor %}
+            {% endwith %}
+            </p>
         {% if user.is_authenticated %}
         <form method="POST" action="{% url 'add_to_cart' product.id %}">
             {% csrf_token %}
@@ -70,6 +69,7 @@
                 max="999"
                 class="form-control"
                 placeholder="Qty"
+                required
             />
             <span class="input-group-btn">
                 <button class="btn btn-success" type="submit">

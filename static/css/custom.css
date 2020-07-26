@@ -108,18 +108,30 @@ footer a {
   padding:0;
 }
 
+.cart-card {
+  background-color: #f5f5f5;
+  max-width: 500px;
+  margin: 50px auto 50px auto;
+  padding:0;
+}
 
+.cart-checkout{
+    padding:5%;
+}
 .product-view img {
-  min-width: 200px;
-  min-height: 200px;
-  padding-top: 20px;
-  max-height: 200px;
+    padding: 20px;
+    height: auto;
+    width: 100%;
+    max-height: 250px;
+    max-width: 250px;
 }
 
 .product-view {
-  text-align: center;
-  height: 200px;
-}
+    text-align: center;
+    height:200px;
+    margin-bottom: 5%;
+    overflow: hidden;
+  }
 
 .full-product-view{
     text-align: center;
@@ -175,6 +187,7 @@ footer a {
     text-overflow: ellipsis;
 }
 
+
 .panel-default {
   border-color: transparent;
 }
@@ -212,20 +225,13 @@ footer a {
   .panel-input button {
     right: 25%;
   }
+  .panel-content h5{
+    font-size: 18px;
+    font-weight: bold;
+    }
+
+
   
-
-  /*..........................Media Queries - Card*/
-
-  .product-view {
-    width: 90%;
-    height: 100%;
-  }
-
-  .product-view img {
-    text-align: center;
-    min-height: 200px;
-    min-width: 200px;
-  }
 
   /*..........................Media Queries - Carousel*/
 
