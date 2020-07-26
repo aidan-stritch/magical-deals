@@ -62,21 +62,18 @@
         <form method="POST" action="{% url 'add_to_cart' product.id %}">
             {% csrf_token %}
             <div class="input-group panel-input">
-            <input
-                name="quantity"
-                type="number"
-                min="1"
-                max="999"
-                class="form-control"
-                placeholder="Qty"
-                required
-            />
-            <span class="input-group-btn">
-                <button class="btn btn-success" type="submit">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                Add
-                </button>
-            </span>
+                <input
+                    name="quantity"
+                    type="number"
+                    min="1"
+                    max="999"
+                    class="form-control"
+                    placeholder="Qty"
+                    required
+                />
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="submit"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                </span>
             </div>
         </form>
         {% endif %}
@@ -84,13 +81,7 @@
       
       <div class="more-info card-footer">
         <p>
-          <a href="{% url 'view_product' product.id %}" class="btn btn-primary"
-            ><span
-              class="glyphicon glyphicon-info-sign"
-              aria-hidden="true"
-            ></span>
-            More Details</a
-          >
+          <a href="{% url 'view_product' product.id %}" class="btn btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> More Details</a>
         </p>
       </div>
     </div>
@@ -104,9 +95,7 @@
         Click the button below to see our full product range
     </p>
     <p>
-        <a href="{% url 'products' %}" class="btn btn-success"
-        ><span class="glyphicon glyphicon-th" aria-hidden="true"></span> All
-        Products</a>
+        <a href="{% url 'products' %}" class="btn btn-success"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
     </p>
   </div>  
   {% else %}
@@ -115,8 +104,8 @@
         Please create an account or log in to see our full range of products
     </p>
     <p>
-        <a href="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
-        <a href="{% url 'login' %}" class="btn btn-success">Log In</a>
+        <a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+        <a href="{% url 'login' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
     </p>
   </div>
   

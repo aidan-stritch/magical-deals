@@ -23,7 +23,7 @@
             <div class="product-view">
                 <img src="{{ MEDIA_URL }}{{ item.product.image }}" />
             </div>
-            <p><b>Unit Price:</b> <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ item.product.price }}</p>
+            <p><b>Unit Price: </b><i class="fa fa-eur" aria-hidden="true"></i> {{ item.product.price }}</p>
             <p><strong>Current Quantity: </strong>{{ item.quantity }}</p>
             <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
                 {% csrf_token %}	
@@ -31,7 +31,7 @@
                     <div class="input-group-addon">Qty</div>
                     <input name="quantity" type="number" min="0" max="999" required class="form-control ">
                     <span class="input-group-btn">
-                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i> Update</button>
                     </span>
                 </div>                          
             </form>
@@ -48,11 +48,11 @@
         <div class="card-body">
             <p class="card-text">
                 <span><b>Order Total: </b></span>
-                <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ total }}
+                <i class="fa fa-eur" aria-hidden="true"></i> {{ total }}
             </p>
             <div class="display">
-                <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
-                <a href="{% url 'products' %}" class="btn btn-primary btn-sizing"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Continue Shopping</a>
+                <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Checkout</a>
+                <a href="{% url 'products' %}" class="btn btn-primary btn-sizing"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Continue Shopping</a>
             </div>
         </div>
     </div>

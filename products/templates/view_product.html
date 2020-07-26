@@ -8,7 +8,7 @@
 			</p>
             {% if user.is_authenticated %}
             <p>
-            <a href="{% url 'products' %}" class="btn btn-primary"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> All Products</a>
+            <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
             </p>
             {% endif %}
             
@@ -52,23 +52,14 @@
             required
           />
 						<span class="input-group-btn">
-                <button class="btn btn-success" type="submit"><span
-                    class="glyphicon glyphicon-shopping-cart"
-                    aria-hidden="true"
-                  ></span> Add to Basket</button>
+                <button class="btn btn-success" type="submit"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to Basket</button>
             </span>
 					</form>
 				</p>
                 
             <p>
-				<a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><span
-                    class="glyphicon glyphicon-wrench"
-                    aria-hidden="true"
-                  ></span> Edit</a>
-                  <a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><span
-                    class="glyphicon glyphicon-trash"
-                    aria-hidden="true"
-                  ></span> Delete</a>
+				<a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit</a>
+                  <a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
 			</p>
             
 				{% else %}
@@ -76,14 +67,8 @@
 					<b>Create an account or log in to add to basket</b>
 				</p>
 				<p>
-					<a href="{% url 'register' %}" class="btn btn-primary"><span
-                    class="glyphicon glyphicon-plus"
-                    aria-hidden="true"
-                  ></span> Sign Up</a>
-					<a href="{% url 'login' %}" class="btn btn-success"><span
-                    class="glyphicon glyphicon-log-in"
-                    aria-hidden="true"
-                  ></span> Log In</a>
+					<a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+					<a href="{% url 'login' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
 				</p>
 				{% endif %}
 			</div>

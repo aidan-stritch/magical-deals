@@ -23,12 +23,12 @@
     {% if user.is_authenticated %}
     <p>
         <h5>Sign in to go to your profile and start getting more Magical Deals</h5>
-        <a href="{% url 'login' %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign In</a>
+        <a href="{% url 'login' %}" class="btn btn-primary"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
     </p>
     {% else %}
     <p>
         <h5>Sign up today to start getting YOUR Magical Deals</h5>
-        <a href="{% url 'register' %}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Sign Up</a>
+        <a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Sign Up</a>
     </p>
     {% endif %}
 

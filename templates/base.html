@@ -36,73 +36,42 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="/"
-                ><span
-                  class="glyphicon glyphicon-home"
-                  aria-hidden="true"
-                ></span>
+                ><i class="fa fa-home" aria-hidden="true"></i>
                 Home </a
               >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}"
-                ><span
-                  class="glyphicon glyphicon-info-sign"
-                  aria-hidden="true"
-                ></span>
-                About Us</a
-              >
+                ><i class="fa fa-info-circle" aria-hidden="true"></i> About Us</a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'products' %}"
-                ><span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-                Products</a
+                ><i class="fa fa-th" aria-hidden="true"></i> Products</a
               >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'profile' %}"
-                ><span
-                  class="glyphicon glyphicon-user"
-                  aria-hidden="true"
-                ></span>
-                Profile</a
+                ><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a
               >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'view_cart' %}"
-                ><span
-                  class="glyphicon glyphicon-shopping-cart"
-                  aria-hidden="true"
-                ></span>
-                Cart {% if product_count > 0 %}
+                ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart {% if product_count > 0 %}
                 <label class="badge badge-warning"> {{ product_count }}</label>
                 {% endif %}
               </a>
             </li>
             <li class="nav-item navbar-links">
               <a class="nav-link" href="{% url 'logout' %}"
-                ><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                Log Out</a
-              >
+                ><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
             </li>
             {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}"
-                ><span
-                  class="glyphicon glyphicon-plus"
-                  aria-hidden="true"
-                ></span>
-                Sign Up</a
-              >
+              <a class="nav-link" href="{% url 'register' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}"
-                ><span
-                  class="glyphicon glyphicon-log-in"
-                  aria-hidden="true"
-                ></span>
-                Log In</a
-              >
+              <a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
             </li>
             {% endif %}
           </ul>

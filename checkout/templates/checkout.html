@@ -28,7 +28,7 @@
                 <h6>{{item.product.product_name}}</h6>
             </div>
             <div class="panel-content">
-                <p><b>Unit Price:</b> <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ item.product.price }}</p>
+                <p><strong>Unit Price: </strong><i class="fa fa-eur" aria-hidden="true"></i> {{ item.product.price }}</p>
                 <p><strong>Quantity: </strong>{{ item.quantity }}</p>
             </div>
         </div>
@@ -36,9 +36,9 @@
     {% endfor %}
 </div>
 <div class="row total-row">
-  <p><b>Order Total </b></p>
-  <p>
-    <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ total }}</p>
+    <p>
+        <span><b>Order Total </b><i class="fa fa-eur" aria-hidden="true"></i> {{ total }}</span>
+    </p>
 </div>
 
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
