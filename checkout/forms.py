@@ -1,5 +1,7 @@
 from django import forms
 from .models import Order
+from django.contrib.auth.models import User
+from accounts.models import UserCreate
 
 
 class MakePaymentForm(forms.Form):
@@ -25,7 +27,22 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('name', 'phone_Number',
-                  'address_Line_One', 'address_Line_Two',
-                  'address_Line_Three', 'town_or_City',
-                  'county', 'postcode', 'country')
+        fields = ()
+
+
+class Delivery_Person_Form(forms.ModelForm):
+    """ a form that displays the users name
+    for delivery address purposes"""
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name')
+
+
+class Delivery_Address_Form(forms.ModelForm):
+    """ a form that displays the users address
+    for delivery address purposes"""
+    class Meta:
+        model = UserCreate
+        fields = ('address_line_one', 'address_line_two',
+                  'address_line_three', 'city', 'country', 'postcode',
+                  'phone')

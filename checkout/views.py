@@ -6,7 +6,9 @@ from .models import OrderLineItem
 from django.conf import settings
 from django.utils import timezone
 from products.models import Product
+from .forms import Delivery_Person_Form, Delivery_Address_Form
 import stripe
+
 
 # Create your views here.
 
@@ -18,11 +20,17 @@ def checkout(request):
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
+        user_form = Delivery_Person_Form(request.POST, instance=request.user)
+        address_form = Delivery_Address_Form(request.POST,
+                                             instance=request.user.usercreate)
 
-        if order_form.is_valid() and payment_form.is_valid():
+        if order_form.is_valid() and payment_form.is_valid() and user_form.is_valid() and address_form.is_valid():
             order = order_form.save(commit=False)
             order.date = timezone.now()
             order.save()
+
+            user_form.save()
+            address_form.save()
 
             cart = request.session.get('cart', {})
             total = 0
@@ -60,8 +68,11 @@ def checkout(request):
                 request, "Unable to take payment from the card provided")
     else:
         payment_form = MakePaymentForm()
-        order_form = OrderForm()
-    args = {'order_form': order_form, 'payment_form': payment_form,
+        user_form = Delivery_Person_Form(instance=request.user)
+        address_form = Delivery_Address_Form(instance=request.user.usercreate)
+
+    args = {'user_form': user_form, 'address_form': address_form,
+            'payment_form': payment_form,
             'publishable': settings.STRIPE_PUBLISHABLE}
 
     return render(request, "checkout.html", args)

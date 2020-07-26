@@ -5,7 +5,7 @@ from products.models import Product
 
 
 class Order(models.Model):
-    """ A model to handle a customers order
+    """ A model to handle a customers delivery address
     when they checkout of the store from the cart"""
 
     name = models.CharField(max_length=100, blank=False)
@@ -24,6 +24,8 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """ A model to handle a customers order
+    when they checkout of the store from the cart"""
     order = models.ForeignKey(Order, null=False)
     product = models.ForeignKey(Product, null=False)
     quantity = models.IntegerField(blank=False)
