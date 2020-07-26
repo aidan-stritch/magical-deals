@@ -8,12 +8,12 @@ class Order(models.Model):
     """ A model to handle a customers order
     when they checkout of the store from the cart"""
 
-    full_name = models.CharField(max_length=100, blank=False)
-    phone_number = models.CharField(max_length=20, blank=False)
-    add_line_one = models.CharField(max_length=40, blank=False)
-    add_line_two = models.CharField(max_length=40, blank=False)
-    add_line_three = models.CharField(max_length=40, blank=False)
-    town_or_city = models.CharField(max_length=40, blank=False)
+    name = models.CharField(max_length=100, blank=False)
+    phone_Number = models.CharField(max_length=20, blank=False)
+    address_Line_One = models.CharField(max_length=40, blank=False)
+    address_Line_Two = models.CharField(max_length=40, blank=False)
+    address_Line_Three = models.CharField(max_length=40, blank=False)
+    town_or_City = models.CharField(max_length=40, blank=False)
     county = models.CharField(max_length=40, blank=False)
     postcode = models.CharField(max_length=40, blank=True)
     country = models.CharField(max_length=40, blank=False)

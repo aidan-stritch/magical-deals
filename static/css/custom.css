@@ -35,6 +35,14 @@ main {
   color: orange;
 }
 
+.total-row {
+    background-color: #f7f7f7;
+    padding-left: 3%;
+    font-size: 20px;
+    padding-top: 14px;
+    max-width: 330px;
+    margin: 20px auto 50px auto;
+}
 /*..........................NavBar*/
 
 .navbar-default .badge {
@@ -84,6 +92,10 @@ footer a {
 
 .search-input {
   max-width: 400px;
+}
+
+.checkout-forms h6{
+    font-weight: bold;
 }
 /*..........................Carousel*/
 
@@ -186,7 +198,12 @@ footer a {
     overflow: hidden;         
     text-overflow: ellipsis;
 }
-
+.panel-content h6{
+    font-weight: bold;
+    white-space: nowrap;     
+    overflow: hidden;         
+    text-overflow: ellipsis;
+}
 
 .panel-default {
   border-color: transparent;
