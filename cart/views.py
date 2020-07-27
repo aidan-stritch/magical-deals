@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
@@ -35,3 +36,9 @@ def adjust_cart(request, id):
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
+
+
+def empty_cart(request):
+    request.session['cart'] = {}
+    messages.success(request, "Cart successfully emptied")
+    return redirect(reverse('index'))

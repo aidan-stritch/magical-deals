@@ -51,12 +51,19 @@ ul {
 }
 /*..........................NavBar*/
 
-.navbar-default .badge {
-  background-color: yellow;
+.badge-warning {
+    color: #212529;
+    background-color: #fafa37;
+    border-radius: 1.25rem;
 }
 
 a.navlink {
   background-color: #007bff;
+  
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color:#fff;
 }
 
 /*..........................Footer*/
