@@ -51,9 +51,11 @@
                 <i class="fa fa-eur" aria-hidden="true"></i> {{ total }}
             </p>
             <div class="display">
-                <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Checkout</a>
-                <a href="{% url 'products' %}" class="btn btn-primary btn-sizing"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Continue Shopping</a>
-                <a href="{% url 'empty_cart' %}" class="btn btn-primary btn-sizing"><i class="fa fa-trash" aria-hidden="true"></i> Empty Cart</a>
+                {% if product_count > 0 %}
+                    <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Checkout</a>
+                    <a href="{% url 'empty_cart' %}" class="btn btn-danger btn-sizing"><i class="fa fa-trash" aria-hidden="true"></i> Empty Cart</a>
+                {% endif %}
+                <a href="{% url 'products' %}" class="btn btn-primary btn-sizing"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Continue Shopping</a>             
             </div>
         </div>
     </div>

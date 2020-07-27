@@ -52,11 +52,8 @@
             required
           />
 						<span class="input-group-btn">
-                <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to Basket</button>
+                <button class="btn btn-success" type="submit"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to Basket</button>
             </span>
-<button type="button" class="btn btn-primary" >
-  Launch demo modal
-</button>
 
 					</form>
 				</p>
@@ -64,6 +61,8 @@
             <p>
 				<a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit</a>
                   <a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                 <a href="{% url 'add_review' product.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Add Review</a>                   
+
 			</p>
             
 				{% else %}

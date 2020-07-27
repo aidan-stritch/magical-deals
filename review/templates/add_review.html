@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
+
+<div class="row">
+	<div class="col-12 header-title">
+		<h3>Add Product Review</h3>
+	</div>
+</div>
+
+<form method="post" action="{% url 'add_review' %}" class="addProductForm" enctype="multipart/form-data">
+	<fieldset class="form-group">
+		{% csrf_token %} {{ add_form | as_bootstrap }}
+		<button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</button>
+	</fieldset>
+</form>
+{% endblock %}

@@ -13,6 +13,7 @@ from .forms import ProductCreationForm
 def all_products(request):
     """A view that displays all of the products"""
     products = Product.objects.all()
+
     return render(request, "products.html", {"products": products})
 
 
