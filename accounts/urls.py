@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
 from . import urls_reset
-from .views import register, profile, logout, login, edit_user
+from .views import register, profile, logout, login, edit_user, delete_user
 
 urlpatterns = [
     url(r'^register/$', register, name='register'),
@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^logout/$', logout, name='logout'),
     url(r'^login/$', login, name='login'),
     url(r'^edit_user/$', edit_user, name='edit_user'),
+    url(r'^delete_user/$', delete_user, name='delete_user'),
     url(r'^password-reset/', include(urls_reset)),
 ]

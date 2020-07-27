@@ -99,3 +99,14 @@ def edit_user(request):
         'profile_form': profile_form
     }
     return render(request, 'edit_user.html', args)
+
+
+def delete_user(request):
+    user = request.user
+    try:
+        user.delete()
+        messages.success(request, "Account successfully deleted.")
+    except Exception as e:
+        messages.success(request, "Account not deleted")
+        return redirect(reverse('index', {'err': e.message}))
+    return redirect(reverse('index'))

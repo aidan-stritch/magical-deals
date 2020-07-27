@@ -13,6 +13,12 @@ main {
   padding-top: 20px;
 }
 
+ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
 .icon-bar {
   background-color: #fff;
 }
@@ -80,6 +86,10 @@ footer a {
   margin-top: 10px;
 }
 
+.profile-btn a{
+    margin-left:10px;
+}
+
 /*..........................Forms*/
 
 .input-group-addon {
@@ -113,6 +123,7 @@ footer a {
 }
 
 /*..........................Card*/
+
 .search-card {
   background-color: #f5f5f5;
   max-width: 500px;
@@ -247,9 +258,6 @@ footer a {
     font-weight: bold;
     }
 
-
-  
-
   /*..........................Media Queries - Carousel*/
 
     .carousel-caption h1{
@@ -258,7 +266,4 @@ footer a {
     .carousel-caption p{
         font-size:15px;
     }
-
-
-
 }
