@@ -15,4 +15,4 @@ def product_search(request):
         return render(request, "products.html", {"products": products})
     else:
         messages.error(request, "No results for your query")
-        return render(request, "products.html", {"products": products})
+        return render(request, "products.html")

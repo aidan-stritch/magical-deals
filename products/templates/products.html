@@ -46,9 +46,9 @@
             <p><b>Rating:</b> {{ product.rating }}/10 </p>
             <p>
             {% with ''|center:product.rating as range %}
-            {% for _ in range %}
-                <span class="fa fa-star checked"></span>
-            {% endfor %}
+                {% for _ in range %}
+                    <span class="fa fa-star checked"></span>
+                {% endfor %}
             {% endwith %}
             </p>
         
