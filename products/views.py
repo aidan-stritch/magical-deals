@@ -22,7 +22,6 @@ def add_product(request):
     if request.method == 'POST':
         add_form = ProductCreationForm(request.POST, request.FILES)
         if add_form.is_valid():
-            print(f"add_form is valid and it is {add_form}")
             add_form.save()
 
             messages.success(request, "Product successfully created")
