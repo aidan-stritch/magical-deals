@@ -10,13 +10,16 @@ from products.models import Product
 
 
 @login_required
-def add_review(request, id):
-    product = get_object_or_404(Product, id=id)
+def add_review(request, pk):
+    product = get_object_or_404(Product, id=pk)
 
     if request.method == 'POST':
         add_form = reviewCreationForm(request.POST)
         if add_form.is_valid():
+            add_form.save(commit=False)
+            add_form.user = request.user
             add_form.save()
+
             messages.success(request, "Review successfully created")
             return redirect(reverse('profile'))
         else:
@@ -24,5 +27,5 @@ def add_review(request, id):
     else:
         add_form = reviewCreationForm()
 
-    args = {'add_form': add_form, 'product': product}
+    args = {'product': product, 'add_form': add_form}
     return render(request, 'add_review.html', args)
