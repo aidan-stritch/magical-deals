@@ -47,3 +47,5 @@ def empty_cart(request):
     request.session['cart'] = {}
     messages.success(request, "Cart successfully emptied")
     return redirect(reverse('index'))
+
+

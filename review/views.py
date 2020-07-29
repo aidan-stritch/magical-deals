@@ -5,6 +5,7 @@ from .forms import reviewCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from products.models import Product
+from .models import Review
 
 # Create your views here.
 
@@ -31,29 +32,43 @@ def add_review(request, pk):
     args = {'product': product, 'add_form': add_form}
     return render(request, 'add_review.html', args)
 
+
 @login_required
 def edit_review(request, id):
     """A view that allows a user to edit a review"""
-    product = get_object_or_404(Product, id=id)
+    review = get_object_or_404(Review, id=id)
 
     if request.method == 'POST':
-
-        edit_form = ProductCreationForm(
-            request.POST, request.FILES, instance=product)
+        edit_form = reviewCreationForm(request.POST, instance=review)
 
         if edit_form.is_valid():
             edit_form.save()
             messages.success(
-                request, "Product has successfully been updated!")
-            return redirect(view_product, product.id)
+                request, "Review has successfully been updated!")
+            return redirect(reverse('profile'))
         else:
             messages.error(
                 request, "Unable to update. Please rectify the problems below")
     else:
-        edit_form = ProductCreationForm(instance=product)
+        edit_form = reviewCreationForm(instance=review)
 
     args = {
         'edit_form': edit_form,
-        "product": product
+        "review": review
     }
-    return render(request, 'edit_product.html', args)
+    return render(request, 'edit_review.html', args)
+
+
+@login_required
+def delete_review(request, id):
+    """
+    A view that deletes a single
+    review object based on the review ID and
+    redirects the user to the 'profile.html' template.
+    Or return a 404 error if the review is
+    not found
+    """
+    review = get_object_or_404(Review, id=id)
+    review.delete()
+    messages.success(request, "Product successfully deleted")
+    return redirect(reverse('profile'))

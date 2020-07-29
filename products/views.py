@@ -69,14 +69,10 @@ def delete_product(request, id):
     """
     product = get_object_or_404(Product, id=id)
     cart = request.session.get('cart', {})
-    """ ask tutor on this one. here we are pulling in the product
-    id and the cart. i am then trying to check if the product is
-    in the cart.. if so pop it out before moving on.. if not
-    just delete the product.. """
-    if cart[id] == product:
+
+    if cart[id]:
         cart.pop(id)
 
-    cart.pop(id)
     product.delete()
 
     messages.success(request, "Product successfully deleted")

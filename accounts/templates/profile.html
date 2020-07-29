@@ -93,8 +93,8 @@
                 <hr>  
                 <h5 class="card-title"><strong>Description: </strong></h5>
                 <p class="card-text">{{ review.description }}</p>
-                <a href="#" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit Review</a>
-                <a href="#" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Review</a>
+                <a href="{% url 'edit_review' review.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit Review</a>
+                <a href="{% url 'delete_review' review.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Review</a>
             </div>
         </div>
     {% endfor %}
