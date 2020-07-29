@@ -28,8 +28,30 @@
   </div>
 </div>
 <div class="row title-div">
-    <h5>We have a wide range of products available</h5>
+    <h3>We have a wide range of products available</h3>
+    {% if user.is_authenticated %}
+  <div class="col-md-12">
+    <p>
+        Click the button below to see our full product range
+    </p>
+    <p>
+        <a href="{% url 'products' %}" class="btn btn-success"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
+    </p>
+  </div>  
+  {% else %}
+  <div class="col-md-12">
+    <p>
+        Please create an account or log in to see our full range of products
+    </p>
+    <p>
+        <a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+        <a href="{% url 'login' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
+    </p>
+  </div>
+  {% endif %}
 </div>
+
+
 <div id="products" class="row row-flex">
 
     {% for product in products|slice:":4" %}
@@ -48,7 +70,7 @@
             {% if user.is_authenticated %}
             <p><b>Price:</b> {{ product.price }}</p>
             {% else %}
-            <p class="important"><b>Log in to see prices</b></p>
+            <p class="important">Log in to see prices</p>
             {% endif %}
             <p><b>Rating:</b> {{ product.rating }}/10 </p>
             <p>
@@ -88,28 +110,5 @@
   </div>
   {% endfor %}
 </div>
-<div class="row">
-  {% if user.is_authenticated %}
-  <div class="col-md-12">
-    <p>
-        Click the button below to see our full product range
-    </p>
-    <p>
-        <a href="{% url 'products' %}" class="btn btn-success"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
-    </p>
-  </div>  
-  {% else %}
-  <div class="col-md-12">
-    <p>
-        Please create an account or log in to see our full range of products
-    </p>
-    <p>
-        <a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
-        <a href="{% url 'login' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
-    </p>
-  </div>
-  
-  
-  {% endif %}
-</div>
+
 {% endblock %}

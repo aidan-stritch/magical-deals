@@ -4,15 +4,15 @@
 	<div class="row">
 		<div class="col-12 header-title">
 			<p>
-				<h3>{{ product.product_name }}</h3>
+				<h2>{{ product.product_name }}</h2>
 			</p>
             {% if user.is_authenticated %}
             <p>
-            <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
+                <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
             </p>
             {% endif %}
-            
 		</div>
+        
 	</div>
 </div>
 
@@ -36,9 +36,11 @@
                     {% endwith %}
                     </p>
 
-					<p><b>Price:</b> €{{ product.price }}</p>
+					
 				</p>
-				{% if user.is_authenticated %}
+                {% if user.is_authenticated %}
+                <p><b>Price:</b> €{{ product.price }}</p>
+				
 				<p class="card-text">
 					<form method="POST" action="{% url 'add_to_cart' product.id %}">
 						{% csrf_token %}
@@ -65,7 +67,7 @@
             
 				{% else %}
 				<p class="important">
-					<b>Create an account or log in to add to basket</b>
+					Create an account or log in to see prices and purchase this item
 				</p>
 				<p>
 					<a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
@@ -78,25 +80,41 @@
 </div>
 <div class="review">
     <h4>Reviews</h4>
-    <a href="{% url 'add_review' product.id %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</a> 
-    {% for review in reviews %}
-        <div class="card">
-            <h5 class="card-header">{{ review.product.product_name }}</h5>
-            <div class="card-body">
-                <h5 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h5>
-                {% with ''|center:review.rating as range %}
+    <hr>
+    {% if user.id == reviews.user_id %}
+    <p>already reviewed</p>
+    {% else %}
+    <p>hasnt reviewed yet</p>
+    {% endif %}
+    <p><a href="{% url 'add_review' product.id %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</a></p>
+    {% if reviews.count > 0 %}
+        {% for review in reviews %}
+            <div class="card review-cards">
+                <h5 class="card-header">
+                    <p><strong>Review Rating: </strong>{{ review.rating }}/10 </p>
                     <p>
-                    {% for _ in range %}
-                        <span class="fa fa-star checked"></span>
-                    {% endfor %}
+                    {% with ''|center:review.rating as range %}
+                        {% for _ in range %}
+                            <span class="fa fa-star checked review-star"></span>
+                        {% endfor %}
+                    {% endwith %}
                     </p>
-                {% endwith %}
-                <p><strong>Reviewed by: </strong>{{ review.user.username }}</p>
-                <hr>  
-                <h5 class="card-title"><strong>Description: </strong></h5>
-                <p class="card-text">{{ review.description }}</p>
+                </h5>
+                <div class="card-body">
+                    <h5 class="card-title">{{ review.product.product_name }} </h5>
+                    
+                    <p><strong>Reviewed by: </strong>{{ review.user.username }}</p>
+                    <hr>  
+                    <h5 class="card-title"><strong>Description: </strong></h5>
+                    <p class="card-text">{{ review.description }}</p>
+                </div>
             </div>
+        {% endfor %}
+    {% else %}
+        <div class="card review-cards">
+            <h5 class="card-header">No reviews yet</h5>
+            <div class="card-body">Be our first!</div>
         </div>
-    {% endfor %}
+    {% endif %}
 </div>
 {% endblock %}

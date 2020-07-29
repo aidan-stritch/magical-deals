@@ -68,7 +68,7 @@
             {% if user.usercreate.address_line_one %}
             <p></p>
             {% else %}
-            <p class="important">Please fill out your profile information</p>
+            <p class="important important-align">Please fill out your profile information</p>
             {% endif %}
             <p class="profile-btn">
                 <a href="{% url 'edit_user' %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit Profile</a>
@@ -81,8 +81,8 @@
 <div class="review">
     <h4>Previous Reviews</h4>
     {% for review in reviews %}
-        <div class="card">
-            <h5 class="card-header">{{ review.product.product_name }}</h5>
+        <div class="card review-cards">
+            <h3 class="card-header">{{ review.product.product_name }}<a href="{% url 'view_product' review.product.id %}" class="btn btn-primary review-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h3>
             <div class="card-body">
                 <h5 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h5>
                 {% with ''|center:review.rating as range %}
