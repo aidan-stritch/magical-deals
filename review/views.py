@@ -16,9 +16,10 @@ def add_review(request, pk):
     if request.method == 'POST':
         add_form = reviewCreationForm(request.POST)
         if add_form.is_valid():
-            add_form.save(commit=False)
-            add_form.user = request.user
-            add_form.save()
+            review = add_form.save(commit=False)
+            review.user = request.user
+            review.product = product
+            review.save()
 
             messages.success(request, "Review successfully created")
             return redirect(reverse('profile'))

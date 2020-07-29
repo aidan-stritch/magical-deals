@@ -5,6 +5,8 @@ from .forms import UserLoginForm, UserSignUpForm
 from .forms import UserSignUpFormAddon, UserAdditionalFields
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from review.models import Review
+from checkout.models import Order
 
 # Create your views here.
 
@@ -46,7 +48,11 @@ def logout(request):
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
-    return render(request, 'profile.html')
+    user = request.user
+    reviews = Review.objects.filter(user_id=user.id)
+    """orders = Order.objects.filter(user_id=user.id)"""
+    """ args = {"reviews": reviews, "orders": orders}""" 
+    return render(request, 'profile.html', {"reviews": reviews})
 
 
 def register(request):
