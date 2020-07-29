@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from .forms import ProductCreationForm
+from review.models import Review
 
 
 # Create your views here.
@@ -45,9 +46,16 @@ def view_product(request, id):
     Or return a 404 error if the product is
     not found
     """
+    """
+    The reviews for this product are also passed to the
+    view_product page
+    """
     product = get_object_or_404(Product, id=id)
+    reviews = Review.objects.filter(product_id=product.id)
 
-    return render(request, "view_product.html", {'product': product})
+    args = {"reviews": reviews, "product": product}
+
+    return render(request, "view_product.html", args)
 
 
 @login_required

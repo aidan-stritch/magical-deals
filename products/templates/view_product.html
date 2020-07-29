@@ -60,9 +60,7 @@
                 
             <p>
 				<a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit</a>
-                  <a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
-                 <a href="{% url 'add_review' product.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Add Review</a>                   
-
+                <a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
 			</p>
             
 				{% else %}
@@ -78,5 +76,27 @@
 		</div>
 	</div>
 </div>
-
+<div class="review">
+    <h4>Reviews</h4>
+    <a href="{% url 'add_review' product.id %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</a> 
+    {% for review in reviews %}
+        <div class="card">
+            <h5 class="card-header">{{ review.product.product_name }}</h5>
+            <div class="card-body">
+                <h5 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h5>
+                {% with ''|center:review.rating as range %}
+                    <p>
+                    {% for _ in range %}
+                        <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    </p>
+                {% endwith %}
+                <p><strong>Reviewed by: </strong>{{ review.user.username }}</p>
+                <hr>  
+                <h5 class="card-title"><strong>Description: </strong></h5>
+                <p class="card-text">{{ review.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

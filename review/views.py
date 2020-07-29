@@ -30,3 +30,30 @@ def add_review(request, pk):
 
     args = {'product': product, 'add_form': add_form}
     return render(request, 'add_review.html', args)
+
+@login_required
+def edit_review(request, id):
+    """A view that allows a user to edit a review"""
+    product = get_object_or_404(Product, id=id)
+
+    if request.method == 'POST':
+
+        edit_form = ProductCreationForm(
+            request.POST, request.FILES, instance=product)
+
+        if edit_form.is_valid():
+            edit_form.save()
+            messages.success(
+                request, "Product has successfully been updated!")
+            return redirect(view_product, product.id)
+        else:
+            messages.error(
+                request, "Unable to update. Please rectify the problems below")
+    else:
+        edit_form = ProductCreationForm(instance=product)
+
+    args = {
+        'edit_form': edit_form,
+        "product": product
+    }
+    return render(request, 'edit_product.html', args)
