@@ -1,5 +1,6 @@
 from django.db import models
 from products.models import Product
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -8,7 +9,7 @@ class Order(models.Model):
     """ A model to handle a customers delivery address
     when they checkout of the store from the cart"""
 
-    name = models.CharField(max_length=100, blank=False)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=User)
     phone_Number = models.CharField(max_length=20, blank=False)
     address_Line_One = models.CharField(max_length=40, blank=False)
     address_Line_Two = models.CharField(max_length=40, blank=False)
@@ -20,7 +21,7 @@ class Order(models.Model):
     date = models.DateField()
 
     def __str__(self):
-        return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
+        return "{0}-{1}-{2}".format(self.id, self.date, self.user)
 
 
 class OrderLineItem(models.Model):

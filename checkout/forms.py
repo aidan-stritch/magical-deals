@@ -24,7 +24,6 @@ class MakePaymentForm(forms.Form):
 class OrderForm(forms.ModelForm):
     """ a form that shows the order
     the customer is purchasing using the Order model"""
-
     class Meta:
         model = Order
         fields = ()
