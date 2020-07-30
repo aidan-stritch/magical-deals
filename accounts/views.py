@@ -51,9 +51,9 @@ def profile(request):
     """reviews that the user has made are passed to the profile page also"""
     user = request.user
     reviews = Review.objects.filter(user_id=user.id)
-    """orders = Order.objects.filter(user_id=user.id)"""
-    """ args = {"reviews": reviews, "orders": orders}""" 
-    return render(request, 'profile.html', {"reviews": reviews})
+    orders = Order.objects.filter(user_id=user.id)
+    args = {"reviews": reviews, "orders": orders}
+    return render(request, 'profile.html', args)
 
 
 def register(request):

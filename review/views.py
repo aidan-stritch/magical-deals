@@ -70,5 +70,5 @@ def delete_review(request, id):
     """
     review = get_object_or_404(Review, id=id)
     review.delete()
-    messages.success(request, "Product successfully deleted")
+    messages.success(request, "Review successfully deleted")
     return redirect(reverse('profile'))

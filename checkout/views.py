@@ -24,45 +24,46 @@ def checkout(request):
         address_form = Delivery_Address_Form(request.POST,
                                              instance=request.user.usercreate)
 
-        if order_form.is_valid() and payment_form.is_valid() and user_form.is_valid() and address_form.is_valid():
-            order = order_form.save(commit=False)
-            order.user = request.user
-            order.date = timezone.now()
-            order.save()
+        if order_form.is_valid() and payment_form.is_valid():
+            if user_form.is_valid() and address_form.is_valid():
+                order = order_form.save(commit=False)
+                order.user = request.user
+                order.date = timezone.now()
+                order.save()
 
-            user_form.save()
-            address_form.save()
+                user_form.save()
+                address_form.save()
 
-            cart = request.session.get('cart', {})
-            total = 0
+                cart = request.session.get('cart', {})
+                total = 0
 
-            for id, quantity in cart.items():
-                product = get_object_or_404(Product, pk=id)
-                total += quantity * product.price
-                order_line_item = OrderLineItem(
-                    order=order,
-                    product=product,
-                    quantity=quantity
-                )
-                order_line_item.save()
+                for id, quantity in cart.items():
+                    product = get_object_or_404(Product, pk=id)
+                    total += quantity * product.price
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        quantity=quantity
+                    )
+                    order_line_item.save()
 
-            try:
-                customer = stripe.Charge.create(
-                    amount=int(total * 100),
-                    currency="EUR",
-                    description=request.user.email,
-                    card=payment_form.cleaned_data['stripe_id'],
-                )
-            except stripe.error.CardError:
-                messages.error(request, "Your card was declined")
+                try:
+                    customer = stripe.Charge.create(
+                        amount=int(total * 100),
+                        currency="EUR",
+                        description=request.user.email,
+                        card=payment_form.cleaned_data['stripe_id'],
+                    )
+                except stripe.error.CardError:
+                    messages.error(request, "Your card was declined")
 
-            if customer.paid:
-                messages.error(request, "Payment successful")
-                request.session['cart'] = {}
-                return redirect(reverse('profile'))
+                if customer.paid:
+                    messages.error(request, "Payment successful")
+                    request.session['cart'] = {}
+                    return redirect(reverse('profile'))
 
-            else:
-                messages.error(request, "Unable to take payment")
+                else:
+                    messages.error(request, "Unable to take payment")
         else:
             print(payment_form.errors)
             messages.error(

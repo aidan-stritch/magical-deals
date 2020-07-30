@@ -8,8 +8,7 @@ from django.contrib.auth.models import User
 class Order(models.Model):
     """ A model to handle a customers delivery address
     when they checkout of the store from the cart"""
-
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=User)
+    user = models.ForeignKey(User)
     phone_Number = models.CharField(max_length=20, blank=False)
     address_Line_One = models.CharField(max_length=40, blank=False)
     address_Line_Two = models.CharField(max_length=40, blank=False)

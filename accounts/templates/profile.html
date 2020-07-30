@@ -76,26 +76,43 @@
         </div>
 	</div>
 </div>
-
+{% if orders.count > 0 %}
+    <div class="card review-cards">
+        <h5 class="card-header">orders exist</h5>
+        <div class="card-body">date: {{ orders.orderlineitem.product }}</div>
+    </div>
+{% else %}
+    <div class="card review-cards">
+        <h5 class="card-header">No orders exist</h5>
+        <div class="card-body">test</div>
+    </div>
+{% endif %}
 <div class="review">
     <h4>Previous Reviews</h4>
-    {% for review in reviews %}
-        <div class="card review-cards">
-            <h3 class="card-header">{{ review.product.product_name }}<a href="{% url 'view_product' review.product.id %}" class="btn btn-primary review-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h3>
-            <div class="card-body">
-                <h5 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h5>
-                {% with ''|center:review.rating as range %}
-                    {% for _ in range %}
-                        <span class="fa fa-star checked"></span>
-                    {% endfor %}
-                {% endwith %}
-                <hr>  
-                <h5 class="card-title"><strong>Description: </strong></h5>
-                <p class="card-text">{{ review.description }}</p>
-                <a href="{% url 'edit_review' review.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit Review</a>
-                <a href="{% url 'delete_review' review.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Review</a>
+    {% if reviews.count > 0 %}
+        {% for review in reviews %}
+            <div class="card review-cards">
+                <h3 class="card-header">{{ review.product.product_name }}<a href="{% url 'view_product' review.product.id %}" class="btn btn-primary review-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h3>
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h5>
+                    {% with ''|center:review.rating as range %}
+                        {% for _ in range %}
+                            <span class="fa fa-star checked"></span>
+                        {% endfor %}
+                    {% endwith %}
+                    <hr>  
+                    <h5 class="card-title"><strong>Description: </strong></h5>
+                    <p class="card-text">{{ review.description }}</p>
+                    <a href="{% url 'edit_review' review.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit Review</a>
+                    <a href="{% url 'delete_review' review.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Review</a>
+                </div>
             </div>
+        {% endfor %}
+    {% else %}
+        <div class="card review-cards">
+            <h5 class="card-header">No reviews yet</h5>
+            <div class="card-body">Dont forget to review our products to help others find Magical Deals of their own!</div>
         </div>
-    {% endfor %}
+    {% endif %}
 </div>
 {% endblock %}
