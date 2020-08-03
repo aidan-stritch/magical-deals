@@ -80,12 +80,7 @@
 </div>
 <div class="review">
     <h4>Reviews</h4>
-    <hr>
-    {% if user.id == reviews.user_id %}
-    <p>already reviewed</p>
-    {% else %}
-    <p>hasnt reviewed yet</p>
-    {% endif %}
+    <hr>   
     <p><a href="{% url 'add_review' product.id %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</a></p>
     {% if reviews.count > 0 %}
         {% for review in reviews %}

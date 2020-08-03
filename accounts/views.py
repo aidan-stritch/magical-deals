@@ -21,7 +21,8 @@ def login(request):
 
             if user:
                 auth.login(request, user)
-                messages.error(request, "You have successfully logged in")
+                username = request.user.username
+                messages.success(request, "welcome %s" % username)
 
                 if request.GET and request.GET['next'] != '':
                     next = request.GET['next']

@@ -188,6 +188,10 @@ review-star{
     overflow: hidden;
   }
 
+.profile-card {
+    margin-top:2%;
+}
+
 .full-product-view{
     text-align: center;
 }
@@ -201,10 +205,9 @@ review-star{
 }
 .profile-view {
   max-height: 300px;
-  max-width: 400px;
   width: 100%;
   margin: auto;
-  padding-top: 20px;
+  padding: 20px;
 }
 
 .card-footer {
