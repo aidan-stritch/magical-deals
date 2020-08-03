@@ -18,7 +18,8 @@
 <form method="post" action="{% url 'add_product' %}" class="addProductForm" enctype="multipart/form-data">
 	<fieldset class="form-group">
 		{% csrf_token %} {{ add_form | as_bootstrap }}
-		<button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Create Product</button>
+		<button type="submit" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create Product</button>
+        <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> Back</a>
 	</fieldset>
 </form>
 {% endblock %}

@@ -15,7 +15,8 @@
     <h5>{{ order }}</h5>
 	<fieldset class="form-group">
 		{% csrf_token %} {{ add_form | as_bootstrap }}
-		<button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</button>
+		<button type="submit" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</button>
+        <a href="{% url 'view_product' product.id %}" class="btn btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> Back</a>
 	</fieldset>
 </form>
 {% endblock %}
