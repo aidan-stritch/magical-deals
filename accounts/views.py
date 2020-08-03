@@ -22,7 +22,7 @@ def login(request):
             if user:
                 auth.login(request, user)
                 username = request.user.username
-                messages.success(request, "welcome %s" % username)
+                messages.success(request, "Welcome %s!" % username)
 
                 if request.GET and request.GET['next'] != '':
                     next = request.GET['next']
