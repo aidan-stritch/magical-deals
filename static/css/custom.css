@@ -57,6 +57,18 @@ h2 {
     max-width: 330px;
     margin: 20px auto 50px auto;
 }
+
+.view-review{
+    margin-top:75px;
+}
+.previous-order{
+    margin-top:75px;
+}
+.prof-review{
+    margin-top:75px;
+}
+
+
 /*..........................NavBar*/
 
 .badge-warning {
@@ -120,6 +132,13 @@ footer a {
   padding-bottom: 5px;
 }
 
+.form-control {
+    max-width: 500px;
+}
+
+.qty-input {
+    max-width: 200px;
+}
 .accountform {
   padding-top: 20px;
 }
@@ -283,6 +302,12 @@ review-star{
 /*..........................................Media Queries*/
 
 @media (max-width: 768px) {
+
+   .header-title {
+       padding-left:3%;
+   } 
+
+
   /*..........................Media Queries - Panel*/
 
   .panel-input button {

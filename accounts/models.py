@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 
 class UserCreate(models.Model):
-    
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=User)
     address_line_one = models.CharField(max_length=254, default='')
     address_line_two = models.CharField(max_length=254, default='')

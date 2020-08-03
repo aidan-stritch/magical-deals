@@ -8,7 +8,7 @@
 			{% if user.usercreate.profile_image %}
             <img src="{{ MEDIA_URL }}{{ user.usercreate.profile_image }}" class="profile-view">
             {% else %}
-            <img src="{{ MEDIA_URL }}/profile/profile_image_default.jpg" class="profile-view">
+            <img src="{{ MEDIA_URL }}profile/profile_image_default.jpg" class="profile-view">
             {% endif %}
 		</div>
         <div class="col-md-4">
@@ -74,6 +74,7 @@
         </div>
 	</div>
 </div>
+
 <div class="previous-order">
 <h4>Previous Orders</h4>
 <hr>
@@ -81,23 +82,30 @@
 {% if orders.count > 0 %}
 
     <div class="card review-cards">
-        <h3 class="card-header">orders exist</h3>
-        <div class="card-body">date: {{ orders.orderlineitem.product.product_name }}</div>
+        <h5 class="card-header">orders exist</h5>
+        <div class="card-body">date: 
+                                        {{ orders.product.product_name }}
+                                        {{ orders.orderlineitem.product.product_name }}
+                                        {{ orders.product.product_name }}  
+                                        {{ orders.product_name }}     
+                                        {{ orders.orderlineitem.product_name }}                          
+        </div>
     </div>
+
 {% else %}
     <div class="card review-cards">
-        <h3 class="card-header">No orders exist</h3>
-        <div class="card-body">test</div>
+        <h5 class="card-header">No previous orders yet</h5>
+        <div class="card-body">When you purchase your first products, they will be shown here for you. </div>
     </div>
 {% endif %}
 </div>
-<div class="review">
+<div class="prof-review">
     <h4>Previous Reviews</h4>
     <hr>
     {% if reviews.count > 0 %}
         {% for review in reviews %}
             <div class="card review-cards">
-                <h3 class="card-header">{{ review.product.product_name }}<a href="{% url 'view_product' review.product.id %}" class="btn btn-primary review-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h3>
+                <h5 class="card-header">{{ review.product.product_name }}<a href="{% url 'view_product' review.product.id %}" class="btn btn-primary review-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h5>
                 <div class="card-body">
                     <h5 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h5>
                     {% with ''|center:review.rating as range %}

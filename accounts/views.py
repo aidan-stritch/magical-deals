@@ -90,7 +90,7 @@ def edit_user(request):
         profile_form = UserAdditionalFields(
             request.POST, request.FILES, instance=request.user.usercreate)
 
-        if user_form.is_valid() and profile_form.is_valid():
+        if profile_form.is_valid() and user_form.is_valid():
             user_form.save()
             profile_form.save()
             messages.success(

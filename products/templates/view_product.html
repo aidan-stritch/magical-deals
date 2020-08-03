@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% load staticfiles %} {% block content %}
-<div class="row row-flex">
-	<div class="row">
-		<div class="col-12 header-title">
-			<p>
-				<h2>{{ product.product_name }}</h2>
-			</p>
-            {% if user.is_authenticated %}
-            <p>
-                <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
-            </p>
-            {% endif %}
-		</div>
-        
-	</div>
+<div class="row">
+    <div class="col-12 header-title">
+        <p>
+            <h2>{{ product.product_name }}</h2>
+        </p>
+        {% if user.is_authenticated %}
+        <p>
+            <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
+        </p>
+        {% endif %}
+    </div>
 </div>
 
 <div class="card mb-3 ">
@@ -78,7 +75,7 @@
 		</div>
 	</div>
 </div>
-<div class="review">
+<div class="view-review">
     <h4>Reviews</h4>
     <hr>   
     <p><a href="{% url 'add_review' product.id %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</a></p>
