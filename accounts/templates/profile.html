@@ -76,31 +76,43 @@
 </div>
 
 <div class="previous-order">
-<h4>Previous Orders</h4>
-<hr>
+    <h4>Your Orders</h4>
+    <hr>
 
-{% if orders.count > 0 %}
-
-    <div class="card review-cards">
-        <h5 class="card-header">orders exist</h5>
-        <div class="card-body">date: 
-                                        {{ orders.product.product_name }}
-                                        {{ orders.orderlineitem.product.product_name }}
-                                        {{ orders.product.product_name }}  
-                                        {{ orders.product_name }}     
-                                        {{ orders.orderlineitem.product_name }}                          
+    {% if orders.count > 0 %}
+        {% for order in orders %}
+        <div class="card review-cards">
+            <h5 class="card-header">Order Date: {{ order.date }}</h5>
+            <div class="card-body">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default row-flex">
+                    {% for item in items%}
+                        {% if item.order.id == order.id %}
+                            <div class="panel-body">
+                                <div class="card-header panel-content">
+                                    <strong>{{ item.product.product_name }}</strong>
+                                </div>
+                                <div class="panel-content">
+                                    <p><strong>Price: {{ item.product.price }}</strong></p>
+                                    <p>
+                                        <a href="{% url 'view_product' item.product.id %}" class="btn btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> See Product</a>
+                                    </p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-    </div>
-
-{% else %}
-    <div class="card review-cards">
-        <h5 class="card-header">No previous orders yet</h5>
-        <div class="card-body">When you purchase your first products, they will be shown here for you. </div>
-    </div>
-{% endif %}
+        {% endfor %}
+    {% else %}
+        <div class="card review-cards">
+            <h5 class="card-header">No previous orders yet</h5>
+            <div class="card-body">When you purchase your first products, they will be shown here for you. </div>
+        </div>
+    {% endif %}
 </div>
 <div class="prof-review">
-    <h4>Previous Reviews</h4>
+    <h4>Your Reviews</h4>
     <hr>
     {% if reviews.count > 0 %}
         {% for review in reviews %}
@@ -124,7 +136,7 @@
     {% else %}
         <div class="card review-cards">
             <h5 class="card-header">No reviews yet</h5>
-            <div class="card-body">Dont forget to review our products to help others find Magical Deals of their own!</div>
+            <div class="card-body">Don't forget to review our products to help other members find Magical Deals of their own!</div>
         </div>
     {% endif %}
 </div>

@@ -6,7 +6,7 @@ from .forms import UserSignUpFormAddon, UserAdditionalFields
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from review.models import Review
-from checkout.models import Order
+from checkout.models import Order, OrderLineItem
 
 # Create your views here.
 
@@ -53,7 +53,8 @@ def profile(request):
     user = request.user
     reviews = Review.objects.filter(user_id=user.id)
     orders = Order.objects.filter(user_id=user.id)
-    args = {"reviews": reviews, "orders": orders}
+    items = OrderLineItem.objects.all()
+    args = {"reviews": reviews, "orders": orders, "items": items}
     return render(request, 'profile.html', args)
 
 

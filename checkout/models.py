@@ -32,4 +32,5 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return "{0} {1} @ {2}".format(self.quantity,
-                                      self.product.name, self.product.price)
+                                      self.product.product_name,
+                                      self.product.price, self.order)
