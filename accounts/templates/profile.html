@@ -76,11 +76,11 @@
 </div>
 
 <div class="previous-order">
-    <h4>Your Previously Ordered Items</h4>
+    <h4>Your Previously Ordered Items <a href="{% url 'all_orders' %}" class="btn btn-primary review-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> All Orders</a></h4>
     <hr>
 
     {% if orders.count > 0 %}
-        {% for order in orders %}
+        {% for order in orders|slice:":3" %}
         <div class="card review-cards">
             <h5 class="card-header">Order Date: {{ order.date }}</h5>
             <div class="card-body">
@@ -114,7 +114,7 @@
     {% endif %}
 </div>
 <div class="prof-review">
-    <h4>Your Reviews <a href="{% url 'all_reviews' %}" class="btn btn-primary review-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> All Reviews</a></h4>
+    <h4>Your Reviews <a href="{% url 'all_reviews' %}" class="btn btn-primary review-btn"><i class="fa fa-th" aria-hidden="true"></i> All Reviews</a></h4>
     <hr>
     {% if reviews.count > 0 %}
         {% for review in reviews|slice:":3" %}

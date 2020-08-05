@@ -119,3 +119,13 @@ def delete_user(request):
         messages.success(request, "Account not deleted")
         return redirect(reverse('index', {'err': e.message}))
     return redirect(reverse('index'))
+
+
+def all_orders(request):
+    """A view that displays the profile page of a logged in user"""
+    """reviews that the user has made are passed to the profile page also"""
+    user = request.user
+    orders = Order.objects.filter(user_id=user.id).order_by('-date')
+    items = OrderLineItem.objects.all()
+    args = {"orders": orders, "items": items}
+    return render(request, 'all_orders.html', args)
