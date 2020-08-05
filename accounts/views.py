@@ -52,7 +52,7 @@ def profile(request):
     """reviews that the user has made are passed to the profile page also"""
     user = request.user
     reviews = Review.objects.filter(user_id=user.id)
-    orders = Order.objects.filter(user_id=user.id)
+    orders = Order.objects.filter(user_id=user.id).order_by('-date')
     items = OrderLineItem.objects.all()
     args = {"reviews": reviews, "orders": orders, "items": items}
     return render(request, 'profile.html', args)

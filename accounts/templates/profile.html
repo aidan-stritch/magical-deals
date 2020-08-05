@@ -76,7 +76,7 @@
 </div>
 
 <div class="previous-order">
-    <h4>Your Orders</h4>
+    <h4>Your Previously Ordered Items</h4>
     <hr>
 
     {% if orders.count > 0 %}
@@ -84,23 +84,25 @@
         <div class="card review-cards">
             <h5 class="card-header">Order Date: {{ order.date }}</h5>
             <div class="card-body">
-                <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default row-flex">
-                    {% for item in items%}
-                        {% if item.order.id == order.id %}
-                            <div class="panel-body">
-                                <div class="card-header panel-content">
-                                    <strong>{{ item.product.product_name }}</strong>
-                                </div>
-                                <div class="panel-content">
-                                    <p><strong>Price: {{ item.product.price }}</strong></p>
-                                    <p>
-                                        <a href="{% url 'view_product' item.product.id %}" class="btn btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> See Product</a>
-                                    </p>
-                                </div>
+                <div class="row row-flex">
+                
+                {% for item in items %}
+                    {% if item.order.id == order.id %}
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-3 display panel panel-default">
+                        <div class="panel-body">
+                            <div class="card-header panel-content">
+                                <strong>{{ item.product.product_name }}</strong>
                             </div>
-                        {% endif %}
-                    {% endfor %}
+                            <div class="panel-content">
+                                <p><strong>Price: <i class="fa fa-eur" aria-hidden="true"></i>{{ item.product.price }}</strong></p>
+                                <a href="{% url 'view_product' item.product.id %}" class="btn btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
                 </div>
+          
             </div>
         </div>
         {% endfor %}
