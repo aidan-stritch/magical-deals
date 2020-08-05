@@ -114,10 +114,10 @@
     {% endif %}
 </div>
 <div class="prof-review">
-    <h4>Your Reviews</h4>
+    <h4>Your Reviews <a href="{% url 'all_reviews' %}" class="btn btn-primary review-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> All Reviews</a></h4>
     <hr>
     {% if reviews.count > 0 %}
-        {% for review in reviews %}
+        {% for review in reviews|slice:":3" %}
             <div class="card review-cards">
                 <h5 class="card-header">{{ review.product.product_name }}<a href="{% url 'view_product' review.product.id %}" class="btn btn-primary review-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h5>
                 <div class="card-body">

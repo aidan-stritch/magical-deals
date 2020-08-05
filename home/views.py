@@ -15,3 +15,6 @@ def about(request):
     """displays the about us page"""
 
     return render(request, "about.html")
+
+
+

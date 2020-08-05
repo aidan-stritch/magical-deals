@@ -72,3 +72,14 @@ def delete_review(request, id):
     review.delete()
     messages.success(request, "Review successfully deleted")
     return redirect(reverse('profile'))
+
+
+def all_reviews(request):
+    """displays a html page with all of the
+    reviews a specific user has made for products
+    on Magical Deals"""
+    user = request.user
+    reviews = Review.objects.filter(user_id=user.id)
+
+    args = {"reviews": reviews}
+    return render(request, 'all_reviews.html', args)
