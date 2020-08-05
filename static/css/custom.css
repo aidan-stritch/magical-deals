@@ -303,9 +303,14 @@ review-star{
 
 @media (max-width: 768px) {
 
+    /*..........................Media Queries - Headings*/
+
    .header-title {
-       padding-left:3%;
+        padding-left:3%;
    } 
+   h3 {
+        padding-left: 3%;
+    }
 
 
   /*..........................Media Queries - Panel*/

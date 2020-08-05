@@ -31,6 +31,9 @@
                             <div class="card-header panel-content">
                                 <strong>{{ item.product.product_name }}</strong>
                             </div>
+                            <div class="col-md-12 product-view">
+                                <img src="{{ MEDIA_URL }}{{ item.product.image }}" />
+                            </div>
                             <div class="panel-content">
                                 <p><strong>Price: <i class="fa fa-eur" aria-hidden="true"></i>{{ item.product.price }}</strong></p>
                                 <a href="{% url 'view_product' item.product.id %}" class="btn btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a>

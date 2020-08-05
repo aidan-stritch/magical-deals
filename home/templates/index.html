@@ -28,6 +28,43 @@
   </div>
 </div>
 <div class="row title-div">
+    <h3>Recent Magical Deals Bought By Members</h3>
+</div>
+<div class="previous-order">
+    {% if orders.count > 0 %}
+        
+        <div class="card review-cards">
+            <h5 class="card-header">Get Your Magical Deals Today!</h5>
+            <div class="card-body">
+                <div class="row row-flex">
+                
+                    {% for item in items|slice:":8" %}
+                        
+                        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-3 display panel panel-default">
+                            <div class="panel-body">
+                                <div class="card-header panel-content">
+                                    <strong>{{ item.product.product_name }}</strong>
+                                </div>
+                                <div class="col-md-12 product-view">
+                                    <img src="{{ MEDIA_URL }}{{ item.product.image }}" />
+                                </div>
+                                <div class="panel-content">
+                                    <a href="{% url 'view_product' item.product.id %}" class="btn btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    {% endfor %}
+                
+                </div>
+          
+            </div>
+        </div>
+        
+    {% endif %}
+</div>
+
+<div class="row title-div">
     <h3>We have a wide range of products available</h3>
     {% if user.is_authenticated %}
   <div class="col-md-12">
@@ -35,7 +72,7 @@
         Click the button below to see our full product range
     </p>
     <p>
-        <a href="{% url 'products' %}" class="btn btn-success"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
+        <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
     </p>
   </div>  
   {% else %}
@@ -50,7 +87,6 @@
   </div>
   {% endif %}
 </div>
-
 
 <div id="products" class="row row-flex">
 
