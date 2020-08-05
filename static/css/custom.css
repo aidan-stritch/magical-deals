@@ -213,6 +213,27 @@ review-star{
     overflow: hidden;
   }
 
+.order-view{
+    text-align: center; 
+    margin-bottom: 5%;
+    overflow: hidden;
+    height:150px;
+}
+
+.order-view img {
+    padding: 20px;
+    height: auto;
+    width: 100%;
+    max-height: 150px;
+    max-width: 200px;
+}
+
+.prev-orders h6 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .profile-card {
     margin-top:2%;
 }
