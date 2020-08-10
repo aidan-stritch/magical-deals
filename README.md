@@ -1,17 +1,3 @@
-
-
-Image links
-
-- background image for Carousel slides https://www.pxfuel.com/en/free-photo-xtdhi
-
-products images
-
-- thors hammer: https://live.staticflickr.com/7135/6888308144_6b64f70a9d_b_d.jpg
-- captain america shield: https://live.staticflickr.com/7225/7324239866_785eb0d421_b.jpg
-- bow and arrow: https://c1.wallpaperflare.com/preview/382/109/172/bow-arrow-wooden-grass.jpg
-- ark of cov: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Debbie_Reynolds_Auction_-_%22David_and_Bathseba%22_full-scale_gilt-lacquered_Ark_of_the_Covenant_%285851597607%29.jpg/800px-Debbie_Reynolds_Auction_-_%22David_and_Bathseba%22_full-scale_gilt-lacquered_Ark_of_the_Covenant_%285851597607%29.jpg
-- zeus bolt: https://storage.needpix.com/rsynced_images/electrician-1969132_1280.png
-
 # Magical Deals
 Magical Deals is an online store for purchasing high end replicas of famous movie/TV and historical items at magical prices. 
 
@@ -132,9 +118,7 @@ This project was deployed to Heroku at the address https://magical-deals.herokua
 ### Media
 As there are many images for the procucts in this website, I have included the links to the images in a separate document.
 
-Please see the media_files.md file for the entire collection of links: https://github.com/aidan-stritch/magical-deals/blob/c05668167311c95fb9917072f6f13f627ecc83b0/media_files.md
-
-https://github.com/aidan-stritch/Personal-Interests-Manager/blob/master/wireframes.md
+Please see the media_files.md file for the entire collection of links: https://github.com/aidan-stritch/magical-deals/blob/master/media_files.md
 
 ### Acknowledgements
 - I would like to acknowledge my mentor Anthony Ngene for all of his help and advice with this project
