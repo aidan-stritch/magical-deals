@@ -36,9 +36,9 @@ A new user who does not have an account will only have access to the homepage (i
 Once logged in, the user will have full access to the sites remaining functionality. 
 
 ### User Stories
-## New Users
-## Existing Members
-## Admin / Staff Users
+#### New Users
+#### Existing Members
+#### Admin / Staff Users
 
 ### Wireframes
 ### Entity Relationship Diagram (ERD)
@@ -57,6 +57,7 @@ Once logged in, the user will have full access to the sites remaining functional
 - Heroku - This was chosen to host the website app for deployment.
 - Stripe - This was used to process the credit card payments in the checkout app
 - Travis - This was used to handle the continuous integration
+- Coverage - This reporting tool was installed and used to produce reports showing how much of the apps had been tested
 
 ## Testing
 ### Manual
@@ -90,7 +91,9 @@ Once logged in, the user will have full access to the sites remaining functional
 
 ### Automated
 #### Travis
-Travis Continuous Integration was used  to run tests on the code every time a push is made to github so that errors could be flagged and managed in an efficient manner. The build status tool below shows that the website is working efficiently. 
+Travis Continuous Integration was used  to run tests on the code every time a push is made to github so that errors could be flagged and managed in an efficient manner. 
+
+The build status tool below shows that the website is working efficiently. 
 
 [![Build Status](https://travis-ci.org/aidan-stritch/magical-deals.svg?branch=master)](https://travis-ci.org/aidan-stritch/magical-deals)
 
@@ -107,14 +110,14 @@ Each page was altered slightly between mobile and desktop for its layout to ensu
 This project was deployed to Heroku at the address https://magical-deals.herokuapp.com/ using the following steps
 
 #### Github:
-- create a new project on GitHub
-- copy the code for pushing to a GitHub repository and paste in the terminal of your project on Gitpod (git remote add origin 'link')
+- Create a new project on GitHub
+- Copy the code for pushing to a GitHub repository and paste in the terminal of your project on Gitpod (git remote add origin 'link')
 
 #### To commit the code on Gitpod to GitHub:
-- in the terminal, type "git add ." to add all new changes to the code to staging area
-- next, type "git status" to see which files are ready to be commited
-- commit these by typing "git commit -m" and adding a detailed description of the commit in ""
-- next, push the code commit to github by typing "git push -u origin master"
+- In the terminal, type "git add ." to add all new changes to the code to staging area
+- Next, type "git status" to see which files are ready to be commited
+- Commit these by typing "git commit -m" and adding a detailed description of the commit in ""
+- Next, push the code commit to github by typing "git push -u origin master"
 
 #### Heroku:
 - Create a Heroku account
@@ -125,8 +128,14 @@ This project was deployed to Heroku at the address https://magical-deals.herokua
 
 ## Credits
 ### Content
-Font icons imported from FontAwesome. 
+- Font icons imported from FontAwesome. 
 ### Media
+As there are many images for the procucts in this website, I have included the links to the images in a separate document.
+
+Please see the media_files.md file for the entire collection of links: https://github.com/aidan-stritch/magical-deals/blob/c05668167311c95fb9917072f6f13f627ecc83b0/media_files.md
+
+https://github.com/aidan-stritch/Personal-Interests-Manager/blob/master/wireframes.md
+
 ### Acknowledgements
 - I would like to acknowledge my mentor Anthony Ngene for all of his help and advice with this project
 - I would like to thank my friends and family for their testing help and advice with this project
