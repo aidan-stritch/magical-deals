@@ -15,36 +15,88 @@ products images
 - ark of cov: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Debbie_Reynolds_Auction_-_%22David_and_Bathseba%22_full-scale_gilt-lacquered_Ark_of_the_Covenant_%285851597607%29.jpg/800px-Debbie_Reynolds_Auction_-_%22David_and_Bathseba%22_full-scale_gilt-lacquered_Ark_of_the_Covenant_%285851597607%29.jpg
 - zeus bolt: https://storage.needpix.com/rsynced_images/electrician-1969132_1280.png
 
-## Gitpod Reminders
+# Magical Deals
+Magical Deals is an online store for purchasing high end replicas of famous movie/TV and historical items at magical prices. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Every day, people all around the world see items on TV and in movies that they would love to own for themselves. Items such as Thor's Hammer and Iron Man's armour are normally only things in comics or in movies, but with Magical Deals we bring these items to life so that users can purchase them at reasonable prices. 
 
-`python3 -m http.server`
+Users are able to create accounts where they will have their very own profile. Here they will be able to view previous orders and reviews they have made for products on the store. They will also be able to purchase items and leave reviews on other items on the website with ease. 
 
-A blue button should appear to click: _Make Public_,
+## UX
+This project was designed to allow users to, through CRUD functionality, manage a collection of products related to TV shows, movies and history. In particular;
+- Allows users to create an account through the signup form
+- Allows users to edit their accounts details on their profile page
+- Allows users to delete their accounts from their profile page
 
-Another blue button should appear to click: _Open Browser_.
+This website is designed for fans of popular fandom who would like a place to purchase items related to their interests as well as leaving reviews for other Magical Deal's members to help them find amazing deals. Searching through thousands of sites daily looking for the perfect gifts for your friends and family (and even yourself!) can be daunting. Magical Deals puts together a wide range of items from a long list of popular franchises and areas of interest so that you can find everything you need in one place with ease. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+I feel that this website satisfies the base requirements in that the users can create, read, update and delete data related to items in the database in an easy to use and visually appealing interface. 
 
-A blue button should appear to click: _Make Public_,
+There are a range of apps including Accounts, Cart, Checkout, Home, Products, Reviews and Search that all work together seamlessly to provide a beautifully designed and easy to navigate website that has been designed to appeal to a wide range of visitor types. 
 
-Another blue button should appear to click: _Open Browser_.
+A new user who does not have an account will only have access to the homepage (index.html), the about us page, the signup page, and the login page. They will also be able to view the full details of products that are visible on the homepage, but will be unable to purchase items, leave reviews or view all of the sites products. In place of these buttons and features, the user will see prompts to create an account to access this information. 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+Once logged in, the user will have full access to the sites remaining functionality. 
 
-## Updates Since The Instructional Video
+### User Stories
+## New Users
+## Existing Members
+## Admin / Staff Users
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+### Wireframes
+### Entity Relationship Diagram (ERD)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Features
+### Existing Features
+### Future Features
+## Technologies Used
+- HTML - This site uses HTML to instruct the browser how to interprit the code correctly and arrange the layout.
+- CSS - This site uses CSS to aid in the style, and overall theme of the website
+- Bootstrap - This site uses Bootstrap elements to help design the framework of the site
+- Python - This language was chosen to code the majority of the functionality of the site
+- Javascript - this was used to program some of the features on the site, such as the calendar
+- Balsamiq - This was used to create the wireframes in the design phase
+- Heroku - This was chosen to host the website app for deployment.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Testing
+### Manual
+#### Pages
+### Automated
+#### Travis
+#### Django / Coverage
+### Responsiveness
+This website has been designed to scale correctly to different screen sizes with no issues on layout. In order to ensure that the view was pleasant to the user, certain divs and items had to be arranged differently or hidden/shown depending on screen size. This was handled using CSS media queries.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+In order to ensure that the navigation bar was as responsive as possible, on Desktop the menu shows accross the top of the page while on mobile screens, the menu reduced to a burger icon with only the title visible. When the burger icon is clicked, a side menu appears with the links to other pages from the nav bar. 
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Each page was altered slightly between mobile and desktop for its layout to ensure that the user is getting the best UX possible, regardless of the screen size they are using. This can be seen in the wireframes section as I have included a wireframe of each page with desktop and mobile view. 
+### Bugs Found
 
----
+## Deployment
+This project was deployed to Heroku at the address https://magical-deals.herokuapp.com/ using the following steps
 
-Happy coding!
+#### Github:
+- create a new project on GitHub
+- copy the code for pushing to a GitHub repository and paste in the terminal of your project on Gitpod (git remote add origin 'link')
+
+#### To commit the code on Gitpod to GitHub:
+- in the terminal, type "git add ." to add all new changes to the code to staging area
+- next, type "git status" to see which files are ready to be commited
+- commit these by typing "git commit -m" and adding a detailed description of the commit in ""
+- next, push the code commit to github by typing "git push -u origin master"
+
+#### Heroku:
+- Create a Heroku account
+- Create a new app
+- Link the Heroku app with your Github repository
+- Push changes to git using the terminal and verify that the connection to Heroku is working
+- Add environment variables to Heroku settings.
+
+## Credits
+### Content
+Font icons imported from FontAwesome. 
+### Media
+### Acknowledgements
+- I would like to acknowledge my mentor Anthony Ngene for all of his help and advice with this project
+- I would like to thank my friends and family for their testing help and advice with this project
+- I would like to also thank the Code Insitute Tutor's for all of their help with some of the trickier functionality in this project. In particular, Tim and Samantha, who have been a massive help.
