@@ -1,7 +1,4 @@
-Travis Continuous Integration
-Runs tests on the code every time a push is made to github
 
-[![Build Status](https://travis-ci.org/aidan-stritch/magical-deals.svg?branch=master)](https://travis-ci.org/aidan-stritch/magical-deals)
 
 Image links
 
@@ -59,12 +56,44 @@ Once logged in, the user will have full access to the sites remaining functional
 - Balsamiq - This was used to create the wireframes in the design phase
 - Heroku - This was chosen to host the website app for deployment.
 - Stripe - This was used to process the credit card payments in the checkout app
+- Travis - This was used to handle the continuous integration
 
 ## Testing
 ### Manual
-#### Pages
+#### Accounts App Pages
+##### All Orders Page
+##### Edit User Page
+##### Login Page
+##### Profile Page
+##### Sign Up Page
+#### Cart App Pages
+##### Cart Page
+#### Checkout App Pages
+##### Checkout Page
+#### Home App Pages
+##### About Page
+##### Index Page / Homepage
+#### Products App Pages
+##### Add Product Page
+##### Edit Product Page
+##### Products Page
+##### View Product Page
+#### Review App Pages
+##### Add Review 
+##### All Reviews
+##### Edit Review
+#### Password Reset Functionality Pages
+##### Password Reset Form Page
+##### Password Reset Done Page
+##### Password Reset Confirm Page
+##### Password Reset Complete Page
+
 ### Automated
 #### Travis
+Travis Continuous Integration was used  to run tests on the code every time a push is made to github so that errors could be flagged and managed in an efficient manner. The build status tool below shows that the website is working efficiently. 
+
+[![Build Status](https://travis-ci.org/aidan-stritch/magical-deals.svg?branch=master)](https://travis-ci.org/aidan-stritch/magical-deals)
+
 #### Django / Coverage
 ### Responsiveness
 This website has been designed to scale correctly to different screen sizes with no issues on layout. In order to ensure that the view was pleasant to the user, certain divs and items had to be arranged differently or hidden/shown depending on screen size. This was handled using CSS media queries.
