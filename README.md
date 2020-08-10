@@ -53,10 +53,12 @@ Once logged in, the user will have full access to the sites remaining functional
 - HTML - This site uses HTML to instruct the browser how to interprit the code correctly and arrange the layout.
 - CSS - This site uses CSS to aid in the style, and overall theme of the website
 - Bootstrap - This site uses Bootstrap elements to help design the framework of the site
-- Python - This language was chosen to code the majority of the functionality of the site
+- Django - This was the chosen framework for developing the project
+- Python - This language was chosen to code the a large amount of the functionality of the site
 - Javascript - this was used to program some of the features on the site, such as the calendar
 - Balsamiq - This was used to create the wireframes in the design phase
 - Heroku - This was chosen to host the website app for deployment.
+- Stripe - This was used to process the credit card payments in the checkout app
 
 ## Testing
 ### Manual
