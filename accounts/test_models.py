@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import UserCreate
+from django.contrib.auth.models import User
 
 # Create your tests here.
 
@@ -10,6 +11,8 @@ class AccountModelTests(TestCase):
     """
 
     def test_str(self):
+
+        test_this_user = UserCreate(user="_2")
         test_address_1 = UserCreate(address_line_one='This is an address')
         test_address_2 = UserCreate(address_line_two='This is an address')
         test_address_3 = UserCreate(address_line_three='This is an address')
@@ -18,6 +21,9 @@ class AccountModelTests(TestCase):
         test_country = UserCreate(country='Ireland')
         test_postcode = UserCreate(postcode='D085523')
         test_phone = UserCreate(phone='555-8859')
+
+        self.assertEqual(str(test_this_user.user),
+                         "_2")
 
         self.assertEqual(str(test_address_1.address_line_one),
                          'This is an address')
