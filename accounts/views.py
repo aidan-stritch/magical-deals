@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
 from django.core.urlresolvers import reverse
 from .forms import UserLoginForm, UserSignUpForm, StaffField
@@ -86,6 +86,7 @@ def register(request):
 def edit_user(request):
     """A view that allows a user to add and edit
     additional information for their profile"""
+    this_user =request.user
 
     if request.method == 'POST':
         user_form = UserSignUpFormAddon(request.POST, instance=request.user)
@@ -108,7 +109,8 @@ def edit_user(request):
     args = {
         'user_form': user_form,
         'profile_form': profile_form,
-        'staff_form': staff_form
+        'staff_form': staff_form,
+        'this_user': this_user
     }
     return render(request, 'edit_user.html', args)
 
@@ -138,20 +140,20 @@ def all_orders(request):
 def all_users(request):
     """A view that displays all of the users for a staff / admin to"""
     """review the users basic info and change if they are staff or not"""
-    users = User.objects.all()
-    return render(request, 'all_users.html', {"users": users})
+    all_users = User.objects.all()
+    return render(request, 'all_users.html', {"all_users": all_users})
 
 
 @login_required
 def admin_delete_user(request, id):
     """A view that allows an admin to delete a user"""
     admin = request.user
-    this_user = id.id
+    this_user = get_object_or_404(User, id=id)
 
     try:
         this_user.delete()
         messages.success(request, "Account successfully deleted.")
-        if admin.id == this_user:
+        if admin.id == this_user.id:
             return redirect(reverse('index'))
     except Exception as e:
         messages.success(request, "Account not deleted")
@@ -162,19 +164,23 @@ def admin_delete_user(request, id):
 @login_required
 def admin_edit_user(request, id):
     """A view that allows an admin to edit a user"""
-    this_user = id
+    this_user = get_object_or_404(User, id=id)
 
     if request.method == 'POST':
         user_form = UserSignUpFormAddon(request.POST, instance=this_user)
         profile_form = UserAdditionalFields(
             request.POST, request.FILES, instance=this_user.usercreate)
+        staff_form = StaffField(request.POST, instance=this_user.usercreate)
 
-        if profile_form.is_valid() and user_form.is_valid():
+        if profile_form.is_valid() and user_form.is_valid() and staff_form.is_valid():
             user_form.save()
             profile_form.save()
+            staff_form.save()
+
             messages.success(
                 request, "Your profile has successfully been updated!")
-            return redirect(reverse('profile'))
+            return redirect(reverse('all_users'))
+
         else:
             messages.error(
                 request, "Unable to update. Please rectify the problems below")
@@ -186,9 +192,7 @@ def admin_edit_user(request, id):
     args = {
         'user_form': user_form,
         'profile_form': profile_form,
-        'staff_form': staff_form
+        'staff_form': staff_form,
+        'this_user': this_user
     }
     return render(request, 'edit_user.html', args)
-
-
-

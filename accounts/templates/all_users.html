@@ -16,29 +16,34 @@
 </div>
 
 <div class="previous-order">
-    {% if users.count > 0 %}
-        {% for user in users %}
+    {% if all_users.count > 0 %}
+        {% for this_user in all_users %}
         <div class="card review-cards">
-            <h5 class="card-header"><strong>Username:</strong> {{ user.username }}</h5>
+            <h5 class="card-header"><strong>Username:</strong> {{ this_user.username }}</h5>
+
             <div class="card-body">
                 <div class="row">
                     <div class="form-check">
-                        {% if user.usercreate.staff == True %}
-                        <input class="form-check-input" type="radio" value="Staff" checked disabled>
-                        <label class="form-check-label" for="Staff">
-                        User is staff
-                        </label>
+                        <ul>
+                            <li><strong>Name: </strong>{%if this_user.first_name or this_user.last_name %} {{ this_user.first_name }} {{ this_user.last_name }} {% else %} N/A {% endif %}</li>
+                            <li><strong>Email: </strong> {{ this_user.email }} </li>
+                            <li><strong>Phone: </strong>{%if this_user.phone %}{{ this_user.phone }} {% else %} N/A {% endif %}</li>
+                        </ul>
+                        {% if this_user.usercreate.staff == True %}
+                            <input class="form-check-input" type="radio" value="Staff" checked disabled>
+                            <label class="form-check-label" for="Staff">
+                            User is staff
+                            </label>
                         {% else %}
-                        <input class="form-check-input" type="radio" value="NotStaff" disabled>
-                        <label class="form-check-label" for="NotStaff">
-                        User is not staff
-                        </label>
+                            <input class="form-check-input" type="radio" value="NotStaff" disabled>
+                            <label class="form-check-label" for="NotStaff">
+                            User is not staff
+                            </label>
                         {% endif%}
-                        
                     </div>
                 </div>
-                <a href="{% url 'admin_edit_user' user.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit Profile</a> 
-                <a href="{% url 'admin_delete_user'  user.id%}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete Profile</a>        
+                <a href="{% url 'admin_edit_user' this_user.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit Profile</a> 
+                <a href="{% url 'admin_delete_user'  this_user.id%}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete Profile</a>        
             </div>
             
         </div>

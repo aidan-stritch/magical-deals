@@ -7,16 +7,16 @@ from .forms import UserLoginForm
 # tests for the views in the accounts app.
 class ViewTests(TestCase):
     def test_get_login_page(self):
-        page = self.client.get("/login/")
+        page = self.client.get("/accounts/login/")
         self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "accounts/login.html")
+        self.assertTemplateUsed(page, "login.html")
 
     def test_get_register_page(self):
-        page = self.client.get("/register")
+        page = self.client.get("/accounts/register/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "sign-up.html")
 
     def test_get_profile_page(self):
-        page = self.client.get("/profile")
+        page = self.client.get("/accounts/profile/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "profile.html")

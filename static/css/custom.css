@@ -41,6 +41,10 @@ h2 {
   color: orange;
 }
 
+.form-check-input:disabled~.form-check-label {
+     color: #000000; 
+}
+
 .total-row {
     background-color: #f7f7f7;
     padding-left: 3%;

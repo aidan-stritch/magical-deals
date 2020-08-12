@@ -38,6 +38,7 @@
                 </p>
                 {% if user.usercreate.staff == True %}
                 <p>its True</p>
+                <a href="{% url 'all_users' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> users</a>
                 {% else %}
                 <p>its False</p>
                 <a href="{% url 'all_users' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> users</a>
