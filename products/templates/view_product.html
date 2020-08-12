@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% load staticfiles %} {% block content %}
-<div class="row">
-    <div class="col-12 header-title">
-        <p>
-            <h2>{{ product.product_name }}</h2>
-        </p>
-        {% if user.is_authenticated %}
-        <p>
-            <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
-        </p>
-        {% endif %}
-    </div>
-</div>
 
-<div class="card mb-3 ">
+
+<div class="card mb-3 test">
+    <div class="card-header product-full-view">
+        <h2 class="card-title">{{ product.product_name }}
+        {% if user.is_authenticated %}
+        <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
+        {% endif %}
+        </h2>
+    </div>
 	<div class="row no-gutters">
+        
 		<div class="col-md-12 full-product-view"> 
             <img src="{{ MEDIA_URL }}{{ product.image }}"> 
       </div>
@@ -56,12 +53,12 @@
 
 					</form>
 				</p>
-                
+            {% if user.usercreate.staff == True %}    
             <p>
 				<a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit</a>
                 <a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
 			</p>
-            
+            {% endif %}
 				{% else %}
 				<p class="important">
 					Create an account or log in to see prices and purchase this item
