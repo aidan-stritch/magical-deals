@@ -36,13 +36,6 @@
                         {% endif %}
                     </ul>
                 </p>
-                {% if user.usercreate.staff == True %}
-                <p>its True</p>
-                <a href="{% url 'all_users' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> users</a>
-                {% else %}
-                <p>its False</p>
-                <a href="{% url 'all_users' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> users</a>
-                {% endif %}
             </div>
         </div>
         <div class="col-md-4">
@@ -78,9 +71,34 @@
                 <a href="{% url 'edit_user' %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit Profile</a>
                 <a href="{% url 'delete_user' %}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete Profile</a>
             </p>
+            {% if user.usercreate.staff == True %}
+                <div class="col-md-12 card staff-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Staff Tasks</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Please use the buttons below for website tasks.
+                        </p>
+                        <div class="display staff-btn">
+                            <p>
+                                <a href="{% url 'all_users' %}" class="btn btn-info"><i class="fa fa-users" aria-hidden="true"></i> View All Users</a>
+                                <a href="{% url 'products' %}" class="btn btn-info"><i class="fa fa-th" aria-hidden="true"></i> View All Products</a>
+                            </p>
+                            
+                            <p>
+                                <a href="{% url 'add_product' %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Product</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
+        
 	</div>
 </div>
+          
+
 
 <div class="previous-order">
     <h4>Recent Orders <a href="{% url 'all_orders' %}" class="btn btn-primary review-btn"><i class="fa fa-dropbox" aria-hidden="true"></i> All Orders</a></h4>
