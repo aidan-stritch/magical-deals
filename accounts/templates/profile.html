@@ -101,7 +101,7 @@
 
 
 <div class="previous-order">
-    <h4>Recent Orders <a href="{% url 'all_orders' %}" class="btn btn-primary review-btn"><i class="fa fa-dropbox" aria-hidden="true"></i> All Orders</a></h4>
+    <h4>Recent Orders <a href="{% url 'all_orders' %}" class="btn btn-primary heading-btn"><i class="fa fa-dropbox" aria-hidden="true"></i> All Orders</a></h4>
     <hr>
 
     {% if orders.count > 0 %}
@@ -139,7 +139,7 @@
     {% endif %}
 </div>
 <div class="prof-review">
-    <h4>Your Reviews <a href="{% url 'all_reviews' %}" class="btn btn-primary review-btn"><i class="fa fa-comments-o" aria-hidden="true"></i> All Reviews</a></h4>
+    <h4>Your Reviews <a href="{% url 'all_reviews' %}" class="btn btn-primary heading-btn"><i class="fa fa-comments-o" aria-hidden="true"></i> All Reviews</a></h4>
     <hr>
     {% if reviews.count > 0 %}
         {% for review in reviews|slice:":3" %}

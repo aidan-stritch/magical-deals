@@ -27,17 +27,18 @@
     </div>
   </div>
 </div>
-<div class="row title-div">
-    <h3>Recent Magical Deals Bought By Members</h3>
-    <p>Dont forget to get an account today so that you can get some deals like our other members!</p>
-</div>
 
 <div class="previous-order">
     {% if orders.count > 0 %}
         
         <div class="card review-cards">
-            <h5 class="card-header">Get Your Magical Deals Today!</h5>
+            <h3 class="card-header">Recent Magical Deals Bought By Members</h3>
             <div class="card-body">
+                {% if user.is_authenticated %}
+                    <p>Get your Magical Deals today!</p>
+                {% else %}
+                    <p>Dont forget to get an account today so that you can get some deals like our other members!</p>
+                {% endif %}
                 <div class="row row-flex">
                 
                     {% for item in items|slice:":8" %}
@@ -66,31 +67,27 @@
     {% endif %}
 </div>
 
-<div class="row title-div">
-    <h3>We have a wide range of products available</h3>
-    
+<div class="title-div">
+    <h3>We have a wide range of products available 
+    {% if user.is_authenticated %}
+        <a href="{% url 'products' %}" class="btn btn-primary heading-btn"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
+    {% endif %}
+    </h3> 
+    <hr>
 </div>
 <div>
     {% if user.is_authenticated %}
-    <p>
-        Click the button below to see our full product range
-    </p>
-    <p>
-        <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> All Products</a>
-    </p>
-    
-  {% else %}
-  
-    <p>
-        Please create an account or log in to see our full range of products
-    </p>
-    <p>
-        <a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
-        <a href="{% url 'login' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
-    </p>
-  
-  {% endif %}
-    </div>
+        <p>Look out for special offers daily!</p>
+    {% else %}
+        <p>
+            Please create an account or log in to see our full range of products
+        </p>
+        <p>
+            <a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+            <a href="{% url 'login' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
+        </p>
+    {% endif %}
+</div>
 
 <div id="products" class="row row-flex">
     {% for product in products|slice:":4" %}
@@ -109,14 +106,6 @@
             {% else %}
             <p class="important">Log in to see prices</p>
             {% endif %}
-            <p><b>Rating:</b> {{ product.rating }}/10 </p>
-            <p>
-            {% with ''|center:product.rating as range %}
-            {% for _ in range %}
-                <span class="fa fa-star checked"></span>
-            {% endfor %}
-            {% endwith %}
-            </p>
         {% if user.is_authenticated %}
         <form method="POST" action="{% url 'add_to_cart' product.id %}">
             {% csrf_token %}

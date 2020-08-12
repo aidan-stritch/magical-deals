@@ -66,6 +66,11 @@ h2 {
 
 /*..........................Headings*/
 
+.heading-btn {
+    float: right!important;
+    margin-top: 1px!important;
+}
+
 .title-div{
     padding-top:40px;
 }
@@ -131,10 +136,7 @@ footer a {
     margin-left:10px;
 }
 
-.review-btn {
-    float: right;
-    margin-top: 1px!important;
-}
+
 
 /*..........................Forms*/
 
