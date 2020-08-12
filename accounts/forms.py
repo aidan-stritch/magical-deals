@@ -58,3 +58,9 @@ class UserAdditionalFields(forms.ModelForm):
         fields = ('address_line_one', 'address_line_two',
                   'address_line_three', 'city', 'country', 'postcode',
                   'phone', 'profile_image')
+
+
+class StaffField(forms.ModelForm):
+    class Meta:
+        model = UserCreate
+        fields = ('staff',)

@@ -138,6 +138,12 @@ footer a {
   padding-bottom: 5px;
 }
 
+.form-check{
+    padding-left: 4.25rem;
+    padding-bottom: 10px;
+}
+
+
 .form-control {
     max-width: 500px;
 }

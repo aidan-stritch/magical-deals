@@ -36,6 +36,12 @@
                         {% endif %}
                     </ul>
                 </p>
+                {% if user.usercreate.staff == True %}
+                <p>its True</p>
+                {% else %}
+                <p>its False</p>
+                <a href="{% url 'all_users' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> users</a>
+                {% endif %}
             </div>
         </div>
         <div class="col-md-4">

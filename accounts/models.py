@@ -15,6 +15,7 @@ class UserCreate(models.Model):
     postcode = models.CharField(max_length=254, default='')
     phone = models.CharField(max_length=254, default='')
     profile_image = models.FileField(upload_to='profile')
+    staff = models.BooleanField(default=False)
 
     @receiver(post_save, sender=User)
     def create_user(sender, instance, created, **kwargs):

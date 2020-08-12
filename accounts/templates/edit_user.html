@@ -18,6 +18,9 @@
     {% csrf_token %}
     <p>{{ user_form | as_bootstrap }}</p>
     <p>{{ profile_form | as_bootstrap }}</p>
+    {% if user.usercreate.staff == True %}
+    <p>{{ staff_form | as_bootstrap }}</p>
+    {% endif%}
 
     <button type="submit" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Update Account</button>
     <a href="{% url 'profile' %}" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> Back</a>

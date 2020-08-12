@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.core.urlresolvers import reverse
-from .forms import UserLoginForm, UserSignUpForm
+from .forms import UserLoginForm, UserSignUpForm, StaffField
 from .forms import UserSignUpFormAddon, UserAdditionalFields
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from review.models import Review
 from checkout.models import Order, OrderLineItem
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -103,9 +104,11 @@ def edit_user(request):
     else:
         user_form = UserSignUpFormAddon(instance=request.user)
         profile_form = UserAdditionalFields(instance=request.user.usercreate)
+        staff_form = StaffField()
     args = {
         'user_form': user_form,
-        'profile_form': profile_form
+        'profile_form': profile_form,
+        'staff_form': staff_form
     }
     return render(request, 'edit_user.html', args)
 
@@ -129,3 +132,63 @@ def all_orders(request):
     items = OrderLineItem.objects.all()
     args = {"orders": orders, "items": items}
     return render(request, 'all_orders.html', args)
+
+
+@login_required
+def all_users(request):
+    """A view that displays all of the users for a staff / admin to"""
+    """review the users basic info and change if they are staff or not"""
+    users = User.objects.all()
+    return render(request, 'all_users.html', {"users": users})
+
+
+@login_required
+def admin_delete_user(request, id):
+    """A view that allows an admin to delete a user"""
+    admin = request.user
+    this_user = id.id
+
+    try:
+        this_user.delete()
+        messages.success(request, "Account successfully deleted.")
+        if admin.id == this_user:
+            return redirect(reverse('index'))
+    except Exception as e:
+        messages.success(request, "Account not deleted")
+        return redirect(reverse('all_users', {'err': e.message}))
+    return redirect(reverse('all_users'))
+
+
+@login_required
+def admin_edit_user(request, id):
+    """A view that allows an admin to edit a user"""
+    this_user = id
+
+    if request.method == 'POST':
+        user_form = UserSignUpFormAddon(request.POST, instance=this_user)
+        profile_form = UserAdditionalFields(
+            request.POST, request.FILES, instance=this_user.usercreate)
+
+        if profile_form.is_valid() and user_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(
+                request, "Your profile has successfully been updated!")
+            return redirect(reverse('profile'))
+        else:
+            messages.error(
+                request, "Unable to update. Please rectify the problems below")
+    else:
+        user_form = UserSignUpFormAddon(instance=this_user)
+        profile_form = UserAdditionalFields(instance=this_user.usercreate)
+        staff_form = StaffField(instance=this_user.usercreate)
+
+    args = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'staff_form': staff_form
+    }
+    return render(request, 'edit_user.html', args)
+
+
+
