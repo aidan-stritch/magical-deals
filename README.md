@@ -19,12 +19,44 @@ There are a range of apps including Accounts, Cart, Checkout, Home, Products, Re
 
 A new user who does not have an account will only have access to the homepage (index.html), the about us page, the signup page, and the login page. They will also be able to view the full details of products that are visible on the homepage, but will be unable to purchase items, leave reviews or view all of the sites products. In place of these buttons and features, the user will see prompts to create an account to access this information. 
 
-Once logged in, the user will have full access to the sites remaining functionality. 
+Once logged in, the members will have access to the sites remaining functionality for purchasing items, adding, editing and deleting reviews and editing content on their personal profile.
+
+Once logged in, staff members have access to the same functionality as members for testing purposes (as well as potentially allowing staff to purchase items for personal use in future). On top of this, they have access to create new products, edit and delete products and manage users. 
 
 ### User Stories
 #### New Users
+- As a new user, I would like to be able to view information about the website so that I can decide whether to use their services or not
+- As a new user, I would like to be able to see reasons why I should create an account so that I can decide if I would like to become a members
+- As a new user, I would like to be able to view a sample range of items so that I can get an idea of what items the website offers
+- As a new user, I would like to be able to view reviews on individual items so that I can see what other users think of the items 
+- As a new user, I would like to be able to view examples of items other customers have bought for ideas on what I might want to buy 
+- As a new user, I would like to be able to see a site map so that I can navigate to a specific page easier
 #### Existing Members
+- As an existing member, I would like to be able to reset my password in case I forget my old password so that I can log in to my profile
+- As an existing member, I would like to be able to log into my profile easily so that I can review my profile information
+- As an existing member, I would like to be able to edit my personal information on my profile so that I can keep the information up to database
+- As an existing member, I would like to be able to delete my profile when I am finished with Magical Deals services so that I can protect my data
+- As an existing member, I would like to be able to view my recent orders so that I can add reviews to them easily
+- As an existing member, I would like to be able to view all of my previous orders so that I can find items that I have previously bought to purchase them again
+- As an existing member, I would like to be able to view my recent reviews of items so that I can edit or delete them if neccessary
+- As an existing member, I would like to be able to review all of my reviews so that I can find old reviews and edit them with ease
+- As an existing member, I would like to be able to see prices on items so that I can find items that I can afford
+- As an existing member, I would like to be able to add items to a cart so that I can eventually purchase them
+- As an existing member, I would like to be able to view all of the products available on the website 
+- As an existing member, I would like to be able to narrow down my search options of the products using keywords to make it easier to find items
+- As an existing member, I would like to be able to view my cart and edit/remove items that I have changed my mind about purchasing
+- As an existing member, I would like to be able to checkout and provide a different delivery address for my items to be shipped to 
+- As an existing member, I would like to be able to checkout and provide a credit card as payment 
+
 #### Admin / Staff Users
+- As a staff member, I would like to be able to create new products on the website so that we can increase our offering 
+- As a staff member, I would like to be able to edit existing products so that I can change them when neccessary
+- As a staff member, I would like to be able to be able to delete items from the store when they are no longer available
+- As a staff member, I would like to be able to view all of the users of the website so that I can manage them
+- As a staff member, I would like to be able to be able to edit and delete reviews in case they contain any offensive or inappropriate content
+- As a staff member, I would like to be able to delete a user from the website in case it is neccessary
+- As a staff member, I would like to be able to be able to edit a users information in case it is neccessary
+- As a staff member, I would like to be able to be able to grant a user staff access or remove it if neccessary
 
 ### Wireframes
 ### Entity Relationship Diagram (ERD)

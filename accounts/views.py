@@ -86,7 +86,7 @@ def register(request):
 def edit_user(request):
     """A view that allows a user to add and edit
     additional information for their profile"""
-    this_user =request.user
+    this_user = request.user
 
     if request.method == 'POST':
         user_form = UserSignUpFormAddon(request.POST, instance=request.user)

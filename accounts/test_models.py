@@ -9,10 +9,18 @@ class AccountModelTests(TestCase):
     """
     Tests for the UserCreate model
     """
-"""
+    @classmethod
+    def setUpTestData(cls):
+        User.objects.create_user(
+            email='whosthedoctor@gallifrey.com',
+            username='TheDoctor',
+            password='tardis',
+            first_name='Doctor',
+            last_name='Who'
+        )
+
     def test_str(self):
 
-        test_this_user = UserCreate(user="_2")
         test_address_1 = UserCreate(address_line_one='This is an address')
         test_address_2 = UserCreate(address_line_two='This is an address')
         test_address_3 = UserCreate(address_line_three='This is an address')
@@ -21,9 +29,6 @@ class AccountModelTests(TestCase):
         test_country = UserCreate(country='Ireland')
         test_postcode = UserCreate(postcode='D085523')
         test_phone = UserCreate(phone='555-8859')
-
-        self.assertEqual(str(test_this_user.user),
-                         "_2")
 
         self.assertEqual(str(test_address_1.address_line_one),
                          'This is an address')
@@ -38,8 +43,14 @@ class AccountModelTests(TestCase):
         self.assertEqual(str(test_postcode.postcode), 'D085523')
         self.assertEqual(str(test_phone.phone), '555-8859')
 
-    def test_done_defaults_to_False(self):
-        user = UserCreate(address_line_one='This is an address')
+    def test_done_defaults_to_True(self):
+        user = User.objects.create_user(
+            email='whosthemaster@gallifrey.com',
+            username='TheMaster',
+            password='tardis',
+            first_name='The',
+            last_name='Master'
+        )
+
         user.save()
-        self.assertTrue(user.done)
-"""
+        self.assertTrue(user.save)
