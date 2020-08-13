@@ -59,11 +59,22 @@ Once logged in, staff members have access to the same functionality as members f
 - As a staff member, I would like to be able to be able to grant a user staff access or remove it if neccessary
 
 ### Wireframes
+
+    ****** TO BE DONE ******
+
 ### Entity Relationship Diagram (ERD)
+
+    ****** TO BE DONE ******
 
 ## Features
 ### Existing Features
+
+    ****** TO BE DONE ******
+
 ### Future Features
+
+    ****** TO BE DONE ******
+
 ## Technologies Used
 - HTML - This site uses HTML to instruct the browser how to interprit the code correctly and arrange the layout.
 - CSS - This site uses CSS to aid in the style, and overall theme of the website
@@ -79,33 +90,20 @@ Once logged in, staff members have access to the same functionality as members f
 
 ## Testing
 ### Manual
-#### Accounts App Pages
-##### All Orders Page
-##### Edit User Page
-##### Login Page
-##### Profile Page
-##### Sign Up Page
-#### Cart App Pages
-##### Cart Page
-#### Checkout App Pages
-##### Checkout Page
-#### Home App Pages
-##### About Page
-##### Index Page / Homepage
-#### Products App Pages
-##### Add Product Page
-##### Edit Product Page
-##### Products Page
-##### View Product Page
-#### Review App Pages
-##### Add Review 
-##### All Reviews
-##### Edit Review
-#### Password Reset Functionality Pages
-##### Password Reset Form Page
-##### Password Reset Done Page
-##### Password Reset Confirm Page
-##### Password Reset Complete Page
+As there are many pages for the Magical Deals website which had to be manually tested to ensure functionality and UX were correct, they have been included in a separate file to avoid taking up too much space on the README.md documentation.
+
+Please see the manual_testing.md file for the full breakdown of the manual testing done for this site. You can use this link to reach the file: https://github.com/aidan-stritch/magical-deals/blob/master/manual_testing.md
+
+During this process, several issues were discovered which have been since fixed on the site. Some examples of these include; 
+- When a customer adds a product with a negative value it accepts it and is created 
+- On forms the required fields were not clearly defined for users to be aware
+- Guidelines on site (such as list of tips for creating products) were not consistently handled by CSS
+- Error message for invalid fields on form submission were not clearly visible
+- Some fields that are not neccessary on the user create form are marked as mandatory (e.g. Address Line Three). This was changed. 
+- Product Search box on Products.html page was too small for UX. This was resized.
+- Some button labels did not clearly define what it does (e.g. "Add" instead of "Add to Cart")
+
+There are other issues that could not be fixed due to ability / time contraints that have been included in the "Bugs Found" section below. 
 
 ### Automated
 #### Travis
@@ -116,6 +114,9 @@ The build status tool below shows that the website is working efficiently.
 [![Build Status](https://travis-ci.org/aidan-stritch/magical-deals.svg?branch=master)](https://travis-ci.org/aidan-stritch/magical-deals)
 
 #### Django / Coverage
+
+    ****** TO BE DONE ******
+
 ### Responsiveness
 This website has been designed to scale correctly to different screen sizes with no issues on layout. In order to ensure that the view was pleasant to the user, certain divs and items had to be arranged differently or hidden/shown depending on screen size. This was handled using CSS media queries.
 
@@ -123,6 +124,8 @@ In order to ensure that the navigation bar was as responsive as possible, on Des
 
 Each page was altered slightly between mobile and desktop for its layout to ensure that the user is getting the best UX possible, regardless of the screen size they are using. This can be seen in the wireframes section as I have included a wireframe of each page with desktop and mobile view. 
 ### Bugs Found
+
+    ****** TO BE DONE ******
 
 ## Deployment
 This project was deployed to Heroku at the address https://magical-deals.herokuapp.com/ using the following steps
@@ -148,7 +151,7 @@ This project was deployed to Heroku at the address https://magical-deals.herokua
 ### Content
 - Font icons imported from FontAwesome. 
 ### Media
-As there are many images for the procucts in this website, I have included the links to the images in a separate document.
+As there are many images for the products in this website, I have included the links to the images in a separate document.
 
 Please see the media_files.md file for the entire collection of links: https://github.com/aidan-stritch/magical-deals/blob/master/media_files.md
 
