@@ -215,7 +215,11 @@ Testers were requested to also test the "Navigation UX" (outlined below) on each
 
 ### Password Reset Confirm Page (Step 3)
 - Following the test for Password Reset Form Page (Step 1), find the email in your inbox and click the link provided to reset the password
-    - 
+    - Click on the "Change my password" button without filling in any details into the fields and confirm that a prompt appears telling you that the fields are required
+    - Enter a new password into the first password field, and an incorrect password into the second password field, click on the "Change my password" button and confirm that the error message appears stating "The two password fields didn't match." 
+    - Enter a new password (less than 8 characters) into both the "New password" and "Confirm password" fields that matches and click on the "change my password" button. Confirm that the error message appears stating "This password is too short. It must contain at least 8 characters."
+    - Enter a new password (with 8 numeric characters only) into both the "New password" and "Confirm password" fields that matches and click on the "change my password" button. Confirm that the error message appears stating "This password is entirely numeric."
+    - Enter a new password that has 8 characters and a mixture of numeric and alphanumeric into both the "New password" and "Confirm password" fields that matches and click on the "change my password" button. Confirm that you are redirected to the Password Reset Complete Page (Step 4)
 
 ### Password Reset Complete Page (Step 4)
--
+- Click on the "Log In" button and confirm that you are redirected to the Log In page
