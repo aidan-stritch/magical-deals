@@ -71,7 +71,7 @@ Testers were requested to also test the "Navigation UX" (outlined below) on each
 - Click on the "Add Product" button and confirm that you are redirected to the Add Product page
 
 ### Edit User Page
-#### Regular Users
+*Regular Users*
 - Fill in all fields correctly (including uploading an image for profile), click on "Update Account" and confirm that you are redirected back to the Profile page with a message confirming that your changes have been saved
 - Leave all items blank, click on "Update Account" and confirm that a message is displayed prompting the user that certain fields are required
 - Click on the "Back" button and confirm that you are redirected to the Profile page without any changes being saved
