@@ -30,7 +30,7 @@ Testers were requested to also test the "Navigation UX" (outlined below) on each
 - Click on the "Profile" button on the Site Map links and confirm that it redirects to the Profile page
 - Click on the "Cart" button on the Site Map links and confirm that it redirects to the Cart page
 
-## Accounts App Pages
+## Accounts App
 ### Sign Up Page
 - Enter "TestUser" (which exists in the DB) into the Username field and fill out the rest of the form fields correctly. Click on "Create Account" and confirm that an error message appears stating: "A user with that username already exists"
 - Enter a unique username and email address correctly. Enter password into the "Password" field and an incorrect password into "Confirm Password". Click on "Create Account" and confirm that an error message appears stating: "Passwords do not match"
@@ -71,12 +71,12 @@ Testers were requested to also test the "Navigation UX" (outlined below) on each
 - Click on the "Add Product" button and confirm that you are redirected to the Add Product page
 
 ### Edit User Page
-    Regular Users
+#### Regular Users
 - Fill in all fields correctly (including uploading an image for profile), click on "Update Account" and confirm that you are redirected back to the Profile page with a message confirming that your changes have been saved
 - Leave all items blank, click on "Update Account" and confirm that a message is displayed prompting the user that certain fields are required
 - Click on the "Back" button and confirm that you are redirected to the Profile page without any changes being saved
 
-    Staff Users
+#### Staff Users
 - Fill out form correctly and then;
     - Confirm that at the end of the edit user form a checkbox is present to make the user either staff or not staff
     - Change the setting to the opposite of the current setting 
@@ -84,29 +84,138 @@ Testers were requested to also test the "Navigation UX" (outlined below) on each
 - Click on the "Back" button and confirm that you are redirected to the All Users page without any changes being saved
 
 ### All Orders Page
+- Click on the "Profile" button and confirm that you are redirected to the Profile page 
+- Click on the "Continue Shopping" button and confirm that you are redirected to the Products page
+- Click on the "View Product" button in the card for a product and confirm that you are redirected to the view product page for that specific product
+
 ### All Users Page
+- Click on the "Profile" button and confirm that you are redirected to the Profile page 
+- Click on the "Edit Profile" button and confirm that you are redirected to the Edit Profile page for that user
+- Click on the "Delete Profile" button and confirm that the user is deleted and that a message appears stating that the account was successfully deleted
 
-
-
-
-## Cart App Pages
+## Cart App
 ### Cart Page
-## Checkout App Pages
+- Increase the quantity of an item and click the "Update" button and confirm that the current quantity has changed and the order total increased to reflect the addition
+- Decrease the quantity of an item to zero, click the "Update" button and confirm that the item is removed from the cart
+- Click on the "Continue Shopping" button and confirm that you are redirected to the Products page
+- Click on the "Empty Cart" button and confirm that all of the items are removed from the cart, and that you are redirected to the homepage with a message stating that the cart was successfully emptied
+- Click on the "Checkout" button and confirm that you are redirected to the Checkout page
+
+## Checkout App 
 ### Checkout Page
-## Home App Pages
+- Click on the "Submit Payment" button with no fields filled in and confirm that an error message appears stating "Could not find payment information"
+- Fill in the credit card number with test data "4242424242424242", the CVV as "111" and select a year in the past. Click "Submit Payment" and confirm that a message is shown stating "Your card's expiration year is invalid."
+- Fill in the credit card number with test data "4242424242424242", the CVV as "111" and select a year in the future. Click "Submit Payment" and confirm that you are redirected to the profile page and a message is shown stating "Payment successful"
+
+## Home App 
 ### About Page
+- Click on the "Sign In" button and confirm that you are redirected to the Sign In page
+
 ### Index Page / Homepage
-## Products App Pages
-### Add Product Page
-### Edit Product Page
+#### Pre-Login 
+- Click on the Carousel image for "Products" and confirm you are redirected to the Log In page
+- In the "We have a wide range of products available" section
+    - Click on the "Sign Up" button and confirm you are redirected to the Sign Up page
+    - Click on the "Log In" button and confirm you are redirected to the Log In page
+
+#### Post-Login 
+- Click on the Carousel image for "Products" and confirm you are redirected to the Products page
+- Click on the Carousel image for "Account Benefits" and confirm you are redirected to the About Us page
+- Click on the Carousel image for "How it Works" and confirm you are redirected to the Sign Up page
+- In the "Recent Magical Deals Bought By Members" section, click on the "View Product" button on the card and confirm that you are redirected to the View Product page for that specific product
+- In the product cards;
+    - Click on the "More Details" button and confirm that you are redirected to the View Product page for that specific product
+    - Add a quantity to the qty field and click on the "Add to Basket" button. Confirm that you are brought to the Cart page and that the item was added to the Cart
+- In the "We have a wide range of products available" section;
+    - Click on the "All Products" button and confirm you are redirected to the Products page
+
+## Products App 
 ### Products Page
+- In the product search box;
+    - Using one of the existing products
+        - Enter a word in the products name, click on the "Search" button and confirm that the products are filtered to only show products with that word in its title
+        - Enter characters or words that are not in any of the product names, click on the "Search" button and confirm that "No results for your query" message is shown and no item show
+        - Click on the "Search" button with no content and confirm that a prompt appears that the input field is required
+    - Click on the "All Products" button and confirm that you are redirected to the Products page showing all of the products
+- In the product cards;
+    - Click on the "More Details" button and confirm that you are redirected to the View Product page for that specific product
+    - Add a quantity to the qty field and click on the "Add to Basket" button. Confirm that you are brought to the Cart page and that the item was added to the Cart
+
+#### Staff Users
+- Confirm that when logged in as a staff user there is a button for "Add New Product"
+    - Click on the "Add New Product" button and confirm that you are redirected to the Add Product page
+
+### Add Product Page
+- Click on the "All Products" button and confirm that you are redirected to the Products page
+- Test the form
+    - Fill in all fields correctly - Click on the "Create Product" button and confirm that you are redirected to the Products page and that it displays the message "Product successfully created"
+    - Fill in all fields correctly with the below exceptions, click on the "Create Product" button and confirm that you are prompted to fill in the missing field
+        - Leave the product name field blank
+        - Leave the description field blank
+        - Leave the price field blank
+        - Do not select any image for the image field
+        - Leave the rating field blank
+    - Fill in all details correctly but enter a negative amount in the Rating field. Click on the "Create Product" button and confirm an error message appears stating that the product cannot be created and a prompt appears under the rating field to state "Ensure this value is greater than or equal to 1."
+
 ### View Product Page
-## Review App Pages
-### Add Review 
+- Click on the "All Products" button and confirm that you are redirected to the Products page
+- Add a quantity to the qty field and click on the "Add to Basket" button. Confirm that you are brought to the Cart page and that the item was added to the Cart
+- Click on the "Edit" button and confirm that you are redirected to the Edit Product page
+- Click on the "Delete" button and confirm that you are redirected to the Products page and a message confirms "Product successfully deleted"
+- Click on the "Add Review" button and confirm that you are redirected to the Add Review page
+
+### Edit Product Page
+- Confirm that on arriving on this page the form is filled out with the products details
+- Test the form
+    - Fill in all fields correctly - Click on the "Save Changes" button and confirm that you are redirected to the Products page and that it displays the message "Product has successfully been updated!"
+    - Fill in all fields correctly with the below exceptions, click on the "Save Changes" button and confirm that you are prompted to fill in the missing field
+        - Leave the product name field blank
+        - Leave the description field blank
+        - Leave the price field blank
+        - Do not select any image for the image field
+        - Leave the rating field blank
+    - Fill in all details correctly but enter a negative amount in the Rating field. Click on the "Save Changes" button and confirm an error message appears stating "Unable to update. Please rectify the problems below" and a prompt appears under the rating field to state "Ensure this value is greater than or equal to 1."
+
+## Review App 
 ### All Reviews
+- Click on the "Profile" button and confirm that you are redirected to the Profile page 
+- Click on the "Continue Shopping" button and confirm that you are redirected to the Products page
+- Click on the "View Product" button in the review card confirm that you are redirected to the view product page for that specific product
+- Click on the "Edit Review" button and confirm that you are redirected to the Edit Review page
+- Click on the "Delete Review" button and confirm that you are redirected to the Profile page and that the review is deleted and that a message is displayed stating "Review successfully deleted" 
+
+### Add Review 
+- Click on the "back" button and confirm that you are redirected to the product view page 
+-  Test the form
+    - Fill in all fields correctly - Click on the "Add Review" button and confirm that you are redirected to the Profile page and that it displays the message "Review successfully created"
+    - Fill in all fields correctly with the below exceptions, click on the "Add Review" button and confirm that you are prompted to fill in the missing field
+        - Leave the description field blank
+        - Leave the rating field blank
+    - Fill in all details correctly but enter a negative amount in the Rating field. Click on the "Add Review" button and confirm an error message appears stating that the review cannot be created and a prompt appears under the rating field to state "Ensure this value is greater than or equal to 1."
+
 ### Edit Review
+- Click on the "back" button and confirm that you are redirected to the Profile page 
+-  Test the form
+    - Fill in all fields correctly - Click on the "Save Changes" button and confirm that you are redirected to the Profile page and that it displays the message "Review has successfully been updated!"
+    - Fill in all fields correctly with the below exceptions, click on the "Save Changes" button and confirm that you are prompted to fill in the missing field
+        - Leave the description field blank
+        - Leave the rating field blank
+    - Fill in all details correctly but enter a negative amount in the Rating field. Click on the "Save Changes" button and confirm an error message appears stating that the review cannot be updated and a prompt appears under the rating field to state "Ensure this value is greater than or equal to 1."
+
 ## Password Reset Functionality Pages
-### Password Reset Form Page
-### Password Reset Done Page
-### Password Reset Confirm Page
-### Password Reset Complete Page
+### Password Reset Form Page (Step 1)
+- Click on the "Back" button and confirm that you are redirected to the homepage (index.html)
+- Leave the email address field blank, click the "Reset Password" button and confirm a prompt appears informing you that the email address field is required
+- Enter an incorrect email (i.e. without the @ symbol) into the email address field, click the "Reset Password" button and confirm a prompt appears with suggestions of what is missing in the email address
+- Enter an incorrect email (i.e. with test@ but without the .com) into the email address field, click the "Reset Password" button and confirm a prompt appears with suggestions of what is missing in the email address
+- Enter a valid email address into the email address field, click on the "Reset Password" button and confirm you are redirected to the Password Reset Done page (step 2)
+ 
+### Password Reset Done Page (Step 2)
+- No tests required
+
+### Password Reset Confirm Page (Step 3)
+- Following the test for Password Reset Form Page (Step 1), find the email in your inbox and click the link provided to reset the password
+    - 
+
+### Password Reset Complete Page (Step 4)
+-
