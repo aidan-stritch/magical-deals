@@ -105,6 +105,15 @@ During this process, several issues were discovered which have been since fixed 
 
 There are other issues that could not be fixed due to ability / time contraints that have been included in the "Bugs Found" section below. 
 
+### Validation
+<p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
+
 ### Automated
 #### Travis
 Travis Continuous Integration was used  to run tests on the code every time a push is made to github so that errors could be flagged and managed in an efficient manner. 
