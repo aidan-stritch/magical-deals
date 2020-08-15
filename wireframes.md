@@ -2,7 +2,7 @@
 
 ## Accounts App
 ### Sign Up Page
-![sign-up.html](static/development_diagrams/sign-up.html.png "sign-up.html page desktop and mobile views")
+![sign-up.html](/static/development_diagrams/sign-up.html.png "sign-up.html page desktop and mobile views")
 
 ### Login Page
 ![login.html](static/development_diagrams/login.html.png "login.html page desktop and mobile views")
