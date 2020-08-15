@@ -59,8 +59,9 @@ Once logged in, staff members have access to the same functionality as members f
 - As a staff member, I would like to be able to be able to grant a user staff access or remove it if neccessary
 
 ### Wireframes
+As there are many pages to this project, I have included the wireframes in a separate document.
 
-    ****** TO BE DONE ******
+Please see the wireframes.md file for the entire collection of wireframes: https://github.com/aidan-stritch/magical-deals/blob/master/wireframes.md
 
 ### Entity Relationship Diagram (ERD)
 
@@ -106,12 +107,12 @@ During this process, several issues were discovered which have been since fixed 
 There are other issues that could not be fixed due to ability / time contraints that have been included in the "Bugs Found" section below. 
 
 ### Validation
+#### CSS
+The custom.css file code was validated using the The W3C CSS Validation Service and the image below verifies that the code was successfully validated with no errors. 
 <p>
-    <a href="http://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="http://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-    </a>
+    <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss"
+        alt="Valid CSS!" />
 </p>
 
 ### Automated
