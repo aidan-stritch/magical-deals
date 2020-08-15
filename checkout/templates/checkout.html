@@ -58,13 +58,8 @@
             <h6>Payment Details</h6>
             <hr>
             {{ payment_form | as_bootstrap }}
-            <input
-            type="submit"
-            class="btn btn-primary"
-            id="submit_payment_btn"
-            name="commit"
-            value="Submit Payment"
-            />
+            <button type="submit" class="btn btn-primary" id="submit_payment_btn" name="commit"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Submit Payment</button>
+            <a href="{% url 'view_cart' %}" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
         </div>
     </div>
     

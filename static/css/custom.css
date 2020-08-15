@@ -140,6 +140,14 @@ footer a {
 
 /*..........................Forms*/
 
+.help-block {
+    color: #ff0000;
+}
+
+.error-msg {
+    color: #ff0000;
+}
+
 .input-group-addon {
   padding-bottom: 5px;
 }

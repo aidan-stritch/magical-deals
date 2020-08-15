@@ -55,15 +55,12 @@
                 ><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a
               >
             </li>
-            {% if product_count > 0 %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'view_cart' %}"
                 ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart 
-                <label class="badge badge-warning"> {{ product_count }}</label>
-                
+                {% if product_count > 0 %}<label class="badge badge-warning"> {{ product_count }}</label>{% endif %}
               </a>
             </li>
-            {% endif %}
             <li class="nav-item navbar-links">
               <a class="nav-link" href="{% url 'logout' %}"
                 ><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
