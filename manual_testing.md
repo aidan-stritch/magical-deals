@@ -106,6 +106,7 @@ Testers were requested to also test the "Navigation UX" (outlined below) on each
 - Click on the "Submit Payment" button with no fields filled in and confirm that an error message appears stating "Could not find payment information"
 - Fill in the credit card number with test data "4242424242424242", the CVV as "111" and select a year in the past. Click "Submit Payment" and confirm that a message is shown stating "Your card's expiration year is invalid."
 - Fill in the credit card number with test data "4242424242424242", the CVV as "111" and select a year in the future. Click "Submit Payment" and confirm that you are redirected to the profile page and a message is shown stating "Payment successful"
+ - Click on the "Cart" button and confirm that you are brought back to the cart page
 
 ## Home App 
 ### About Page

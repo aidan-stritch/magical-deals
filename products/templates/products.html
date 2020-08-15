@@ -40,6 +40,7 @@
         <div class="panel-content">
             
             <p class="product-description">{{ product.description }}</p>
+            <p><a href="{% url 'view_product' product.id %}">See More</a></p>
             {% if user.is_authenticated %}
             <p><b>Price:</b> {{ product.price }}</p>
             {% else %}
