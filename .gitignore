@@ -1,5 +1,4 @@
 *.sqlite3
 env.py
 *.png
-static/
 media/

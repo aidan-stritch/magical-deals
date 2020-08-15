@@ -64,8 +64,7 @@ As there are many pages to this project, I have included the wireframes in a sep
 Please see the wireframes.md file for the entire collection of wireframes: https://github.com/aidan-stritch/magical-deals/blob/master/wireframes.md
 
 ### Entity Relationship Diagram (ERD)
-
-    ****** TO BE DONE ******
+![Entity Relationship Diagram](static/development_diagrams/ERD.png "Entity Relationship Diagram showing relationships on Database")
 
 ## Features
 ### Existing Features
