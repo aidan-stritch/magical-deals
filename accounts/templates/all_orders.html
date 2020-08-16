@@ -20,7 +20,10 @@
     {% if orders.count > 0 %}
         {% for order in orders %}
         <div class="card review-cards">
-            <h5 class="card-header">Order Date: {{ order.date }}</h5>
+            <div class="card-header">
+                <h4><b>Order Number:</b> {{ order.id }}</h4>
+                <h5><b>Order Date:</b> {{ order.date }}</h5>
+            </div>
             <div class="card-body">
                 <div class="row row-flex">
                 

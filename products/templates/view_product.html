@@ -64,7 +64,7 @@
     <h4>Reviews</h4>
     <hr>
     {% for order in orders|slice:":1" %}   
-        {% if user.id == order.user.id %}
+        {% if product.id == order.orderlineitem.product_id %}
                 <p><a href="{% url 'add_review' product.id %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</a></p>
         {% endif %}
     {% endfor %}

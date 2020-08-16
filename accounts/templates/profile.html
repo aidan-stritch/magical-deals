@@ -108,7 +108,10 @@
     {% if orders.count > 0 %}
         {% for order in orders|slice:":3" %}
         <div class="card review-cards">
-            <h5 class="card-header">Order Date: {{ order.date }}</h5>
+            <div class="card-header">
+                <h4><b>Order Number:</b> {{ order.id }}</h4>
+                <h5><b>Order Date:</b> {{ order.date }}</h5>
+            </div>
             <div class="card-body">
                 <div class="row row-flex">
                 
@@ -146,16 +149,16 @@
     {% if reviews.count > 0 %}
         {% for review in reviews|slice:":3" %}
             <div class="card review-cards">
-                <h5 class="card-header">{{ review.product.product_name }}<a href="{% url 'view_product' review.product.id %}" class="btn btn-primary heading-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h5>
+                <h5 class="card-header"><b>{{ review.product.product_name }}</b><a href="{% url 'view_product' review.product.id %}" class="btn btn-primary heading-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h5>
                 <div class="card-body">
-                    <h5 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h5>
+                    <h6 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h6>
                     {% with ''|center:review.rating as range %}
                         {% for _ in range %}
                             <span class="fa fa-star checked"></span>
                         {% endfor %}
                     {% endwith %}
                     <hr>  
-                    <h5 class="card-title"><strong>Description: </strong></h5>
+                    <h6 class="card-title"><strong>Description: </strong></h6>
                     <p class="card-text">{{ review.description }}</p>
                     <a href="{% url 'edit_review' review.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit Review</a>
                     <a href="{% url 'delete_review' review.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Review</a>
