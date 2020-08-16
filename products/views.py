@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse
 from .forms import ProductCreationForm
 from review.models import Review
-from django.db.models import Avg
+from checkout.models import Order
 
 # Create your views here.
 
@@ -50,10 +50,13 @@ def view_product(request, id):
     The reviews for this product are also passed to the
     view_product page
     """
+    user = request.user
+
     product = get_object_or_404(Product, id=id)
     reviews = Review.objects.filter(product_id=product.id)
+    orders = Order.objects.filter(user_id=user.id)
 
-    args = {"reviews": reviews, "product": product}
+    args = {"reviews": reviews, "product": product, "orders": orders}
 
     return render(request, "view_product.html", args)
 

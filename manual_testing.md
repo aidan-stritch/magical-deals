@@ -58,6 +58,7 @@ Testers were requested to also test the "Navigation UX" (outlined below) on each
 - After having placed at least one order on the website and processed the payment 
     - Confirm that the most recent orders are displayed in the "Recent Orders" and that they are ordered by Date
     - Click on the "View Product" button in the card for a product and confirm that you are redirected to the view product page for that specific product
+    - Click on the "Review" button and confirm that you are redirected to the Add Review page for that product
 - After having reviewed at least one product on the website
     - Confirm that the "Your Reviews" is displaying a selection of your reviews
     - Click on the "View Product" button in the card for a review and confirm that you are redirected to the view product page for that specific product
@@ -163,7 +164,8 @@ Testers were requested to also test the "Navigation UX" (outlined below) on each
 - Add a quantity to the qty field and click on the "Add to Basket" button. Confirm that you are brought to the Cart page and that the item was added to the Cart
 - Click on the "Edit" button and confirm that you are redirected to the Edit Product page
 - Click on the "Delete" button and confirm that you are redirected to the Products page and a message confirms "Product successfully deleted"
-- Click on the "Add Review" button and confirm that you are redirected to the Add Review page
+- Verify that the button for "Add Review" does not show unless you have previously bought the item
+    - Click on the "Add Review" button and confirm that you are redirected to the Add Review page for that product
 
 ### Edit Product Page
 - Confirm that on arriving on this page the form is filled out with the products details

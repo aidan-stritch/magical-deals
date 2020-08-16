@@ -62,8 +62,12 @@
 </div>
 <div class="view-review">
     <h4>Reviews</h4>
-    <hr>   
+    <hr>
+    {% for order in orders|slice:":1" %}   
+    {% if user.username == order.user.username %}
     <p><a href="{% url 'add_review' product.id %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</a></p>
+    {% endif %}
+    {% endfor %}
     {% if reviews.count > 0 %}
         {% for review in reviews %}
             <div class="card review-cards">
