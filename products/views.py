@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse
 from .forms import ProductCreationForm
 from review.models import Review
-from checkout.models import Order
+from checkout.models import Order, OrderLineItem
 
 # Create your views here.
 
@@ -54,7 +54,7 @@ def view_product(request, id):
 
     product = get_object_or_404(Product, id=id)
     reviews = Review.objects.filter(product_id=product.id)
-    orders = Order.objects.filter(user_id=user.id)
+    orders = OrderLineItem.objects.filter(product_id=product.id)
 
     args = {"reviews": reviews, "product": product, "orders": orders}
 

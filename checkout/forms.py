@@ -42,6 +42,6 @@ class Delivery_Address_Form(forms.ModelForm):
     for delivery address purposes"""
     class Meta:
         model = UserCreate
-        fields = ('address_line_one', 'address_line_two',
-                  'address_line_three', 'city', 'country', 'postcode',
+        fields = ('add_Line_One', 'add_Line_Two',
+                  'add_Line_Three', 'city', 'country', 'postcode',
                   'phone')

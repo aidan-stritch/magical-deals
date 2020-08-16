@@ -55,9 +55,9 @@ class UserSignUpFormAddon(forms.ModelForm):
 class UserAdditionalFields(forms.ModelForm):
     class Meta:
         model = UserCreate
-        fields = ('address_line_one', 'address_line_two',
-                  'address_line_three', 'city', 'country', 'postcode',
-                  'phone', 'profile_image')
+        fields = ('add_Line_One', 'add_Line_Two',
+                  'add_Line_Three', 'city', 'country', 'postcode',
+                  'phone', 'profile_Image')
 
 
 class StaffField(forms.ModelForm):

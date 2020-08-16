@@ -10,9 +10,10 @@ class Review(models.Model):
     product = models.ForeignKey(Product, null=False)
     user = models.ForeignKey(User)
 
-    description = models.TextField()
+    description = models.TextField(help_text='Add an appealing description')
     rating = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(10)])
+        validators=[MinValueValidator(1), MaxValueValidator(10)],
+        help_text='Min 0, Max 10')
 
     def __str__(self):
         return "{0} {1} @ {2}".format(self.description,

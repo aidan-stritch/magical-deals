@@ -7,14 +7,14 @@ from django.dispatch import receiver
 class UserCreate(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    address_line_one = models.CharField(max_length=254, default='')
-    address_line_two = models.CharField(max_length=254, default='')
-    address_line_three = models.CharField(max_length=254, default='')
+    add_Line_One = models.CharField(max_length=254, default='')
+    add_Line_Two = models.CharField(max_length=254, default='')
+    add_Line_Three = models.CharField(max_length=254, default='')
     city = models.CharField(max_length=254, default='')
     country = models.CharField(max_length=254, default='')
     postcode = models.CharField(max_length=254, default='')
     phone = models.CharField(max_length=254, default='')
-    profile_image = models.FileField(upload_to='profile')
+    profile_Image = models.FileField(upload_to='profile')
     staff = models.BooleanField(default=False)
 
     @receiver(post_save, sender=User)
