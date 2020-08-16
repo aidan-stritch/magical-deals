@@ -19,19 +19,7 @@
 			<div class="card-body">
 				<h6 class="card-title"><b>Product Description</b></h6>
 				<p class="card-text">{{ product.description }}</p>
-				<p class="card-text">
-					<p><b>Rating:</b> {{ product.rating }}/10</p>
-                    
-                    <p>
-                    {% with ''|center:product.rating as range %}
-                    {% for _ in range %}
-                        <span class="fa fa-star checked"></span>
-                    {% endfor %}
-                    {% endwith %}
-                    </p>
-
-					
-				</p>
+				
                 {% if user.is_authenticated %}
                 <p><b>Price:</b> €{{ product.price }}</p>
 				

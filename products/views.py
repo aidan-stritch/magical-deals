@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse
 from .forms import ProductCreationForm
 from review.models import Review
-
+from django.db.models import Avg
 
 # Create your views here.
 
