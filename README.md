@@ -1,4 +1,6 @@
 # Magical Deals
+[![Build Status](https://travis-ci.org/aidan-stritch/magical-deals.svg?branch=master)](https://travis-ci.org/aidan-stritch/magical-deals)
+
 Magical Deals is an online store for purchasing high end replicas of famous movie/TV and historical items at magical prices. 
 
 Every day, people all around the world see items on TV and in movies that they would love to own for themselves. Items such as Thor's Hammer and Iron Man's armour are normally only things in comics or in movies, but with Magical Deals we bring these items to life so that users can purchase them at reasonable prices. 
@@ -141,6 +143,9 @@ The custom.css file code was validated using the The W3C CSS Validation Service 
 
 #### HTML
 All HTML pages have been checked using the W3C Markup Validation Service and have reported no errors. As this tool does not recognise several Django symbols (such as {% %}), the validation service does not report as 100% no issues and no image is available as in above CSS validation section.  
+
+#### Javascript
+JS Hint was used to ensure that the Javascript used in the website had no errors.
 
 ### Automated
 #### Travis

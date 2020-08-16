@@ -18,7 +18,7 @@
     {% if reviews.count > 0 %}
         {% for review in reviews %}
             <div class="card review-cards">
-                <h5 class="card-header">{{ review.product.product_name }}<a href="{% url 'view_product' review.product.id %}" class="btn btn-primary review-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h5>
+                <h5 class="card-header">{{ review.product.product_name }}<a href="{% url 'view_product' review.product.id %}" class="btn btn-primary heading-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h5>
                 <div class="card-body">
                     <h5 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h5>
                     {% with ''|center:review.rating as range %}
