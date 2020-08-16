@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% load staticfiles %} {% block content %}
-
-
 <div class="card mb-3 test">
     <div class="card-header product-full-view">
         <h2 class="card-title">{{ product.product_name }}
@@ -10,51 +8,39 @@
         {% endif %}
         </h2>
     </div>
-	<div class="row no-gutters">
-        
+	<div class="row no-gutters">       
 		<div class="col-md-12 full-product-view"> 
-            <img src="{{ MEDIA_URL }}{{ product.image }}"> 
-      </div>
+            <img src="{{ MEDIA_URL }}{{ product.image }}" alt="Product Image"> 
+        </div>
 		<div class="col-md-8">
 			<div class="card-body">
 				<h6 class="card-title"><b>Product Description</b></h6>
 				<p class="card-text">{{ product.description }}</p>
-				
                 {% if user.is_authenticated %}
-                <p><b>Price:</b> €{{ product.price }}</p>
-				
-				<p class="card-text">
-					<form method="POST" action="{% url 'add_to_cart' product.id %}">
-						{% csrf_token %}
-						<input
-            name="quantity"
-            type="number"
-            min="1"
-            max="999"
-            class="form-control qty-input"
-            placeholder="Qty"
-            required
-          />
-						<span class="input-group-btn">
-                <button class="btn btn-success" type="submit"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to Basket</button>
-            </span>
-
-					</form>
-				</p>
-            {% if user.usercreate.staff == True %}    
-            <p>
-				<a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit</a>
-                <a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
-			</p>
-            {% endif %}
+                    <p><b>Price:</b> €{{ product.price }}</p>
+                    <p class="card-text">
+                        <form method="POST" action="{% url 'add_to_cart' product.id %}">
+                            {% csrf_token %}
+                            <input name="quantity" type="number" min="1" max="999" class="form-control qty-input" placeholder="Qty" required/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="submit"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to Basket</button>
+                            </span>
+                        </form>
+                    </p>
+                    {% if user.usercreate.staff == True %}    
+                    <p>
+                        <a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit</a>
+                        <a href="{% url 'delete_product' product.id %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                    </p>
+                    {% endif %}
 				{% else %}
-				<p class="important">
-					Create an account or log in to see prices and purchase this item
-				</p>
-				<p>
-					<a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
-					<a href="{% url 'login' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
-				</p>
+                    <p class="important">
+                        Create an account or log in to see prices and purchase this item
+                    </p>
+                    <p>
+                        <a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+                        <a href="{% url 'login' %}" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
+                    </p>
 				{% endif %}
 			</div>
 		</div>
@@ -65,14 +51,14 @@
     <hr>
     {% for order in orders|slice:":1" %}   
         {% if product.id == order.orderlineitem.product_id %}
-                <p><a href="{% url 'add_review' product.id %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</a></p>
+            <p><a href="{% url 'add_review' product.id %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Review</a></p>
         {% endif %}
     {% endfor %}
     {% if reviews.count > 0 %}
         {% for review in reviews %}
             <div class="card review-cards">
-                <h5 class="card-header">
-                    <p><strong>Review Rating: </strong>{{ review.rating }}/10 </p>
+                <div class="card-header">
+                    <h5><strong>Review Rating: </strong>{{ review.rating }}/10</h5>
                     <p>
                     {% with ''|center:review.rating as range %}
                         {% for _ in range %}
@@ -80,10 +66,9 @@
                         {% endfor %}
                     {% endwith %}
                     </p>
-                </h5>
+                </div>
                 <div class="card-body">
                     <h5 class="card-title">{{ review.product.product_name }} </h5>
-                    
                     <p><strong>Reviewed by: </strong>{{ review.user.username }}</p>
                     <hr>  
                     <h5 class="card-title"><strong>Description: </strong></h5>

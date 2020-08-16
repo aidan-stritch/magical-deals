@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 {% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
 <div class="row">
-  <div class="col-12 header-title">
-    <h2>Log into your account</h2>
-  </div>
+    <div class="col-12 header-title">
+        <h2>Log into your account</h2>
+    </div>
 </div>
-<form
-  method="post"
-  action="{% url 'login' %}?next={{ next }}"
-  class="accountform"
->
-  <fieldset class="form-group">
-    {% csrf_token %} {{ user_form | as_bootstrap }}
-
-    <p><button type="submit" class="btn btn-primary"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</button></p>
-    <p><a href="{% url 'password_reset' %}">Forgot Password</a></p>
-    <p>
-      Dont have an account yet? <a href="{% url 'register' %}">Sign Up Now</a>
-    </p>
-  </fieldset>
+<form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
+    <fieldset class="form-group">
+        {% csrf_token %} {{ user_form | as_bootstrap }}
+        <p><button type="submit" class="btn btn-primary"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</button></p>
+        <p><a href="{% url 'password_reset' %}">Forgot Password</a></p>
+        <p>
+            Dont have an account yet? <a href="{% url 'register' %}">Sign Up Now</a>
+        </p>
+    </fieldset>
 </form>
 {% endblock %}

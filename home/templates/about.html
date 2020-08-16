@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 {% extends "base.html" %} {% block content %}
-
 <div class="row">
-  <div class="col-12 header-title">
-    <h2>About Us</h2>
-  </div>
-  <div class="col-12">
-    <p>
-      You're one stop shop for special items from movies, tv shows, and many
-      many more. Create an account today to start getting your Magical Deals!
-    </p>
-    <p>
-        <h5>Members get access to exclusive members only benefits</h5>
-        <ol>
-            <li>Get your very own profile</li>
-            <li>See the prices of items</li>
-            <li>Gain ability to purchase products</li>
-            <li>Gain ability to review products</li>
-            <li>See a history of purchased items in your profile</li>
-        </ol>
-    </p>
-    {% if user.is_authenticated %}
-    <p>
-        <h5>Sign in to go to your profile and start getting more Magical Deals</h5>
-        <a href="{% url 'login' %}" class="btn btn-primary"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
-    </p>
-    {% else %}
-    <p>
-        <h5>Sign up today to start getting YOUR Magical Deals</h5>
-        <a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Sign Up</a>
-    </p>
-    {% endif %}
-
-
-  </div>
+    <div class="col-12 header-title">
+        <h2>About Us</h2>
+    </div>
+    <div class="col-12">
+        <p>
+        You're one stop shop for special items from movies, tv shows, and many
+        many more. Create an account today to start getting your Magical Deals!
+        </p>
+        <p>
+            <h5>Members get access to exclusive members only benefits</h5>
+            <ol>
+                <li>Get your very own profile</li>
+                <li>See the prices of items</li>
+                <li>Gain ability to purchase products</li>
+                <li>Gain ability to review products</li>
+                <li>See a history of purchased items in your profile</li>
+            </ol>
+        </p>
+        {% if user.is_authenticated %}
+        <p>
+            <h5>Sign in to go to your profile and start getting more Magical Deals</h5>
+            <a href="{% url 'login' %}" class="btn btn-primary"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
+        </p>
+        {% else %}
+        <p>
+            <h5>Sign up today to start getting YOUR Magical Deals</h5>
+            <a href="{% url 'register' %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Sign Up</a>
+        </p>
+        {% endif %}
+    </div>
 </div>
-
 {% endblock %}

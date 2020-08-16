@@ -2,53 +2,51 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="row">
-  <div class="col-12 header-title">
-    <h2>All Orders</h2>
-  </div>
-  <div class="col-12">
-    <p>
-        Below you can view all of your past orders that you have made for our Magical Deals.
-    </p>
-    <p>
-        <a href="{% url 'profile' %}" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
-        <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> Continue Shopping</a>
-    </p>
-  </div>
+    <div class="col-12 header-title">
+        <h2>All Orders</h2>
+    </div>
+    <div class="col-12">
+        <p>
+            Below you can view all of your past orders that you have made for our Magical Deals.
+        </p>
+        <p>
+            <a href="{% url 'profile' %}" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
+            <a href="{% url 'products' %}" class="btn btn-primary"><i class="fa fa-th" aria-hidden="true"></i> Continue Shopping</a>
+        </p>
+    </div>
 </div>
 
 <div class="previous-order">
     {% if orders.count > 0 %}
         {% for order in orders %}
-        <div class="card review-cards">
-            <div class="card-header">
-                <h4><b>Order Number:</b> {{ order.id }}</h4>
-                <h5><b>Order Date:</b> {{ order.date }}</h5>
-            </div>
-            <div class="card-body">
-                <div class="row row-flex">
-                
-                {% for item in items %}
-                    {% if item.order.id == order.id %}
-                    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-3 display panel panel-default">
-                        <div class="panel-body">
-                            <div class="card-header panel-content">
-                                <strong>{{ item.product.product_name }}</strong>
-                            </div>
-                            <div class="col-md-12 product-view">
-                                <img src="{{ MEDIA_URL }}{{ item.product.image }}" />
-                            </div>
-                            <div class="panel-content">
-                                <p><strong>Price: <i class="fa fa-eur" aria-hidden="true"></i>{{ item.product.price }}</strong></p>
-                                <a href="{% url 'view_product' item.product.id %}" class="btn btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a>
+            <div class="card review-cards">
+                <div class="card-header">
+                    <h4><b>Order Number:</b> {{ order.id }}</h4>
+                    <h5><b>Order Date:</b> {{ order.date }}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row row-flex">
+                    {% for item in items %}
+                        {% if item.order.id == order.id %}
+                        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-3 display panel panel-default">
+                            <div class="panel-body">
+                                <div class="card-header panel-content">
+                                    <strong>{{ item.product.product_name }}</strong>
+                                </div>
+                                <div class="col-md-12 product-view">
+                                    <img src="{{ MEDIA_URL }}{{ item.product.image }}" alt="Product Image" />
+                                </div>
+                                <div class="panel-content">
+                                    <p><strong>Price: <i class="fa fa-eur" aria-hidden="true"></i>{{ item.product.price }}</strong></p>
+                                    <a href="{% url 'view_product' item.product.id %}" class="btn btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a>
+                                </div>
                             </div>
                         </div>
+                        {% endif %}
+                    {% endfor %}
                     </div>
-                    {% endif %}
-                {% endfor %}
                 </div>
-          
             </div>
-        </div>
         {% endfor %}
     {% else %}
         <div class="card review-cards">

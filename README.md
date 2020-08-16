@@ -139,6 +139,9 @@ The custom.css file code was validated using the The W3C CSS Validation Service 
         alt="Valid CSS!" />
 </p>
 
+#### HTML
+All HTML pages have been checked using the W3C Markup Validation Service and have reported no errors. As this tool does not recognise several Django symbols (such as {% %}), the validation service does not report as 100% no issues and no image is available as in above CSS validation section.  
+
 ### Automated
 #### Travis
 Travis Continuous Integration was used  to run tests on the code every time a push is made to github so that errors could be flagged and managed in an efficient manner. 
@@ -148,7 +151,6 @@ The build status tool below shows that the website is working efficiently.
 [![Build Status](https://travis-ci.org/aidan-stritch/magical-deals.svg?branch=master)](https://travis-ci.org/aidan-stritch/magical-deals)
 
 #### Django / Coverage
-
     ****** TO BE DONE ******
 
 ### Responsiveness

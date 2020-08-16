@@ -2,17 +2,17 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="row">
-  <div class="col-12 header-title">
-    <h2>All Users</h2>
-  </div>
-  <div class="col-12">
-    <p>
-        Below you can view all users stored for Magical Deals.
-    </p>
-    <p>
-        <a href="{% url 'profile' %}" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
-    </p>
-  </div>
+    <div class="col-12 header-title">
+        <h2>All Users</h2>
+    </div>
+    <div class="col-12">
+        <p>
+            Below you can view all users stored for Magical Deals.
+        </p>
+        <p>
+            <a href="{% url 'profile' %}" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
+        </p>
+    </div>
 </div>
 
 <div class="previous-order">
@@ -20,7 +20,6 @@
         {% for this_user in all_users %}
         <div class="card review-cards">
             <h5 class="card-header"><strong>Username:</strong> {{ this_user.username }}</h5>
-
             <div class="card-body">
                 <div class="row">
                     <div class="form-check">
@@ -31,21 +30,16 @@
                         </ul>
                         {% if this_user.usercreate.staff == True %}
                             <input class="form-check-input" type="radio" value="Staff" checked disabled>
-                            <label class="form-check-label" for="Staff">
-                            User is staff
-                            </label>
+                            <label class="form-check-label" for="Staff">User is staff</label>
                         {% else %}
                             <input class="form-check-input" type="radio" value="NotStaff" disabled>
-                            <label class="form-check-label" for="NotStaff">
-                            User is not staff
-                            </label>
+                            <label class="form-check-label" for="NotStaff">User is not staff</label>
                         {% endif%}
                     </div>
                 </div>
                 <a href="{% url 'admin_edit_user' this_user.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit Profile</a> 
                 <a href="{% url 'admin_delete_user'  this_user.id%}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete Profile</a>        
-            </div>
-            
+            </div>   
         </div>
         {% endfor %}
     {% else %}

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 {% extends "base.html" %} {% block content %}
-
-
 <div class="card mb-3 item-view profile-card">
 	<div class="row no-gutters">
 		<div class="col-md-4 ">
 			{% if user.usercreate.profile_image %}
-            <img src="{{ MEDIA_URL }}{{ user.usercreate.profile_image }}" class="profile-view">
+            <img src="{{ MEDIA_URL }}{{ user.usercreate.profile_image }}" class="profile-view" alt="Profile Image">
             {% else %}
-            <img src="{{ MEDIA_URL }}profile/profile_image_default.jpg" class="profile-view">
+            <img src="{{ MEDIA_URL }}profile/profile_image_default.jpg" class="profile-view" alt="Default Profile Image">
             {% endif %}
 		</div>
         <div class="col-md-4">
@@ -94,17 +92,12 @@
                 </div>
             </div>
             {% endif %}
-        </div>
-        
+        </div>      
 	</div>
 </div>
-          
-
-
 <div class="previous-order">
     <h4>Recent Orders <a href="{% url 'all_orders' %}" class="btn btn-primary heading-btn"><i class="fa fa-dropbox" aria-hidden="true"></i> All Orders</a></h4>
     <hr>
-
     {% if orders.count > 0 %}
         {% for order in orders|slice:":3" %}
         <div class="card review-cards">
@@ -113,8 +106,7 @@
                 <h5><b>Order Date:</b> {{ order.date }}</h5>
             </div>
             <div class="card-body">
-                <div class="row row-flex">
-                
+                <div class="row row-flex">   
                 {% for item in items %}
                     {% if item.order.id == order.id %}
                     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-3 display panel panel-default">
@@ -132,7 +124,6 @@
                     {% endif %}
                 {% endfor %}
                 </div>
-          
             </div>
         </div>
         {% endfor %}

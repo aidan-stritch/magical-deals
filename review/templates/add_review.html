@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 {% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
-
 <div class="row">
 	<div class="col-12 header-title">
 		<h2>Add Product Review</h2>
 	</div>
 </div>
-
 <form method="post" action="{% url 'add_review' product.id %}" class="addProductForm" enctype="multipart/form-data">
     <h4><strong>{{ product.product_name }}</strong></h4>
     <h5><strong>User: </strong> {{ user.username }}</h5>
     <hr>
-
     <h5>{{ order }}</h5>
 	<fieldset class="form-group">
 		{% csrf_token %} {{ add_form | as_bootstrap }}

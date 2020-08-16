@@ -2,10 +2,7 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
-
 {% block content %}
-
-
 <div class="row">
     <div class="col-12 header-title">
         <h2>Shopping Cart</h2>
@@ -22,7 +19,7 @@
             </div>
             <div class="panel-content">
                 <div class="product-view">
-                    <img src="{{ MEDIA_URL }}{{ item.product.image }}" />
+                    <img src="{{ MEDIA_URL }}{{ item.product.image }}" alt="Product Image" />
                 </div>
                 <p><b>Unit Price: </b><i class="fa fa-eur" aria-hidden="true"></i> {{ item.product.price }}</p>
                 <p><strong>Current Quantity: </strong>{{ item.quantity }}</p>
@@ -74,4 +71,4 @@
     </div>
 </div>
 
-	{% endblock %}
+{% endblock %}

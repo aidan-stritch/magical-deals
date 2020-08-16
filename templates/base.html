@@ -1,183 +1,124 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Magical Deals</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
-  </head>
-
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-        <a class="navbar-brand" href="/">Magical Deals <i class="fa fa-magic" aria-hidden="true"></i></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarText"
-          aria-controls="navbarText"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/"
-                ><i class="fa fa-home" aria-hidden="true"></i>
-                Home </a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}"
-                ><i class="fa fa-info-circle" aria-hidden="true"></i> About Us</a>
-            </li>
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'products' %}"
-                ><i class="fa fa-th" aria-hidden="true"></i> Products</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'profile' %}"
-                ><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'view_cart' %}"
-                ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart 
-                {% if product_count > 0 %}<label class="badge badge-warning"> {{ product_count }}</label>{% endif %}
-              </a>
-            </li>
-            <li class="nav-item navbar-links">
-              <a class="nav-link" href="{% url 'logout' %}"
-                ><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
-            </li>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Magical Deals</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+                <a class="navbar-brand" href="/">Magical Deals <i class="fa fa-magic" aria-hidden="true"></i></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/"><i class="fa fa-home" aria-hidden="true"></i> Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}"><i class="fa fa-info-circle" aria-hidden="true"></i> About Us</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products' %}"><i class="fa fa-th" aria-hidden="true"></i> Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'view_cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart {% if product_count > 0 %}<label class="badge badge-warning"> {{ product_count }}</label>{% endif %}</a>
+                        </li>
+                        <li class="nav-item navbar-links">
+                            <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+            {% if messages %}
+                <div class="alert alert-success">
+                    <div class="messages">
+                        {% for message in messages %} 
+                        {{ message }} 
+                        {% endfor %}
+                    </div>
+                </div>
             {% endif %}
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main>
-
-      <div class="container">
-      {% if messages %}
-      <div class="alert alert-success">
-        <div class="messages">
-            {% for message in messages %} 
-            {{ message }} 
-            {% endfor %}
-        </div>
-      </div>
-      {% endif %}
-
-{% block content %} {% endblock %}
-      </div>
-    </main>
-
-    <footer class="page-footer">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-8">
-            <h5 class="white-text">Magical Deals</h5>
-            <p class="grey-text text-lighten-4">
-              You're one stop shop for special items from movies, tv shows, and
-              many many more. Create an account today to start getting your
-              Magical Deals!
-            </p>
-          </div>
-          <div class="col-sm-4">
-            <h5 class="white-text ">Site Map</h5>
-            <ul>
-              <li>
-                <a class="grey-text text-lighten-3" href="/">Home</a>
-              </li>
-              {% if user.is_authenticated %}
-              <li>
-                <a class="grey-text text-lighten-3" href="{% url 'profile' %}"
-                  >Profile</a
-                >
-              </li>
-              <li>
-                <a class="grey-text text-lighten-3" href="{% url 'view_cart' %}"
-                  >Cart</a
-                >
-              </li>
-
-              {% else %}
-              <li>
-                <a class="grey-text text-lighten-3" href="{% url 'register' %}"
-                  >Register</a
-                >
-              </li>
-              <li>
-                <a class="grey-text text-lighten-3" href="{% url 'login' %}"
-                  >Login</a
-                >
-              </li>
-
-              {% endif %}
-
-              <li>
-                <a class="grey-text text-lighten-3" href="{% url 'products' %}"
-                  >Products</a
-                >
-              </li>
-              <li>
-                <a class="grey-text text-lighten-3" href="{% url 'about' %}"
-                  >About Us</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid footer-copyright">
-          © 2020 Magical Deals
-      </div>
-    </footer>
-
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-
-    {% block head_js %} {% endblock %}
-    <!--  Script for the carousel -->
-    <script>
-      $(".carousel").carousel({
-        interval: 3000,
-      });
-    </script>
-  </body>
+            {% block content %} {% endblock %}
+            </div>
+        </main>
+        <footer class="page-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h5 class="white-text">Magical Deals</h5>
+                        <p class="grey-text text-lighten-4">
+                        You're one stop shop for special items from movies, tv shows, and
+                        many many more. Create an account today to start getting your
+                        Magical Deals!
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5 class="white-text ">Site Map</h5>
+                        <ul>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="/">Home</a>
+                            </li>
+                            {% if user.is_authenticated %}
+                                <li>
+                                    <a class="grey-text text-lighten-3" href="{% url 'profile' %}">Profile</a>
+                                </li>
+                                <li>
+                                    <a class="grey-text text-lighten-3" href="{% url 'view_cart' %}">Cart</a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a class="grey-text text-lighten-3" href="{% url 'register' %}">Register</a>
+                                </li>
+                                <li>
+                                    <a class="grey-text text-lighten-3" href="{% url 'login' %}">Login</a>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <a class="grey-text text-lighten-3" href="{% url 'products' %}">Products</a>
+                            </li>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="{% url 'about' %}">About Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid footer-copyright">
+                © 2020 Magical Deals
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% block head_js %} {% endblock %}
+        <!--  Script for the carousel -->
+        <script>
+            $(".carousel").carousel({
+                interval: 3000,
+            });
+        </script>
+    </body>
 </html>
