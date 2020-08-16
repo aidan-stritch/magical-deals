@@ -114,6 +114,7 @@ Please see the wireframes.md file for the entire collection of wireframes: https
 - Stripe - This was used to process the credit card payments in the checkout app
 - Travis - This was used to handle the continuous integration
 - Coverage - This reporting tool was installed and used to produce reports showing how much of the apps had been tested
+- Amazon AWS - S3 Buckets were set up and used for storing website images and files
 
 ## Testing
 ### Manual
