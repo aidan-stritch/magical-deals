@@ -68,12 +68,37 @@ Please see the wireframes.md file for the entire collection of wireframes: https
 
 ## Features
 ### Existing Features
+#### Regular Users 
+1. Login - The customers are able to create their own accounts and log into the website with secure details.
+2. Sign-Up - New users can sign up themselves if they wish to set up an account.
+3. User Profile - Each user has their own profile that welcomes them by Username for personalisation.
+4. Users can view their order history from their profile
+5. Users can view their review history from their profile
+6. Users can review any items that they have purchased using a link from their profile or in the individual products page
+7. Once logged in, customers can see our full range of products on the products page
+8. Users can log out at any time from the store by clicking on the logout button 
+9. Users can add items to the cart while browsing the store, from there they can remove the items or checkout using the Stripe payment management system securely and easily
+10. Users can search on the products page for items based on name so that they can narrow down their options
+11. When creating a profile, it will not allow users to create a profile with the same username as another member
 
-    ****** TO BE DONE ******
+#### Staff Users
+1. Create Data - Staff users can add new products to the database using a simple form.
+2. Staff and view all users and edit their basic profile information, including making them staff or not
+3. Staff can delete any user profile from the all users page
+4. Staff can edit and delete products from the store at the click of a button
 
 ### Future Features
-
-    ****** TO BE DONE ******
+1. Users will be able to add items to a wishlist that will be visible on their profile so that they can purchase the items at a later data
+2. Magical Deals will be able to use data stored from users reviews, search history and order history to provide suggestions in an "our picks for you" section
+3. Users will be able to search based on multiple criteria, such as description, keywords and prices
+4. Users will be able to sort items on the products page, all orders, all reviews etc by multiple criteria, including date, price, category etc
+5. When creating a product, Staff users will be able to include the stock amount which will reduce when orders are made and can be edited/increased through the edit product form. Items out of stock will appear without the ability to add to basket and with a message stating that it is currently out of stock
+6. When creating a product, in future releases we will allow currency selection to be an option for buying/selling in other countries
+7. Review date and time will be included on the review card view so that users will know if the reviews are recent 
+8. When creating / editing an account, the user will be able to select country from a picklist to avoid spelling errors in the database
+9. In future releases, userss will be able to store their card information on their profile for faster checkout
+10. In future releases, users will be able to include multiple delivery addresses for ease of use
+11. An average review score will be included on the product view page and in the product cards on other pages
 
 ## Technologies Used
 - HTML - This site uses HTML to instruct the browser how to interprit the code correctly and arrange the layout.
@@ -133,8 +158,9 @@ In order to ensure that the navigation bar was as responsive as possible, on Des
 
 Each page was altered slightly between mobile and desktop for its layout to ensure that the user is getting the best UX possible, regardless of the screen size they are using. This can be seen in the wireframes section as I have included a wireframe of each page with desktop and mobile view. 
 ### Bugs Found
-
-    ****** TO BE DONE ******
+- When an item is on the database with a negative price (this has since been corrected), an unhandled error appears when attempting to checkout "/app/.heroku/python/lib/python3.6/site-packages/stripe/api_requestor.py in handle_error_response, line 152". This bug should be investigated and handled on the offchance that an item is added in error with a negative price
+- UserCreate object names are not valid for ease of use for admin users. This will need to be addressed
+- Address not saving on orders correctly. Currently using the users stored address
 
 ## Deployment
 This project was deployed to Heroku at the address https://magical-deals.herokuapp.com/ using the following steps
