@@ -3,3 +3,4 @@ env.py
 *.png
 static/
 media/
+__pycache__/
