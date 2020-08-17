@@ -26,7 +26,7 @@ class Order(models.Model):
 class OrderLineItem(models.Model):
     """ A model to handle a customers order
     when they checkout of the store from the cart"""
-    order = models.ForeignKey(Order, null=False)
+    order = models.ForeignKey(Order, null=False, related_name="orderFK")
     product = models.ForeignKey(Product, null=False)
     quantity = models.IntegerField(blank=False)
 
