@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
 
+<!-- This form will alter slightly depending on whether or not the user is a staff member. The title is altered 
+and the staff form is only loaded if the user is staff as this functionality is limited to them only-->
 <div class="row">
     <div class="col-12 header-title">
     {% if user.usercreate.staff == True %}    

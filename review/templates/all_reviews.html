@@ -21,6 +21,8 @@
                 <h5 class="card-header">{{ review.product.product_name }}<a href="{% url 'view_product' review.product.id %}" class="btn btn-primary heading-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h5>
                 <div class="card-body">
                     <h5 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h5>
+                    <!-- In order to display the correct number of stars to represent the rating, we create a range based on the review.rating and 
+                    use a For loop to iterate through it and display a star each time-->
                     {% with ''|center:review.rating as range %}
                         {% for _ in range %}
                             <span class="fa fa-star checked"></span>

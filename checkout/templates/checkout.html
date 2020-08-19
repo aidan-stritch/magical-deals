@@ -42,9 +42,6 @@
 
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
     {% csrf_token %}
-    <div id="credit-card-errors" class="alert alert-danger" style="display: none;">
-        <div class="alert-message block-message error" id="stripe-error-message"></div>
-    </div>
     <div class="row checkout-forms">
         <div class="form-group col-md-6">
             <h6>Delivery Details</h6>
@@ -59,7 +56,11 @@
             {{ payment_form | as_bootstrap }}
             <button type="submit" class="btn btn-primary" id="submit_payment_btn" name="commit"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Submit Payment</button>
             <a href="{% url 'view_cart' %}" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
+            <div id="credit-card-errors" class="alert alert-danger stripe-message" style="display: none;">
+                <div class="alert-message block-message error" id="stripe-error-message"></div>
+            </div>
         </div>
+        
     </div> 
 </form>
 {% endblock %}

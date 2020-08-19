@@ -19,30 +19,12 @@ ul {
     padding-left: 0;
 }
 
-h2 {
-    margin-top:20px;
-}
-
 .icon-bar {
   background-color: #fff;
 }
 
-.important {
-  color: #ff0000;
-  font-weight: bold;
-}
-
-.important-align {
-    padding-left: 11px;
-}
-
-
 .checked {
   color: orange;
-}
-
-.form-check-input:disabled~.form-check-label {
-     color: #000000; 
 }
 
 .total-row {
@@ -64,7 +46,26 @@ h2 {
     margin-top:75px;
 }
 
+/*..........................Important/Emphasis*/
+
+.important {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.important-align {
+    padding-left: 11px;
+}
+
+.important b {
+  color: red;
+}
+
 /*..........................Headings*/
+
+h2 {
+    margin-top:20px;
+}
 
 .heading-btn {
     float: right!important;
@@ -136,9 +137,11 @@ footer a {
     margin-left:10px;
 }
 
-
-
 /*..........................Forms*/
+
+.form-check-input:disabled~.form-check-label {
+     color: #000000; 
+}
 
 .help-block {
     color: #00BFFF;
@@ -156,7 +159,6 @@ footer a {
     padding-left: 4.25rem;
     padding-bottom: 10px;
 }
-
 
 .form-control {
     max-width: 500px;
@@ -176,6 +178,11 @@ footer a {
 .checkout-forms h6{
     font-weight: bold;
 }
+
+.stripe-message{
+    margin:10px;
+}
+
 /*..........................Carousel*/
 
 .carousel{
@@ -192,6 +199,7 @@ footer a {
 }
 
 /*..........................Card*/
+
 .test{
     margin-top:20px;
 }
@@ -287,6 +295,7 @@ review-star{
     max-height: 500px;
     max-width: 500px;
 }
+
 .profile-view {
   max-height: 300px;
   width: 100%;
@@ -352,10 +361,6 @@ review-star{
 .panel-input button {
   margin-left: 24%;
   margin-top: 0%;
-}
-
-.important b {
-  color: red;
 }
 
 .item-view {

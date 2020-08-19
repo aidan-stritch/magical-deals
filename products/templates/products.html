@@ -3,6 +3,7 @@
 <div class="row">
     <div class="col-12 header-title">
         <h2>All Products</h2>
+        <!-- Only staff are authorised to add a product-->
         {% if user.usercreate.staff == True %}
             <a href="{% url 'add_product' %}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add New Product</a>
         {% endif %}
@@ -17,6 +18,7 @@
             Enter details below to find the Magical Deal you are looking for!
         </p>
         <div class="display">
+            <!-- This search box allows customers to search the products by name-->
             <form action="{% url 'search' %}" method="get">
                 <p><input type="text" name="q" class="search-input" required /></p>
                 <p>

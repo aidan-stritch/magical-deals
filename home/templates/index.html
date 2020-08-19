@@ -28,6 +28,7 @@
     </div>
 </div>
 <div class="previous-order">
+<!-- if there are previous orders in the database, a sample of them are displayed here to entice customers to purchase-->
     {% if orders.count > 0 %}     
         <div class="card review-cards">
             <h3 class="card-header">Recent Magical Deals Bought By Members</h3>
@@ -38,6 +39,7 @@
                     <p>Dont forget to get an account today so that you can get some deals like our other members!</p>
                 {% endif %}
                 <div class="row row-flex">
+                <!-- in order to avoid overloading the page, we limit the results displayed to 4-->
                     {% for item in items|slice:":4" %}
                         <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-3 display panel panel-default">
                             <div class="panel-body">
@@ -81,6 +83,7 @@
 </div>
 
 <div id="products" class="row row-flex">
+<!-- Here we limit the results of the products for sale to 4 using slice. If the customer wishes to see the full range they need an account-->
     {% for product in products|slice:":4" %}
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel panel-default row-flex">
         <div class="panel-body">
@@ -95,10 +98,6 @@
                 <p><a href="{% url 'view_product' product.id %}">See More</a></p>
                 {% if user.is_authenticated %}
                 <p><b>Price:</b> {{ product.price }}</p>
-                {% else %}
-                <p class="important">Log in to see prices</p>
-                {% endif %}
-                {% if user.is_authenticated %}
                 <form method="POST" action="{% url 'add_to_cart' product.id %}">
                     {% csrf_token %}
                     <div class="input-group panel-input">
@@ -116,6 +115,8 @@
                         </span>
                     </div>
                 </form>
+                {% else %}
+                <p class="important">Log in to see prices</p>
                 {% endif %}
             </div>
             <div class="more-info card-footer">

@@ -3,6 +3,7 @@
 <div class="card mb-3 item-view profile-card">
 	<div class="row no-gutters">
 		<div class="col-md-4 ">
+            <!-- If the user has already added a profile image it will show here, otherwise the default image will be displayed-->
 			{% if user.usercreate.profile_image %}
             <img src="{{ MEDIA_URL }}{{ user.usercreate.profile_image }}" class="profile-view" alt="Profile Image">
             {% else %}
@@ -95,10 +96,12 @@
         </div>      
 	</div>
 </div>
+<!-- This area will display the recent orders the customer has made-->
 <div class="previous-order">
     <h4>Recent Orders <a href="{% url 'all_orders' %}" class="btn btn-primary heading-btn"><i class="fa fa-dropbox" aria-hidden="true"></i> All Orders</a></h4>
     <hr>
     {% if orders.count > 0 %}
+    <!-- The slice limits the results to only show 3 so that the profile page is not overloaded with customers orders over time-->
         {% for order in orders|slice:":3" %}
         <div class="card review-cards">
             <div class="card-header">
@@ -137,12 +140,15 @@
 <div class="prof-review">
     <h4>Your Reviews <a href="{% url 'all_reviews' %}" class="btn btn-primary heading-btn"><i class="fa fa-comments-o" aria-hidden="true"></i> All Reviews</a></h4>
     <hr>
+    <!-- The slice limits the results to only show 3 so that the profile page is not overloaded with customers reviews over time-->
     {% if reviews.count > 0 %}
         {% for review in reviews|slice:":3" %}
             <div class="card review-cards">
                 <h5 class="card-header"><b>{{ review.product.product_name }}</b><a href="{% url 'view_product' review.product.id %}" class="btn btn-primary heading-btn"><i class="fa fa-info-circle" aria-hidden="true"></i> View Product</a></h5>
                 <div class="card-body">
                     <h6 class="card-title"><strong>Review Rating: </strong>{{ review.rating }}/10</h6>
+                    <!-- In order to display the correct number of stars to represent the rating, we create a range based on the review.rating and 
+                    use a For loop to iterate through it and display a star each time-->
                     {% with ''|center:review.rating as range %}
                         {% for _ in range %}
                             <span class="fa fa-star checked"></span>

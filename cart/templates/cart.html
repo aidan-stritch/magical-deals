@@ -61,6 +61,8 @@
                 <i class="fa fa-eur" aria-hidden="true"></i> {{ total }}
             </p>
             <div class="display">
+            <!-- To avoid errors with Stripe, the user cannot proceed to checkout unless there is at least 1 item in the cart. The buttons
+            will not be visible to the user unless there are products present in the cart-->
                 {% if product_count > 0 %}
                     <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Checkout</a>
                     <a href="{% url 'empty_cart' %}" class="btn btn-danger btn-sizing"><i class="fa fa-trash" aria-hidden="true"></i> Empty Cart</a>

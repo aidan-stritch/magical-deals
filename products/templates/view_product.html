@@ -27,6 +27,7 @@
                             </span>
                         </form>
                     </p>
+                    <!-- Only staff are authorised to edit or delete a product-->
                     {% if user.usercreate.staff == True %}    
                     <p>
                         <a href="{% url 'edit_product' product.id %}" class="btn btn-primary"><i class="fa fa-wrench" aria-hidden="true"></i> Edit</a>

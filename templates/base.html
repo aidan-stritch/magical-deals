@@ -6,8 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Magical Deals</title>
+        <!-- Loading the CDN's we will be using for the site construction-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Loading the stylesheet for the CSS styles-->
         <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
     </head>
     <body>
@@ -33,6 +35,7 @@
                             <a class="nav-link" href="{% url 'profile' %}"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
                         </li>
                         <li class="nav-item">
+                            <!-- The badge will show how many items are in the cart and will only display when there is at least one item-->
                             <a class="nav-link" href="{% url 'view_cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart {% if product_count > 0 %}<label class="badge badge-warning"> {{ product_count }}</label>{% endif %}</a>
                         </li>
                         <li class="nav-item navbar-links">
@@ -52,6 +55,7 @@
         </header>
         <main>
             <div class="container">
+            <!-- All messages from forms etc will be displayed here for the users-->
             {% if messages %}
                 <div class="alert alert-success">
                     <div class="messages">
@@ -76,6 +80,7 @@
                         </p>
                     </div>
                     <div class="col-sm-4">
+                        <!-- The site map gives the user a way to quickly navigate-->
                         <h5 class="white-text ">Site Map</h5>
                         <ul>
                             <li>
@@ -110,11 +115,14 @@
                 © 2020 Magical Deals
             </div>
         </footer>
+        <!-- The Javascript files are loaded here-->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Any manually created code (such as for Stripe) will be displayed in this block-->
         {% block head_js %} {% endblock %}
         <!--  Script for the carousel -->
+        <!-- This script handles the slideshow aspect of the carousel on the index.html page-->
         <script>
             $(".carousel").carousel({
                 interval: 3000,

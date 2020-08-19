@@ -23,11 +23,13 @@
             <div class="card-body">
                 <div class="row">
                     <div class="form-check">
+                        <!-- The user info is only shown if present.. else the N/A is shown to avoid blanks on the view-->
                         <ul>
                             <li><strong>Name: </strong>{%if this_user.first_name or this_user.last_name %} {{ this_user.first_name }} {{ this_user.last_name }} {% else %} N/A {% endif %}</li>
                             <li><strong>Email: </strong> {{ this_user.email }} </li>
                             <li><strong>Phone: </strong>{%if this_user.phone %}{{ this_user.phone }} {% else %} N/A {% endif %}</li>
                         </ul>
+                        <!-- This radio button indicates whether or not the user is staff-->
                         {% if this_user.usercreate.staff == True %}
                             <input class="form-check-input" type="radio" value="Staff" checked disabled>
                             <label class="form-check-label" for="Staff">User is staff</label>
