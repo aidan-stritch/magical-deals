@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .forms import UserSignUpFormAddon, UserAdditionalFields, StaffField
+from accounts.forms import UserSignUpFormAddon, UserAdditionalFields
+from accounts.forms import StaffField
 
 
 # tests for the views in the accounts app.

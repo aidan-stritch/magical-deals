@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 
 
-class AuthTests(TestCase):
+class CaseInsensitiveAuthTests(TestCase):
     """
     Tests for the CaseInsensitiveAuth class in backends.py
     """
@@ -26,3 +26,12 @@ class AuthTests(TestCase):
 
         self.assertEqual(user.username == 'Falcon')
         self.assertEqual(user.password == 'falcon1')
+
+    def test_if_no_users_return_none(self, username_or_email=None,
+                                     password=None):
+        users = User.objects.filter(Q(username__iexact=username_or_email) |
+                                    Q(email__iexact=username_or_email))
+        if not users:
+            return None
+
+        self.assertTrue(None)
