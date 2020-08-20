@@ -10,10 +10,10 @@ class ViewTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         User.objects.create_user(
-            email='whosthedoctor@gallifrey.com',
-            username='TheDoctor',
+            email='whosthedoctor3@gallifrey.com',
+            username='TheDoctor3',
             password='tardis',
-            first_name='Doctor',
+            first_name='Doctor3',
             last_name='Who'
         )
 
@@ -28,11 +28,24 @@ class ViewTests(TestCase):
         self.assertTemplateUsed(page, "sign-up.html")
 
     def test_get_profile_page(self):
-        user = User.objects.get(email='whosthedoctor@gallifrey.com')
+        user = User.objects.get(username='TheDoctor3')
+        reviews = []
+        orders = []
+        items = []
 
-        page = self.client.get('/accounts/profile/', user)
+        args = {
+            'user': user,
+            'reviews': reviews,
+            'orders': orders,
+            'items': items,
+        }
+
+        page = self.client.post('/accounts/profile', args)
+
         self.assertEqual(page.status_code, 200)
+        self.assertTrue(user.is_authenticated)
         self.assertTemplateUsed(page, "profile.html")
+        
 
     def test_get_all_orders_page(self):
         page = self.client.get("/accounts/all_orders/")
@@ -49,10 +62,10 @@ class ViewTests(TestCase):
                                 {"all_users": all_users})
 
     def test_get_edit_user_page(self):
-        this_user = User.objects.get(email='whosthedoctor@gallifrey.com')
-        user_form = UserSignUpFormAddon()
-        profile_form = UserAdditionalFields()
-        staff_form = StaffField()
+        this_user = User.objects.get(email='whosthedoctor3@gallifrey.com')
+        user_form = UserSignUpFormAddon(instance=this_user)
+        profile_form = UserAdditionalFields(instance=this_user)
+        staff_form = StaffField(instance=this_user)
         args = {
             'user_form': user_form,
             'profile_form': profile_form,
@@ -67,21 +80,27 @@ class ViewTests(TestCase):
 
 # tests for the views in the accounts app.
 class ViewFunctionalityTests(TestCase):
-    User.objects.create_user(
-            email='whosthedoctor2@gallifrey.com',
-            username='TheDoctor2',
-            password='tardis2',
-            first_name='Doctor2',
-            last_name='Who2'
-        )
+
+    @classmethod
+    def setUpTestData(cls):
+        User.objects.create_user(
+                email='whosthedoctor2@gallifrey.com',
+                username='TheDoctor2',
+                password='tardis2',
+                first_name='Doctor2',
+                last_name='Who2'
+            )
 
     def test_login_works_with_valid_fields(self):
+
+        user = User.objects.get(username='TheDoctor2')
+
         page = self.client.post('/accounts/login', {
             'username': 'TheDoctor2',
-            'password': 'tardis'
-        })
-
-        user = User.objects.get(email='whosthedoctor@gallifrey.com')
+            'password': 'tardis',
+        }, follow=True)
 
         self.assertEqual(page.status_code, 200)
         self.assertTrue(user.is_authenticated)
+
+        

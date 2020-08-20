@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for accounts/forms.py: 78%</title>
+    <title>Coverage for accounts/forms.py: 80%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.hotkeys.js"></script>
@@ -17,12 +17,12 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>accounts/forms.py</b> :
-            <span class="pc_cov">78%</span>
+            <span class="pc_cov">80%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
-            36 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">28 run</button>
+            40 statements &nbsp;
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">32 run</button>
             <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">8 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
@@ -108,15 +108,21 @@
     <p id="t55" class="run"><span class="n"><a href="#t55">55</a></span><span class="t"><span class="key">class</span> <span class="nam">UserAdditionalFields</span><span class="op">(</span><span class="nam">forms</span><span class="op">.</span><span class="nam">ModelForm</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t56" class="run"><span class="n"><a href="#t56">56</a></span><span class="t">    <span class="key">class</span> <span class="nam">Meta</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t57" class="run"><span class="n"><a href="#t57">57</a></span><span class="t">        <span class="nam">model</span> <span class="op">=</span> <span class="nam">UserCreate</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t58" class="run"><span class="n"><a href="#t58">58</a></span><span class="t">        <span class="nam">fields</span> <span class="op">=</span> <span class="op">(</span><span class="str">'address_line_one'</span><span class="op">,</span> <span class="str">'address_line_two'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t59" class="pln"><span class="n"><a href="#t59">59</a></span><span class="t">                  <span class="str">'address_line_three'</span><span class="op">,</span> <span class="str">'city'</span><span class="op">,</span> <span class="str">'country'</span><span class="op">,</span> <span class="str">'postcode'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t60" class="pln"><span class="n"><a href="#t60">60</a></span><span class="t">                  <span class="str">'phone'</span><span class="op">,</span> <span class="str">'profile_image'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t58" class="run"><span class="n"><a href="#t58">58</a></span><span class="t">        <span class="nam">fields</span> <span class="op">=</span> <span class="op">(</span><span class="str">'add_Line_One'</span><span class="op">,</span> <span class="str">'add_Line_Two'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t59" class="pln"><span class="n"><a href="#t59">59</a></span><span class="t">                  <span class="str">'add_Line_Three'</span><span class="op">,</span> <span class="str">'city'</span><span class="op">,</span> <span class="str">'country'</span><span class="op">,</span> <span class="str">'postcode'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t60" class="pln"><span class="n"><a href="#t60">60</a></span><span class="t">                  <span class="str">'phone'</span><span class="op">,</span> <span class="str">'profile_Image'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t61" class="pln"><span class="n"><a href="#t61">61</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t62" class="pln"><span class="n"><a href="#t62">62</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t63" class="run"><span class="n"><a href="#t63">63</a></span><span class="t"><span class="key">class</span> <span class="nam">StaffField</span><span class="op">(</span><span class="nam">forms</span><span class="op">.</span><span class="nam">ModelForm</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t64" class="run"><span class="n"><a href="#t64">64</a></span><span class="t">    <span class="key">class</span> <span class="nam">Meta</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t65" class="run"><span class="n"><a href="#t65">65</a></span><span class="t">        <span class="nam">model</span> <span class="op">=</span> <span class="nam">UserCreate</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t66" class="run"><span class="n"><a href="#t66">66</a></span><span class="t">        <span class="nam">fields</span> <span class="op">=</span> <span class="op">(</span><span class="str">'staff'</span><span class="op">,</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.2.1</a>,
-            created at 2020-08-08 12:43 +0000
+            created at 2020-08-20 18:35 +0000
         </p>
     </div>
 </div>

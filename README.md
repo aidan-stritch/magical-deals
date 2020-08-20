@@ -1,10 +1,3 @@
-# Table of Contents
-1. [Title](#Magical)
-2. [Wireframes](###Wireframes)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
-
-
 # Magical Deals
 [![Build Status](https://travis-ci.org/aidan-stritch/magical-deals.svg?branch=master)](https://travis-ci.org/aidan-stritch/magical-deals)
 
@@ -13,6 +6,41 @@ Magical Deals is an online store for purchasing high end replicas of famous movi
 Every day, people all around the world see items on TV and in movies that they would love to own for themselves. Items such as Thor's Hammer and Iron Man's armour are normally only things in comics or in movies, but with Magical Deals we bring these items to life so that users can purchase them at reasonable prices. 
 
 Users are able to create accounts where they will have their very own profile. Here they will be able to view previous orders and reviews they have made for products on the store. They will also be able to purchase items and leave reviews on other items on the website with ease. 
+
+## Table of Contents
+1. UX
+1.1. User Stories
+1.1.1. New Users
+1.1.2. Existing Members
+1.1.3. Admin / Staff Users
+1.2. Wireframes
+1.3. Entity Relationship Diagram (ERD)
+2. Features
+2.1. Existing Features
+2.1.1 Regular Users 
+2.1.2 Staff Users
+2.2. Future Features
+3. Technologies Used
+4. Testing
+4.1. Manual
+4.2. Validation
+4.2.1. CSS
+4.2.2. HTML
+4.2.3. Javascript
+4.3. Automated
+4.3.1. Travis
+4.3.2. Django / Coverage
+4.4. Responsiveness
+4.5. Bugs Found
+5. Deployment
+5.1. Github
+5.1.1. To commit the code on Gitpod to GitHub
+5.2. Heroku
+6. Credits
+6.1. Content
+6.2. Media
+6.3. Acknowledgements
+
 
 ## UX
 This project was designed to allow users to, through CRUD functionality, manage a collection of products related to TV shows, movies and history. In particular;
@@ -182,7 +210,7 @@ Each page was altered slightly between mobile and desktop for its layout to ensu
 ## Deployment
 This project was deployed to Heroku at the address https://magical-deals.herokuapp.com/ using the following steps
 
-#### Github:
+### Github:
 - Create a new project on GitHub
 - Copy the code for pushing to a GitHub repository and paste in the terminal of your project on Gitpod (git remote add origin 'link')
 
@@ -192,7 +220,7 @@ This project was deployed to Heroku at the address https://magical-deals.herokua
 - Commit these by typing "git commit -m" and adding a detailed description of the commit in ""
 - Next, push the code commit to github by typing "git push -u origin master"
 
-#### Heroku:
+### Heroku:
 - Create a Heroku account
 - Create a new app
 - Link the Heroku app with your Github repository
