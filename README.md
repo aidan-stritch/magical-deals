@@ -17,8 +17,8 @@ Users are able to create accounts where they will have their very own profile. H
     3. Entity Relationship Diagram (ERD)
 2. Features
     1. Existing Features
-        2.1.1 Regular Users 
-        2.1.2 Staff Users
+        1. Regular Users 
+        2. Staff Users
     2. Future Features
 3. Technologies Used
 4. Testing
@@ -34,7 +34,7 @@ Users are able to create accounts where they will have their very own profile. H
     5. Bugs Found
 5. Deployment
     1. Github
-        5.1.1 To commit the code on Gitpod to GitHub
+        1. To commit the code on Gitpod to GitHub
     2. Heroku
 6. Credits
     1. Content
