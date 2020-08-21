@@ -1,7 +1,9 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 from accounts.forms import UserSignUpFormAddon, UserAdditionalFields
-from accounts.forms import StaffField
+from accounts.forms import StaffField, UserSignUpForm
+from django.contrib import messages, auth
+from django.test.client import RequestFactory
 
 
 # tests for the views in the accounts app.
@@ -28,24 +30,24 @@ class ViewTests(TestCase):
         self.assertTemplateUsed(page, "sign-up.html")
 
     def test_get_profile_page(self):
-        user = User.objects.get(username='TheDoctor3')
-        reviews = []
-        orders = []
-        items = []
+        self.client.login(username='TheDoctor3', password='tardis')
+        user = User.objects.get(email='whosthedoctor3@gallifrey.com')
+
+        reviews = [1, 2, 3]
+        orders = [1, 2, 3]
+        items = [1, 2, 3]
 
         args = {
-            'user': user,
             'reviews': reviews,
             'orders': orders,
             'items': items,
         }
 
-        page = self.client.post('/accounts/profile', args)
+        page = self.client.get('/accounts/profile/', args)
 
         self.assertEqual(page.status_code, 200)
         self.assertTrue(user.is_authenticated)
         self.assertTemplateUsed(page, "profile.html")
-        
 
     def test_get_all_orders_page(self):
         page = self.client.get("/accounts/all_orders/")
@@ -53,15 +55,16 @@ class ViewTests(TestCase):
         self.assertTemplateUsed(page, "all_orders.html")
 
     def test_get_all_users_page(self):
-        page = self.client.get("/accounts/all_users/")
-
+        self.client.login(username='TheDoctor3', password='tardis')
         all_users = User.objects.all()
+        page = self.client.get("/accounts/all_users/",
+                               {"all_users": all_users})
 
         self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "all_users.html",
-                                {"all_users": all_users})
+        self.assertTemplateUsed(page, "all_users.html")
 
     def test_get_edit_user_page(self):
+        self.client.login(username='TheDoctor3', password='tardis')
         this_user = User.objects.get(email='whosthedoctor3@gallifrey.com')
         user_form = UserSignUpFormAddon(instance=this_user)
         profile_form = UserAdditionalFields(instance=this_user)
@@ -73,9 +76,27 @@ class ViewTests(TestCase):
             'this_user': this_user
         }
 
-        page = self.client.get("/accounts/edit_user/")
+        page = self.client.get("/accounts/edit_user/", args)
         self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "edit_user.html", args)
+        self.assertTemplateUsed(page, "edit_user.html")
+
+    def test_get_admin_edit_user_page(self):
+        self.client.login(username='TheDoctor3', password='tardis')
+        this_user = User.objects.get(email='whosthedoctor3@gallifrey.com')
+        user_form = UserSignUpFormAddon(instance=this_user)
+        profile_form = UserAdditionalFields(instance=this_user)
+        staff_form = StaffField(instance=this_user)
+
+        args = {
+            'user_form': user_form,
+            'profile_form': profile_form,
+            'staff_form': staff_form,
+            'this_user': this_user
+        }
+
+        page = self.client.post("/accounts/edit_user/", args)
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "edit_user.html")
 
 
 # tests for the views in the accounts app.
@@ -103,4 +124,55 @@ class ViewFunctionalityTests(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertTrue(user.is_authenticated)
 
-        
+    def test_user_delete_works(self):
+        self.factory = RequestFactory()
+        request = self.factory.get('/customer/details')
+
+        test_user = User.objects.create_user(username="test_delete",
+                                             email="delete@test.com",
+                                             password="deleteme")
+        test_user.delete()
+        messages.success(request, "Account successfully deleted.")
+
+        page = self.client.get("/accounts/delete_user/")
+
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "index.html")
+
+    def test_user_not_deleted(self):
+
+        try:
+            self.fail()
+        except Exception as e:
+            messages.success(self.request, "Account not deleted")
+            page = self.client.get("/accounts/delete_user/",
+                                   {'err': e.message})
+
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "index.html")
+
+    def test_log_out(self):
+        page = self.client.get("/accounts/logout/")
+
+        self.assertRedirects(page, '/')
+
+    def test_register_form_is_valid(self):
+        user_form = UserSignUpForm({
+                'username': 'testname',
+                'email': 'testemail@test.ie',
+                'password1': 'testlast',
+                'password2': 'testlast'
+            })
+
+        self.assertTrue(user_form.is_valid())
+
+    def test_register_form_login(self):
+        user_form = UserSignUpForm({
+                'username': 'testname',
+                'email': 'testemail@test.ie',
+                'password1': 'testlast',
+                'password2': 'testlast'
+            })
+        user_form.save()
+
+        self.client.login(username='testname', password='testlast')

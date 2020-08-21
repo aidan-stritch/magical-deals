@@ -41,7 +41,8 @@ class CaseInsensitiveAuthTests(TestCase):
                                  {'username_or_email': 'Falcon',
                                   'password': 'falcon1'})
         self.assertEqual(response.status_code, 302)
-        # response = Client().login(username='Falcon', password='falcon1')
-        # self.assertEqual(response, True)
 
+    def test_user_exists(self):
+        user = User.objects.get(username='Falcon')
 
+        self.assertTrue(user.is_active)

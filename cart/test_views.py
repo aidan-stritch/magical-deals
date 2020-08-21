@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 
+
 # tests for the views in the cart app.
 class ViewTests(TestCase):
 
@@ -15,6 +16,8 @@ class ViewTests(TestCase):
         )
 
     def test_get_cart_page(self):
-        page = self.client.get("/cart/view_cart/")
+        self.client.login(username='TheDoctor3', password='tardis')
+        page = self.client.get("/cart/")
+
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "cart.html")

@@ -1,12 +1,9 @@
 from django.test import TestCase
 from .forms import UserSignUpFormAddon, UserAdditionalFields
 from .forms import UserLoginForm, UserSignUpForm
-from django.core.exceptions import ValidationError
 
 
 # tests for the forms in the accounts app.
-
-
 class UserLoginFormTests(TestCase):
     """
     Tests for the UserCreate UserLoginForm form
@@ -26,24 +23,6 @@ class UserSignUpFormTests(TestCase):
         self.assertFalse(signup_form.is_valid())
         self.assertEqual(signup_form.errors['password1'],
                          [u'Please enter a valid password'])
-
-    def test_password_validation_not_empty(self):
-        password1 = "test"
-        password2 = ""
-
-        if not password1 or not password2:
-            raise ValidationError("Password must not be empty")
-
-        self.assertRaises(ValidationError)
-
-    def test_password_validation_match(self):
-        password1 = "test"
-        password2 = "test2"
-
-        if password1 != password2:
-            raise ValidationError("Passwords do not match")
-
-        self.assertRaises(ValidationError)
 
 
 class UserSignUpFormAddonTests(TestCase):
