@@ -2,9 +2,8 @@ from django.test import TestCase
 from .models import UserCreate
 from django.contrib.auth.models import User
 
-# Create your tests here.
 
-
+# tests for the models in the accounts app
 class AccountModelTests(TestCase):
     """
     Tests for the UserCreate model
