@@ -71,13 +71,6 @@ def delete_product(request, id):
     """
     product = get_object_or_404(Product, id=id)
     cart = request.session.get('cart', {})
-    """
-    if cart[id]:
-        cart.pop(id)
-        product.delete()
-    else:
-        product.delete()
-    """
     try:
         cart.pop(id)
         product.delete()

@@ -47,4 +47,3 @@ def empty_cart(request):
     messages.success(request, "Cart successfully emptied")
     return redirect(reverse('index'))
 
-

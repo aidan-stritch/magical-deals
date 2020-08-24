@@ -2,8 +2,8 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from accounts.forms import UserSignUpFormAddon, UserAdditionalFields
 from accounts.forms import StaffField, UserSignUpForm
-from django.contrib import messages, auth
-from django.test.client import RequestFactory
+from django.contrib.messages.middleware import MessageMiddleware
+from django.contrib.sessions.middleware import SessionMiddleware
 
 
 # tests for the views in the accounts app.
@@ -21,11 +21,13 @@ class ViewTests(TestCase):
 
     def test_get_login_page(self):
         page = self.client.get("/accounts/login/")
+
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "login.html")
 
     def test_get_sign_up_page(self):
         page = self.client.get("/accounts/register/")
+
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "sign-up.html")
 
@@ -51,6 +53,7 @@ class ViewTests(TestCase):
 
     def test_get_all_orders_page(self):
         page = self.client.get("/accounts/all_orders/")
+
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "all_orders.html")
 
@@ -90,11 +93,11 @@ class ViewTests(TestCase):
         args = {
             'user_form': user_form,
             'profile_form': profile_form,
-            'staff_form': staff_form,
-            'this_user': this_user
+            'this_user': this_user,
+            'staff_form': staff_form
         }
 
-        page = self.client.post("/accounts/edit_user/", args)
+        page = self.client.post("/accounts/admin_edit_user/", args)
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "edit_user.html")
 
@@ -125,13 +128,11 @@ class ViewFunctionalityTests(TestCase):
         self.assertTrue(user.is_authenticated)
 
     def test_user_delete_works(self):
-        self.factory = RequestFactory()
-        request = self.factory.get('/customer/details')
-
         test_user = User.objects.create_user(username="test_delete",
                                              email="delete@test.com",
                                              password="deleteme")
         test_user.delete()
+        self.client.login(username='TheDoctor2', password='tardis2')
         messages.success(request, "Account successfully deleted.")
 
         page = self.client.get("/accounts/delete_user/")
@@ -144,7 +145,7 @@ class ViewFunctionalityTests(TestCase):
         try:
             self.fail()
         except Exception as e:
-            messages.success(self.request, "Account not deleted")
+            messages.success(request, "Account not deleted")
             page = self.client.get("/accounts/delete_user/",
                                    {'err': e.message})
 
@@ -174,5 +175,8 @@ class ViewFunctionalityTests(TestCase):
                 'password2': 'testlast'
             })
         user_form.save()
+        user = User.objects.get(username='testname')
 
         self.client.login(username='testname', password='testlast')
+        self.assertTrue(user_form.save())
+        self.assertTrue(user.is_authenticated)

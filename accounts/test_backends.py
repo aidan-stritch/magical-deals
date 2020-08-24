@@ -27,15 +27,6 @@ class CaseInsensitiveAuthTests(TestCase):
 
         self.assertEqual(user.username, 'Falcon')
 
-    def test_if_no_users_return_none(self, username_or_email=None,
-                                     password=None):
-        users = User.objects.filter(Q(username__iexact=username_or_email) |
-                                    Q(email__iexact=username_or_email))
-        if not users:
-            return None
-
-        self.assertTrue(None)
-
     def test_login_in(self):
         response = Client().post('/accounts/login/',
                                  {'username_or_email': 'Falcon',
