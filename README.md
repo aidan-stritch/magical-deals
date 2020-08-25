@@ -152,6 +152,19 @@ Please see the wireframes.md file for the entire collection of wireframes: https
 - Postgres - This Relational Datatabase was used to handle the data storage
 
 ## Testing
+### User Credentials
+There are two main uses on this site; a site member and a site staff member. Please use the logins below to access and review both user types:
+
+#### Test User
+- Username: TestUser
+- Email Address: test@test.ie
+- Password: test
+
+#### Test User Staff
+- Username: TestUserStaff
+- Email Address: staff@test.ie
+- Password: test
+
 ### Manual
 As there are many pages for the Magical Deals website which had to be manually tested to ensure functionality and UX were correct, they have been included in a separate file to avoid taking up too much space on the README.md documentation.
 
