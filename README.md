@@ -26,15 +26,15 @@ Users are able to create accounts where they will have their very own profile. H
     2. Validation
         1. CSS
         2. HTML
-        3. Javascript
+        3. JavaScript
     3. Automated
         1. Travis
         2. Django / Coverage
     4. Responsiveness
     5. Bugs Found
 5. Deployment
-    1. Github
-        1. To commit the code on Gitpod to GitHub
+    1. GitHub
+        1. To commit the code on GitPod to GitHub
     2. Heroku
 6. Credits
     1. Content
@@ -142,7 +142,7 @@ Please see the wireframes.md file for the entire collection of wireframes: https
 - Bootstrap - This site uses Bootstrap elements to help design the framework of the site
 - Django - This was the chosen framework for developing the project
 - Python - This language was chosen to code the a large amount of the functionality of the site
-- Javascript - this was used to program some of the features on the site, such as the calendar
+- JavaScript - this was used to program some of the features on the site, such as the calendar
 - Balsamiq - This was used to create the wireframes in the design phase
 - Heroku - This was chosen to host the website app for deployment.
 - Stripe - This was used to process the credit card payments in the checkout app
@@ -182,12 +182,12 @@ All HTML pages have been checked using the W3C Markup Validation Service and hav
 
 In order to avoid this, the page source code was used for testing, however the tool pointed to several small issues on some pages that were of no consequence, such as opening p tags not being found for a closing /p tag, when they were present in the code. All issues found, such as alt being missing from some img links have been corrected. 
 
-#### Javascript
-JS Hint was used to ensure that the Javascript used in the website had no errors.
+#### JavaScript
+JS Hint was used to ensure that the JavaScript used in the website had no errors.
 
 ### Automated
 #### Travis
-Travis Continuous Integration was used  to run tests on the code every time a push is made to github so that errors could be flagged and managed in an efficient manner. 
+Travis Continuous Integration was used to run tests on the code every time a push is made to GitHub so that errors could be flagged and managed in an efficient manner. 
 
 The build status tool below shows that the website is working efficiently. 
 
@@ -196,7 +196,7 @@ The build status tool below shows that the website is working efficiently.
 #### Django / Coverage
 Django tests were written and Coverage was used to product detailed reports to ensure the sites apps were tested as much as possible. The results for each of the sites apps can be found here: https://github.com/aidan-stritch/magical-deals/blob/master/testing_results.md 
 
-The overall coverage rate for the entire sites apps is currently at 83%. At a later date, more testing for the views.py files in particular will be needed to increase the coverage rate to 100% to ensure that the website is functioning correctly. However, between the Django tests and the manual testing done, the website does not show any errors or major bugs, other than those listed in the "Bugs Found" section below.
+The overall coverage rate for the entire sites apps is currently at 83% from a total of 53 tests. At a later date, more testing for the views.py files in particular will be needed to increase the coverage rate to 100% to ensure that the website is functioning correctly. However, between the Django tests and the manual testing done, the website does not show any errors or major bugs, other than those listed in the "Bugs Found" section below.
 
 ### Responsiveness
 This website has been designed to scale correctly to different screen sizes with no issues on layout. In order to ensure that the view was pleasant to the user, certain divs and items had to be arranged differently or hidden/shown depending on screen size. This was handled using CSS media queries.
@@ -212,20 +212,20 @@ Each page was altered slightly between mobile and desktop for its layout to ensu
 ## Deployment
 This project was deployed to Heroku at the address https://magical-deals.herokuapp.com/ using the following steps
 
-### Github:
+### GitHub:
 - Create a new project on GitHub
-- Copy the code for pushing to a GitHub repository and paste in the terminal of your project on Gitpod (git remote add origin 'link')
+- Copy the code for pushing to a GitHub repository and paste in the terminal of your project on GitPod (git remote add origin 'link')
 
-#### To commit the code on Gitpod to GitHub:
+#### To commit the code on GitPod to GitHub:
 - In the terminal, type "git add ." to add all new changes to the code to staging area
 - Next, type "git status" to see which files are ready to be commited
 - Commit these by typing "git commit -m" and adding a detailed description of the commit in ""
-- Next, push the code commit to github by typing "git push -u origin master"
+- Next, push the code commit to GitHub by typing "git push -u origin master"
 
 ### Heroku:
 - Create a Heroku account
 - Create a new app
-- Link the Heroku app with your Github repository
+- Link the Heroku app with your GitHub repository
 - Push changes to git using the terminal and verify that the connection to Heroku is working
 - Add environment variables to Heroku settings.
 

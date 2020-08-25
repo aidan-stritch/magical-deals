@@ -2,8 +2,9 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from accounts.forms import UserSignUpFormAddon, UserAdditionalFields
 from accounts.forms import StaffField, UserSignUpForm
-from django.contrib.messages.middleware import MessageMiddleware
 from django.contrib.sessions.middleware import SessionMiddleware
+from django.contrib.messages.middleware import MessageMiddleware
+from django.contrib import messages
 
 
 # tests for the views in the accounts app.
@@ -12,6 +13,7 @@ class ViewTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         User.objects.create_user(
+            id=1,
             email='whosthedoctor3@gallifrey.com',
             username='TheDoctor3',
             password='tardis',
@@ -97,7 +99,7 @@ class ViewTests(TestCase):
             'staff_form': staff_form
         }
 
-        page = self.client.post("/accounts/admin_edit_user/", args)
+        page = self.client.post("/accounts/1/admin_edit_user/", args)
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "edit_user.html")
 
@@ -133,7 +135,10 @@ class ViewFunctionalityTests(TestCase):
                                              password="deleteme")
         test_user.delete()
         self.client.login(username='TheDoctor2', password='tardis2')
-        messages.success(request, "Account successfully deleted.")
+
+        middleware = MessageMiddleware()
+        middleware.process_request(self)
+        self.session.save()
 
         page = self.client.get("/accounts/delete_user/")
 
@@ -145,9 +150,7 @@ class ViewFunctionalityTests(TestCase):
         try:
             self.fail()
         except Exception as e:
-            messages.success(request, "Account not deleted")
-            page = self.client.get("/accounts/delete_user/",
-                                   {'err': e.message})
+            page = self.client.get("/accounts/delete_user/")
 
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "index.html")
