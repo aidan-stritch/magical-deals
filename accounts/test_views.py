@@ -129,36 +129,7 @@ class ViewFunctionalityTests(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertTrue(user.is_authenticated)
 
-    def test_user_delete_works(self):
-        test_user = User.objects.create_user(username="test_delete",
-                                             email="delete@test.com",
-                                             password="deleteme")
-        test_user.delete()
-        self.client.login(username='TheDoctor2', password='tardis2')
-
-        middleware = MessageMiddleware()
-        middleware.process_request(self)
-        self.session.save()
-
-        page = self.client.get("/accounts/delete_user/")
-
-        self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "index.html")
-
-    def test_user_not_deleted(self):
-
-        try:
-            self.fail()
-        except Exception as e:
-            page = self.client.get("/accounts/delete_user/")
-
-        self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "index.html")
-
-    def test_log_out(self):
-        page = self.client.get("/accounts/logout/")
-
-        self.assertRedirects(page, '/')
+    
 
     def test_register_form_is_valid(self):
         user_form = UserSignUpForm({
