@@ -27,7 +27,7 @@
                         <ul>
                             <li><strong>Name: </strong>{%if this_user.first_name or this_user.last_name %} {{ this_user.first_name }} {{ this_user.last_name }} {% else %} N/A {% endif %}</li>
                             <li><strong>Email: </strong> {{ this_user.email }} </li>
-                            <li><strong>Phone: </strong>{%if this_user.usercreate.phone %}{{ this_user.phone }} {% else %} N/A {% endif %}</li>
+                            <li><strong>Phone: </strong>{%if this_user.usercreate.phone %}{{ this_user.usercreate.phone }} {% else %} N/A {% endif %}</li>
                         </ul>
                         <!-- This radio button indicates whether or not the user is staff-->
                         {% if this_user.usercreate.staff == True %}

@@ -4,7 +4,7 @@
 	<div class="row no-gutters">
 		<div class="col-md-4 ">
             <!-- If the user has already added a profile image it will show here, otherwise the default image will be displayed-->
-			{% if user.usercreate.profile_image %}
+			{% if user.usercreate.profile_Image %}
             <img src="{{ MEDIA_URL }}{{ user.usercreate.profile_Image }}" class="profile-view" alt="Profile Image">
             {% else %}
             <img src="{{ MEDIA_URL }}profile/profile_image_default.jpg" class="profile-view" alt="Default Profile Image">
