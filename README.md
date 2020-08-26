@@ -22,16 +22,19 @@ Users are able to create accounts where they will have their very own profile. H
     2. Future Features
 3. Technologies Used
 4. Testing
-    1. Manual
-    2. Validation
+    1. User Credentials
+        1. Test User
+        2. Test User Staff
+    2. Manual
+    3. Validation
         1. CSS
         2. HTML
         3. JavaScript
-    3. Automated
+    4. Automated
         1. Travis
         2. Django / Coverage
-    4. Responsiveness
-    5. Bugs Found
+    5. Responsiveness
+    6. Bugs Found
 5. Deployment
     1. GitHub
         1. To commit the code on GitPod to GitHub
