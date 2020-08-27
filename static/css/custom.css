@@ -1,16 +1,16 @@
 /*..........................Miscellaneous*/
 
 body {
-  font-family: Arial;
-  padding-top: 50px;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+    font-family: Arial;
+    padding-top: 50px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 main {
-  flex: 1 0 auto;
-  padding-top: 20px;
+    flex: 1 0 auto;
+    padding-top: 20px;
 }
 
 ul {
@@ -20,11 +20,11 @@ ul {
 }
 
 .icon-bar {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 .checked {
-  color: orange;
+    color: orange;
 }
 
 .total-row {
@@ -49,8 +49,8 @@ ul {
 /*..........................Important/Emphasis*/
 
 .important {
-  color: #ff0000;
-  font-weight: bold;
+    color: #ff0000;
+    font-weight: bold;
 }
 
 .important-align {
@@ -58,7 +58,7 @@ ul {
 }
 
 .important b {
-  color: red;
+    color: red;
 }
 
 /*..........................Headings*/
@@ -94,7 +94,7 @@ h2 {
 }
 
 a.navlink {
-  background-color: #007bff;
+    background-color: #007bff;
   
 }
 
@@ -109,10 +109,10 @@ a.navlink {
 /*..........................Footer*/
 
 footer {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #ededed;
-  color: #fff;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #ededed;
+    color: #fff;
     background-color: #007bff;
 }
 
@@ -130,7 +130,7 @@ footer a {
 .btn-large,
 .btn-small,
 .btn-flat {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .profile-btn a{
@@ -152,7 +152,7 @@ footer a {
 }
 
 .input-group-addon {
-  padding-bottom: 5px;
+    padding-bottom: 5px;
 }
 
 .form-check{
@@ -168,11 +168,11 @@ footer a {
     max-width: 200px;
 }
 .accountform {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 .search-input {
-  max-width: 400px;
+    max-width: 400px;
 }
 
 .checkout-forms h6{
@@ -209,17 +209,17 @@ footer a {
 }
 
 .search-card {
-  background-color: #f5f5f5;
-  max-width: 500px;
-  margin: 50px auto 50px auto;
-  padding:0;
+    background-color: #f5f5f5;
+    max-width: 500px;
+    margin: 50px auto 50px auto;
+    padding:0;
 }
 
 .cart-card {
-  background-color: #f5f5f5;
-  max-width: 500px;
-  margin: 50px auto 50px auto;
-  padding:0;
+    background-color: #f5f5f5;
+    max-width: 500px;
+    margin: 50px auto 50px auto;
+    padding:0;
 }
 
 .cart-checkout{
@@ -297,33 +297,33 @@ review-star{
 }
 
 .profile-view {
-  max-height: 300px;
-  width: 100%;
-  margin: auto;
-  padding: 20px;
+    max-height: 300px;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
 }
 
 .card-footer {
-  margin-top:5%;
+    margin-top:5%;
 }
 
 .product-description {
-  white-space: nowrap;     
-  overflow: hidden;         
-  text-overflow: ellipsis;
+    white-space: nowrap;     
+    overflow: hidden;         
+    text-overflow: ellipsis;
 }
 
 /*..........................Panel*/
 
 .product {
-  height: 150px;
-  max-width: 300px;
-  margin: auto;
+    height: 150px;
+    max-width: 300px;
+    margin: auto;
 }
 
 .panel-body {
-  border: 1px solid #dddddd;
-  margin: 10px;
+    border: 1px solid #dddddd;
+    margin: 10px;
 }
 
 .panel-content{
@@ -345,28 +345,28 @@ review-star{
 }
 
 .panel-default {
-  border-color: transparent;
+    border-color: transparent;
 }
 
 .panel {
-  -webkit-box-shadow: 0 1px 1px transparent;
+    -webkit-box-shadow: 0 1px 1px transparent;
 }
 
 .panel-input input {
-  max-width: 50%;
-  padding-left: 15px;
-  left: 5%;
-  margin-right: 5%;
+    max-width: 50%;
+    padding-left: 15px;
+    left: 5%;
+    margin-right: 5%;
 }
 .panel-input button {
-  margin-left: 24%;
-  margin-top: 0%;
+    margin-left: 24%;
+    margin-top: 0%;
 }
 
 .item-view {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 90%;
 }
 
 /*..........................................Media Queries*/
@@ -385,12 +385,15 @@ review-star{
 
   /*..........................Media Queries - Panel*/
 
-  .panel-input button {
-    right: 25%;
-  }
-  .panel-content h5{
-    font-size: 18px;
-    font-weight: bold;
+    .panel-input button {
+        right: 25%;
+    }
+    .panel-content h5{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .panel-input button {
+        margin-left: 5%;
     }
 
   /*..........................Media Queries - Carousel*/
