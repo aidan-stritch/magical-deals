@@ -2,12 +2,10 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from accounts.forms import UserSignUpFormAddon, UserAdditionalFields
 from accounts.forms import StaffField, UserSignUpForm
-from django.contrib.sessions.middleware import SessionMiddleware
-from django.contrib.messages.middleware import MessageMiddleware
-from django.contrib import messages
-
 
 # tests for the views in the accounts app.
+
+
 class ViewTests(TestCase):
 
     @classmethod

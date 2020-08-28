@@ -1,12 +1,10 @@
 from django.test import TestCase
-from .models import Order, OrderLineItem
+from .models import Order
 from django.contrib.auth.models import User
 
 
 class CheckoutModelTests(TestCase):
-    """
-    Tests for the checkout models
-    """
+    """Tests for the checkout models."""
     @classmethod
     def setUpTestData(cls):
         User.objects.create_user(
@@ -18,7 +16,6 @@ class CheckoutModelTests(TestCase):
         )
 
     def test_order_fields(self):
-        user = User.objects.get(email='whosthedoctor@gallifrey.com')
         phone_Number = Order(phone_Number='5550135')
         address_Line_One = Order(address_Line_One='testadd1')
         address_Line_Two = Order(address_Line_Two='testadd2')

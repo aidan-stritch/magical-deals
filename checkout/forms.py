@@ -5,8 +5,8 @@ from accounts.models import UserCreate
 
 
 class MakePaymentForm(forms.Form):
-    """ a form that takes the payment
-    information from the customer"""
+    """A form that takes the payment
+    information from the customer."""
 
     MONTH_CHOICES = [(i, i) for i in range(1, 13)]
     YEAR_CHOICES = [(i, i) for i in range(2017, 2099)]
@@ -22,16 +22,16 @@ class MakePaymentForm(forms.Form):
 
 
 class OrderForm(forms.ModelForm):
-    """ a form that shows the order
-    the customer is purchasing using the Order model"""
+    """A form that shows the order the customer is
+    purchasing using the Order model."""
     class Meta:
         model = Order
         fields = ()
 
 
 class Delivery_Person_Form(forms.ModelForm):
-    """ a form that displays the users name
-    for delivery address purposes"""
+    """A form that displays the users name
+    for delivery address purposes."""
     class Meta:
         model = User
         fields = ('first_name', 'last_name')

@@ -12,7 +12,7 @@ from checkout.models import Order
 
 @login_required
 def all_products(request):
-    """A view that displays all of the products"""
+    """A view that displays all of the products."""
     products = Product.objects.all()
 
     return render(request, "products.html", {"products": products})
@@ -20,7 +20,7 @@ def all_products(request):
 
 @login_required
 def add_product(request):
-    """A view that manages the add product form"""
+    """A view that manages the add product form."""
     if request.method == 'POST':
         add_form = ProductCreationForm(request.POST, request.FILES)
         if add_form.is_valid():
@@ -38,20 +38,16 @@ def add_product(request):
     return render(request, 'add_product.html', args)
 
 
-def view_product(request, id):
-    """
-    A view that returns a single
+def view_product(request, pk):
+    """A view that returns a single
     Product object based on the product ID and
     render it to the 'view_product.html' template.
     Or return a 404 error if the product is
-    not found
-    """
-    """
-    The reviews for this product are also passed to the
-    view_product page
-    """
+    not found."""
+
+    # The reviews for this product are also passed to the view_product page
     user = request.user
-    product = get_object_or_404(Product, id=id)
+    product = get_object_or_404(Product, id=pk)
     reviews = Review.objects.filter(product_id=product.id)
     orders = Order.objects.filter(user_id=user.id)
 
@@ -61,18 +57,16 @@ def view_product(request, id):
 
 
 @login_required
-def delete_product(request, id):
-    """
-    A view that deletes a single
+def delete_product(request, pk):
+    """A view that deletes a single
     Product object based on the product ID and
     redirects the user to the 'products.html' template.
     Or return a 404 error if the product is
-    not found
-    """
-    product = get_object_or_404(Product, id=id)
+    not found."""
+    product = get_object_or_404(Product, id=pk)
     cart = request.session.get('cart', {})
     try:
-        cart.pop(id)
+        cart.pop(pk)
         product.delete()
     except:
         product.delete()
@@ -83,9 +77,9 @@ def delete_product(request, id):
 
 
 @login_required
-def edit_product(request, id):
-    """A view that allows a user to edit a products details"""
-    product = get_object_or_404(Product, id=id)
+def edit_product(request, pk):
+    """A view that allows a user to edit a products details."""
+    product = get_object_or_404(Product, id=pk)
 
     if request.method == 'POST':
 

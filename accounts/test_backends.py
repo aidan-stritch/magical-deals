@@ -5,6 +5,7 @@ from django.db.models import Q
 
 class CaseInsensitiveAuthTests(TestCase):
     """Tests for the CaseInsensitiveAuth class in backends.py."""
+
     @classmethod
     def setUpTestData(cls):
 

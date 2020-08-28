@@ -3,8 +3,9 @@ from .models import Review
 from django.contrib.auth.models import User
 from products.models import Product
 
-
 # tests for the model in the review app
+
+
 class ReviewModelTests(TestCase):
     """Tests for the Review model."""
     @classmethod

@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 
 
 class Order(models.Model):
-    """ A model to handle a customers delivery address
-    when they checkout of the store from the cart"""
+    """A model to handle a customers delivery address
+    when they checkout of the store from the cart."""
     user = models.ForeignKey(User)
     phone_Number = models.CharField(max_length=20, blank=False)
     address_Line_One = models.CharField(max_length=40, blank=False)
@@ -24,8 +24,8 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
-    """ A model to handle a customers order
-    when they checkout of the store from the cart"""
+    """A model to handle a customers order when they checkout
+    of the store from the cart."""
     order = models.ForeignKey(Order, null=False, related_name="orderFK")
     product = models.ForeignKey(Product, null=False)
     quantity = models.IntegerField(blank=False)

@@ -9,6 +9,7 @@ class CaseInsensitiveAuth:
     def authenticate(self, username_or_email=None, password=None):
         """Get an instance of User using the supplied username
         or email (case insensitive) and verify the password."""
+
         # Filter all users by searching for a match by username/ email.
         users = User.objects.filter(Q(username__iexact=username_or_email) |
                                     Q(email__iexact=username_or_email))
@@ -26,6 +27,7 @@ class CaseInsensitiveAuth:
     def get_user(self, user_id):
         """Used by the Django authentication system to retrieve a
         User instance."""
+
         try:
             user = User.objects.get(pk=user_id)
             if user.is_active:

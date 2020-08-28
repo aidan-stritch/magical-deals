@@ -13,7 +13,8 @@ from django.contrib.auth.models import User
 
 
 def login(request):
-    """A view that manages the login form"""
+    """A view that manages the login form."""
+
     if request.method == 'POST':
         user_form = UserLoginForm(request.POST)
         if user_form.is_valid():
@@ -26,8 +27,8 @@ def login(request):
                 messages.success(request, "Welcome %s!" % username)
 
                 if request.GET and request.GET['next'] != '':
-                    next = request.GET['next']
-                    return HttpResponseRedirect(next)
+                    nextItem = request.GET['next']
+                    return HttpResponseRedirect(nextItem)
                 else:
                     return redirect(reverse('profile'))
             else:
@@ -36,12 +37,14 @@ def login(request):
     else:
         user_form = UserLoginForm()
 
-    args = {'user_form': user_form, 'next': request.GET.get('next', '')}
+    args = {'user_form': user_form,
+            'nextItem': request.GET.get('nextItem', '')}
     return render(request, 'login.html', args)
 
 
 def logout(request):
-    """A view that logs the user out and redirects back to the index page"""
+    """A view that logs the user out and redirects back to the index page."""
+
     auth.logout(request)
     messages.success(request, 'You have successfully logged out')
     return redirect(reverse('index'))
@@ -49,8 +52,9 @@ def logout(request):
 
 @login_required
 def profile(request):
-    """A view that displays the profile page of a logged in user"""
-    """reviews that the user has made are passed to the profile page also"""
+    """A view that displays the profile page of a logged in user,
+    reviews that the user has made are passed to the profile page also."""
+
     user = request.user
     reviews = Review.objects.filter(user_id=user.id)
     orders = Order.objects.filter(user_id=user.id).order_by('-date')
@@ -60,7 +64,8 @@ def profile(request):
 
 
 def register(request):
-    """A view that manages the registration form"""
+    """A view that manages the registration form."""
+
     if request.method == 'POST':
         user_form = UserSignUpForm(request.POST)
 
@@ -85,7 +90,8 @@ def register(request):
 @login_required
 def edit_user(request):
     """A view that allows a user to add and edit
-    additional information for their profile"""
+    additional information for their profile."""
+
     this_user = request.user
 
     if request.method == 'POST':
@@ -127,8 +133,9 @@ def delete_user(request):
 
 
 def all_orders(request):
-    """A view that displays the profile page of a logged in user"""
-    """reviews that the user has made are passed to the profile page also"""
+    """A view that displays the profile page of a logged in user,
+    reviews that the user has made are passed to the profile page also."""
+
     user = request.user
     orders = Order.objects.filter(user_id=user.id).order_by('-date')
     items = OrderLineItem.objects.all()
@@ -138,17 +145,19 @@ def all_orders(request):
 
 @login_required
 def all_users(request):
-    """A view that displays all of the users for a staff / admin to"""
-    """review the users basic info and change if they are staff or not"""
+    """A view that displays all of the users for a staff / admin to,
+    review the users basic info and change if they are staff or not."""
+
     all_users = User.objects.all()
     return render(request, 'all_users.html', {"all_users": all_users})
 
 
 @login_required
-def admin_delete_user(request, id):
-    """A view that allows an admin to delete a user"""
+def admin_delete_user(request, pk):
+    """A view that allows an admin to delete a user."""
+
     admin = request.user
-    this_user = get_object_or_404(User, id=id)
+    this_user = get_object_or_404(User, id=pk)
 
     try:
         this_user.delete()
@@ -162,9 +171,9 @@ def admin_delete_user(request, id):
 
 
 @login_required
-def admin_edit_user(request, id):
+def admin_edit_user(request, pk):
     """A view that allows an admin to edit a user"""
-    this_user = get_object_or_404(User, id=id)
+    this_user = get_object_or_404(User, id=pk)
 
     if request.method == 'POST':
         user_form = UserSignUpFormAddon(request.POST, instance=this_user)
