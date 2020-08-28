@@ -32,6 +32,7 @@ Users are able to create accounts where they will have their very own profile. H
         1. [**CSS**](#CSS)
         2. [**HTML**](#HTML)
         3. [**JavaScript**](#javaScript)
+        4. [**Codacy**](#codacy)
     4. [**Automated**](#automated)
         1. [**Travis**](#travis)
         2. [**Django / Coverage**](#django-/-coverage)
@@ -203,6 +204,11 @@ In order to avoid this, the page source code was used for testing, however the t
 
 #### JavaScript
 JS Hint was used to ensure that the JavaScript used in the website had no errors.
+
+#### Codacy
+The Codacy.com app was used to inspect the entire projects code and product a report on each page of any errors in layout, duplication etc. The majority of issues have been corrected, however there are errors reported linked to keywords and built in terms for files which cannot be changed. All files have been assessed and the only errors which remain are deemed to be acceptable. As a part of this report, Codacy provides a Codacy quality badge which is included below: 
+
+
 
 ### Automated
 #### Travis
