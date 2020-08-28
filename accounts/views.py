@@ -14,7 +14,6 @@ from django.contrib.auth.models import User
 
 def login(request):
     """A view that manages the login form."""
-
     if request.method == 'POST':
         user_form = UserLoginForm(request.POST)
         if user_form.is_valid():
@@ -44,7 +43,6 @@ def login(request):
 
 def logout(request):
     """A view that logs the user out and redirects back to the index page."""
-
     auth.logout(request)
     messages.success(request, 'You have successfully logged out')
     return redirect(reverse('index'))
@@ -54,7 +52,6 @@ def logout(request):
 def profile(request):
     """A view that displays the profile page of a logged in user,
     reviews that the user has made are passed to the profile page also."""
-
     user = request.user
     reviews = Review.objects.filter(user_id=user.id)
     orders = Order.objects.filter(user_id=user.id).order_by('-date')
@@ -65,7 +62,6 @@ def profile(request):
 
 def register(request):
     """A view that manages the registration form."""
-
     if request.method == 'POST':
         user_form = UserSignUpForm(request.POST)
 
@@ -91,7 +87,6 @@ def register(request):
 def edit_user(request):
     """A view that allows a user to add and edit
     additional information for their profile."""
-
     this_user = request.user
 
     if request.method == 'POST':
@@ -135,7 +130,6 @@ def delete_user(request):
 def all_orders(request):
     """A view that displays the profile page of a logged in user,
     reviews that the user has made are passed to the profile page also."""
-
     user = request.user
     orders = Order.objects.filter(user_id=user.id).order_by('-date')
     items = OrderLineItem.objects.all()
@@ -147,7 +141,6 @@ def all_orders(request):
 def all_users(request):
     """A view that displays all of the users for a staff / admin to,
     review the users basic info and change if they are staff or not."""
-
     all_users = User.objects.all()
     return render(request, 'all_users.html', {"all_users": all_users})
 
@@ -155,7 +148,6 @@ def all_users(request):
 @login_required
 def admin_delete_user(request, pk):
     """A view that allows an admin to delete a user."""
-
     admin = request.user
     this_user = get_object_or_404(User, id=pk)
 
@@ -172,7 +164,7 @@ def admin_delete_user(request, pk):
 
 @login_required
 def admin_edit_user(request, pk):
-    """A view that allows an admin to edit a user"""
+    """A view that allows an admin to edit a user."""
     this_user = get_object_or_404(User, id=pk)
 
     if request.method == 'POST':

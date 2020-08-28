@@ -7,7 +7,7 @@ from django.contrib import messages
 
 @login_required
 def view_cart(request):
-    """This view renders the cart contents page."""
+    """View renders the cart contents page."""
     return render(request, "cart.html")
 
 
@@ -29,7 +29,6 @@ def add_to_cart(request, pk):
 def adjust_cart(request, pk):
     """This will be used to adjust the quantity
     of the specified product to the specified amount."""
-
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
 

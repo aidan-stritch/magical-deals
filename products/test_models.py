@@ -4,9 +4,7 @@ from .models import Product
 
 # tests for the models in the products app
 class ProductModelTests(TestCase):
-    """
-    Tests for the UserCreate model
-    """
+    """Tests for the UserCreate model."""
     def test_str(self):
 
         product_name = Product(product_name='test')

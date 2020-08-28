@@ -3,8 +3,8 @@ from products.models import Product
 
 
 def cart_contents(request):
-    """ this ensures that the carts contents
-    will be available when rendering every page """
+    """This ensures that the carts contents
+    will be available when rendering every page."""
 
     cart = request.session.get('cart', {})
 

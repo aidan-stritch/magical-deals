@@ -4,9 +4,7 @@ from .forms import reviewCreationForm
 
 # tests for the form in the review app.
 class reviewCreationFormTests(TestCase):
-    """
-    Tests for the UserCreate reviewCreationForm form
-    """
+    """Tests for the UserCreate reviewCreationForm form."""
     def test_form_is_valid_with_all_fields(self):
         review_form = reviewCreationForm({'description': 'this is a test',
                                          'rating': '8'})

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class CheckoutModelTests(TestCase):
     """Tests for the checkout models."""
+
     @classmethod
     def setUpTestData(cls):
         User.objects.create_user(
@@ -44,11 +45,3 @@ class CheckoutModelTests(TestCase):
                          'testcountry')
         self.assertEqual(str(date.date),
                          '11/11/2025')
-
-
-
-
-
-
-
-                
