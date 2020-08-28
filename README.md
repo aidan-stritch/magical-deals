@@ -64,7 +64,11 @@ A new user who does not have an account will only have access to the homepage (i
 
 Once logged in, the members will have access to the sites remaining functionality for purchasing items, adding, editing and deleting reviews and editing content on their personal profile.
 
-Once logged in, staff members have access to the same functionality as members for testing purposes (as well as potentially allowing staff to purchase items for personal use in future). On top of this, they have access to create new products, edit and delete products and manage users. 
+![User Profile](static/development_diagrams/profile_example.png "Example of the users profile")
+
+Once logged in, staff members have access to the same functionality as members for testing purposes (as well as potentially allowing staff to purchase items for personal use in future). On top of this, they have access to create new products, edit and delete products and manage users using the staff tasks box. 
+
+![Staff Tasks Box](static/development_diagrams/profile_staff.png "Example of the staff tasks box")
 
 ### User Stories
 #### New Users
@@ -74,6 +78,7 @@ Once logged in, staff members have access to the same functionality as members f
 - As a new user, I would like to be able to view reviews on individual items so that I can see what other users think of the items 
 - As a new user, I would like to be able to view examples of items other customers have bought for ideas on what I might want to buy 
 - As a new user, I would like to be able to see a site map so that I can navigate to a specific page easier
+
 #### Existing Members
 - As an existing member, I would like to be able to reset my password in case I forget my old password so that I can log in to my profile
 - As an existing member, I would like to be able to log into my profile easily so that I can review my profile information
@@ -208,7 +213,7 @@ JS Hint was used to ensure that the JavaScript used in the website had no errors
 #### Codacy
 The Codacy.com app was used to inspect the entire projects code and product a report on each page of any errors in layout, duplication etc. The majority of issues have been corrected, however there are errors reported linked to keywords and built in terms for files which cannot be changed. All files have been assessed and the only errors which remain are deemed to be acceptable. As a part of this report, Codacy provides a Codacy quality badge which is included below: 
 
-
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/27bfa163e6014d6e9fa2a9b06a47a2a2)](https://www.codacy.com/manual/aidan-stritch/magical-deals?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=aidan-stritch/magical-deals&amp;utm_campaign=Badge_Grade)
 
 ### Automated
 #### Travis
@@ -236,6 +241,10 @@ In order to run tests on GitPod using coverage (which has been installed to hand
 ### Responsiveness
 This website has been designed to scale correctly to different screen sizes with no issues on layout. In order to ensure that the view was pleasant to the user, certain divs and items had to be arranged differently or hidden/shown depending on screen size. This was handled using CSS media queries.
 
+![Full Size Menu](static/development_diagrams/nav-full.png "An example of how the menu looks on a desktop screen")
+
+![Small Screen Menu](static/development_diagrams/nav-burger.png "An example of how the menu looks on a small/mobile screen")
+
 In order to ensure that the navigation bar was as responsive as possible, on Desktop the menu shows accross the top of the page while on mobile screens, the menu reduced to a burger icon with only the title visible. When the burger icon is clicked, a side menu appears with the links to other pages from the nav bar. 
 
 Each page was altered slightly between mobile and desktop for its layout to ensure that the user is getting the best UX possible, regardless of the screen size they are using. This can be seen in the wireframes section as I have included a wireframe of each page with desktop and mobile view. 
@@ -247,7 +256,7 @@ Each page was altered slightly between mobile and desktop for its layout to ensu
 ## Deployment
 This project was deployed to Heroku at the address https://magical-deals.herokuapp.com/ using the following steps
 
-### GitHub:
+### <i class="fa fa-github" aria-hidden="true"></i> GitHub:
 - Create a new project on GitHub
 - Copy the code for pushing to a GitHub repository and paste in the terminal of your project on GitPod (git remote add origin 'link')
 
