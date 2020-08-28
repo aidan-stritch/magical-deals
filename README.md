@@ -8,41 +8,41 @@ Every day, people all around the world see items on TV and in movies that they w
 Users are able to create accounts where they will have their very own profile. Here they will be able to view previous orders and reviews they have made for products on the store. They will also be able to purchase items and leave reviews on other items on the website with ease. 
 
 ## Table of Contents
-1. UX
-    1. User Stories
-        1. New Users
-        2. Existing Members
-        3. Admin / Staff Users
-    2. Wireframes
-    3. Entity Relationship Diagram (ERD)
-2. Features
-    1. Existing Features
-        1. Regular Users 
-        2. Staff Users
-    2. Future Features
-3. Technologies Used
-4. Testing
-    1. User Credentials
-        1. Test User
-        2. Test User Staff
-    2. Manual
-    3. Validation
-        1. CSS
-        2. HTML
-        3. JavaScript
-    4. Automated
-        1. Travis
-        2. Django / Coverage
-    5. Responsiveness
-    6. Bugs Found
-5. Deployment
-    1. GitHub
-        1. To commit the code on GitPod to GitHub
-    2. Heroku
-6. Credits
-    1. Content
-    2. Media
-    3. Acknowledgements
+1. [**UX**](#ux)
+    1. [**User Stories**](#user-stories)
+        1. [**New Users**](#new-users)
+        2. [**Existing Members**](#existing-members)
+        3. [**Admin / Staff Users**](#admin-/-staff-users)
+    2. [**Wireframes**](#wireframes)
+    3. [**Entity Relationship Diagram (ERD)**](#entity-relationship-diagram-(ERD))
+2. [**Features**](#features)
+    1. [**Existing Features**](#existing-features)
+        1. [**Regular Users**](#regular-users)
+        2. [**Staff Users**](#staff-users)
+    2. [**Future Features**](#future-features)
+3. [**Technologies Used**](#technologies-used)
+4. [**Testing**](#testing)
+    1. [**User Credentials**](#user-credentials)
+        1. [**Test User**](#test-user)
+        2. [**Test User Staff**](#test-user-staff)
+    2. [**Manual**](#manual)
+    3. [**Validation**](#validation)
+        1. [**CSS**](#CSS)
+        2. [**HTML**](#HTML)
+        3. [**JavaScript**](#javaScript)
+    4. [**Automated**](#automated)
+        1. [**Travis**](#travis)
+        2. [**Django / Coverage**](#django-/-coverage)
+    5. [**Responsiveness**](#responsiveness)
+    6. [**Bugs Found**](#bugs-found)
+5. [**Deployment**](#deployment)
+    1. [**GitHub**](#GitHub)
+        1. [**To commit the code on GitPod to GitHub**](#to-commit-the-code-on-GitPod-to-GitHub)
+    2. [**Heroku**](#heroku)
+6. [**Credits**](#credits)
+    1. [**Content**](#content)
+    2. [**Media**](#media)
+    3. [**Acknowledgements**](#acknowledgements)
 
 ## UX
 This project was designed to allow users to, through CRUD functionality, manage a collection of products related to TV shows, movies and history. In particular;
