@@ -211,7 +211,7 @@ In order to avoid this, the page source code was used for testing, however the t
 JS Hint was used to ensure that the JavaScript used in the website had no errors.
 
 #### Codacy
-The Codacy.com app was used to inspect the entire projects code and product a report on each page of any errors in layout, duplication etc. The majority of issues have been corrected, however there are errors reported linked to keywords and built in terms for files which cannot be changed. All files have been assessed and the only errors which remain are deemed to be acceptable. As a part of this report, Codacy provides a Codacy quality badge which is included below: 
+The Codacy.com app was used to inspect the entire projects code and product a report on each page of any errors in layout, duplication etc. The majority of issues have been corrected, however there are errors reported linked to keywords and built in terms for files which cannot be changed. All files have been assessed and the only errors which remain are deemed to be acceptable and the result is a B. As a part of this report, Codacy provides a Codacy quality badge which is included below: 
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/27bfa163e6014d6e9fa2a9b06a47a2a2)](https://www.codacy.com/manual/aidan-stritch/magical-deals?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=aidan-stritch/magical-deals&amp;utm_campaign=Badge_Grade)
 
@@ -256,7 +256,7 @@ Each page was altered slightly between mobile and desktop for its layout to ensu
 ## Deployment
 This project was deployed to Heroku at the address https://magical-deals.herokuapp.com/ using the following steps
 
-### <i class="fa fa-github" aria-hidden="true"></i> GitHub:
+### GitHub:
 - Create a new project on GitHub
 - Copy the code for pushing to a GitHub repository and paste in the terminal of your project on GitPod (git remote add origin 'link')
 
