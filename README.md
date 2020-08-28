@@ -7,6 +7,8 @@ Every day, people all around the world see items on TV and in movies that they w
 
 Users are able to create accounts where they will have their very own profile. Here they will be able to view previous orders and reviews they have made for products on the store. They will also be able to purchase items and leave reviews on other items on the website with ease. 
 
+### Deployed at: magical-deals.herokuapp.com
+
 ## Table of Contents
 1. [**UX**](#ux)
     1. [**User Stories**](#user-stories)
@@ -33,6 +35,7 @@ Users are able to create accounts where they will have their very own profile. H
     4. [**Automated**](#automated)
         1. [**Travis**](#travis)
         2. [**Django / Coverage**](#django-/-coverage)
+            1. [**Test Steps**](#test-steps)
     5. [**Responsiveness**](#responsiveness)
     6. [**Bugs Found**](#bugs-found)
 5. [**Deployment**](#deployment)
@@ -213,6 +216,16 @@ The build status tool below shows that the website is working efficiently.
 Django tests were written and Coverage was used to product detailed reports to ensure the sites apps were tested as much as possible. The results for each of the sites apps can be found here: https://github.com/aidan-stritch/magical-deals/blob/master/testing_results.md 
 
 The overall coverage rate for the entire sites apps is currently at 86% from a total of 50 tests. At a later date, more testing for the views.py files in particular will be needed to increase the coverage rate to 100% to ensure that the website is functioning correctly. However, between the Django tests and the manual testing done, the website does not show any errors or major bugs, other than those listed in the "Bugs Found" section below.
+
+##### Test Steps
+In order to run tests on GitPod using coverage (which has been installed to handle testing), please follow the below steps in the terminal on GitPod:
+1. Run the following code (changing "APPNAME" to the name of the app you want to test): "coverage run --source=APPNAME manage.py test"
+    - This will run a test on all test.py files in the app and product a detailed list of any errors or failures or return "OK" if all tests are passing
+
+2. In the terminal, use: "coverage report"
+    - generates a detailed report showing what has/what needs testing
+
+3. In order to product a html report which allows you to inspect in each file, to see in easy to use colour codes the lines of code which have been tested or which have not yet been tested, please use the following command: "coverage html"
 
 ### Responsiveness
 This website has been designed to scale correctly to different screen sizes with no issues on layout. In order to ensure that the view was pleasant to the user, certain divs and items had to be arranged differently or hidden/shown depending on screen size. This was handled using CSS media queries.
