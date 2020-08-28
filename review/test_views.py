@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from review.forms import reviewCreationForm
 from products.models import Product
 from .models import Review
 

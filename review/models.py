@@ -3,9 +3,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from products.models import Product
 from django.contrib.auth.models import User
 
+
 # Create your models here.
-
-
 class Review(models.Model):
     product = models.ForeignKey(Product, null=False)
     user = models.ForeignKey(User)

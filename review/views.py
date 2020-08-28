@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from products.models import Product
 from .models import Review
 
-# Create your views here.
+# Views for the review app.
 
 
 @login_required
@@ -34,9 +34,9 @@ def add_review(request, pk):
 
 
 @login_required
-def edit_review(request, id):
-    """A view that allows a user to edit a review"""
-    review = get_object_or_404(Review, id=id)
+def edit_review(request, pk):
+    """A view that allows a user to edit a review."""
+    review = get_object_or_404(Review, id=pk)
 
     if request.method == 'POST':
         edit_form = reviewCreationForm(request.POST, instance=review)
@@ -60,15 +60,13 @@ def edit_review(request, id):
 
 
 @login_required
-def delete_review(request, id):
-    """
-    A view that deletes a single
+def delete_review(request, pk):
+    """A view that deletes a single
     review object based on the review ID and
     redirects the user to the 'profile.html' template.
     Or return a 404 error if the review is
-    not found
-    """
-    review = get_object_or_404(Review, id=id)
+    not found."""
+    review = get_object_or_404(Review, id=pk)
     review.delete()
     messages.success(request, "Review successfully deleted")
     return redirect(reverse('profile'))
@@ -77,7 +75,7 @@ def delete_review(request, id):
 def all_reviews(request):
     """displays a html page with all of the
     reviews a specific user has made for products
-    on Magical Deals"""
+    on Magical Deals."""
     user = request.user
     reviews = Review.objects.filter(user_id=user.id)
 

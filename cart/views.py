@@ -7,26 +7,26 @@ from django.contrib import messages
 
 @login_required
 def view_cart(request):
-    """ this view renders the cart contents page """
+    """this view renders the cart contents page."""
     return render(request, "cart.html")
 
 
-def add_to_cart(request, id):
-    """ adds a quantity of the specified product to the cart"""
+def add_to_cart(request, pk):
+    """adds a quantity of the specified product to the cart."""
     quantity = int(request.POST.get('quantity'))
 
     cart = request.session.get('cart', {})
 
     if quantity > 0:
-        cart[id] = quantity
+        cart[pk] = quantity
     else:
-        cart[id] = cart.get(id, quantity)
+        cart[pk] = cart.get(pk, quantity)
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 
 
-def adjust_cart(request, id):
+def adjust_cart(request, pk):
     """ this will be used to adjust the quantity
     of the specified product to the specified amount """
 
@@ -34,9 +34,9 @@ def adjust_cart(request, id):
     cart = request.session.get('cart', {})
 
     if quantity > 0:
-        cart[id] = quantity
+        cart[pk] = quantity
     else:
-        cart.pop(id)
+        cart.pop(pk)
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))

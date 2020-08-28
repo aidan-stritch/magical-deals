@@ -6,9 +6,7 @@ from products.models import Product
 
 # tests for the model in the review app
 class ReviewModelTests(TestCase):
-    """
-    Tests for the Review model
-    """
+    """Tests for the Review model."""
     @classmethod
     def setUpTestData(cls):
         User.objects.create_user(

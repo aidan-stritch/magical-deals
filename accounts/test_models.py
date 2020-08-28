@@ -5,9 +5,7 @@ from django.contrib.auth.models import User
 
 # tests for the models in the accounts app
 class AccountModelTests(TestCase):
-    """
-    Tests for the UserCreate model
-    """
+    """Tests for the UserCreate model."""
     @classmethod
     def setUpTestData(cls):
         User.objects.create_user(

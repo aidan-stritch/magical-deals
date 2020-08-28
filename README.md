@@ -7,7 +7,7 @@ Every day, people all around the world see items on TV and in movies that they w
 
 Users are able to create accounts where they will have their very own profile. Here they will be able to view previous orders and reviews they have made for products on the store. They will also be able to purchase items and leave reviews on other items on the website with ease. 
 
-### Deployed at: magical-deals.herokuapp.com
+### Deployed at: https://magical-deals.herokuapp.com
 
 ## Table of Contents
 1. [**UX**](#ux)
